@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>TCL Home Comfort Research</title>
+<style>
+:root{--bg:#f6f7f8;--card:#fff;--ink:#14181c;--mute:#566069;--line:#d9dee3;--tcl:#1f5fbf;--comp:#b8560b;--ok:#17703f;--warn:#9a6700;--no:#a3302b;--chip:#eef1f4;--banner:#fff6d6;--bannerink:#4a3a00}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101315;--card:#181c20;--ink:#e8ebee;--mute:#9aa4ad;--line:#2d343a;--tcl:#6fa3f0;--comp:#f0a064;--ok:#5fcf90;--warn:#e3b341;--no:#f08a85;--chip:#232a30;--banner:#3a3210;--bannerink:#f3e6a8}}
+:root[data-theme="dark"]{--bg:#101315;--card:#181c20;--ink:#e8ebee;--mute:#9aa4ad;--line:#2d343a;--tcl:#6fa3f0;--comp:#f0a064;--ok:#5fcf90;--warn:#e3b341;--no:#f08a85;--chip:#232a30;--banner:#3a3210;--bannerink:#f3e6a8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:1040px;margin:0 auto;padding:0 max(16px,env(safe-area-inset-left)) 0 max(16px,env(safe-area-inset-right))}
+.banner{background:var(--banner);color:var(--bannerink);font-size:14px;padding:10px 0;border-bottom:1px solid var(--line)}
+header{padding:28px 0 8px}
+h1{font-size:clamp(26px,5vw,38px);line-height:1.15;margin:0 0 8px}
+.sub{color:var(--mute);margin:0 0 4px}
+h2{font-size:22px;margin:44px 0 6px}
+h3{font-size:17px;margin:0 0 6px}
+.lead{color:var(--mute);margin:0 0 16px}
+.grid{display:grid;gap:12px}
+.g3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.card.tcl{border-top:4px solid var(--tcl)}
+.card.comp{border-top:4px solid var(--comp)}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin-bottom:10px}
+.tab{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 14px;font:inherit;font-size:14px;cursor:pointer;white-space:nowrap;min-height:40px}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.col h4{margin:0 0 8px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.model{font-weight:700;font-size:15px}
+.name{color:var(--mute);font-size:14px;margin-bottom:6px}
+dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:2px 10px;font-size:14px}
+dt{color:var(--mute)}dd{margin:0}
+.tag{display:inline-block;font-size:12px;border-radius:999px;padding:1px 8px;margin-top:8px;margin-right:6px;background:var(--chip);color:var(--mute)}
+.tag.ok{color:var(--ok)}.tag.warn{color:var(--warn)}.tag.no{color:var(--no)}
+.note{font-size:13px;color:var(--mute);margin-top:6px}
+.cmp{margin-top:10px;border-left:4px solid var(--line);padding:6px 12px;background:var(--card);border-radius:0 8px 8px 0}
+.src a{font-size:12px;color:var(--mute);margin-right:8px}
+.chart{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+svg{width:100%;height:auto;display:block}
+svg text{fill:var(--ink);font:12px system-ui,sans-serif}
+svg .m{fill:var(--mute)}
+.bar-t{fill:var(--tcl)}.bar-c{fill:var(--comp)}
+.tl{list-style:none;margin:0;padding:0;border-left:2px solid var(--line)}
+.tl li{padding:0 0 14px 16px;position:relative}
+.tl li:before{content:"";position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--comp)}
+.tl b{display:block}
+table{width:100%;border-collapse:collapse;font-size:14px;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+th,td{text-align:left;vertical-align:top;padding:9px 10px;border-bottom:1px solid var(--line)}
+th{background:var(--chip);font-size:13px}
+.scroll{overflow-x:auto}
+.idea{margin-bottom:12px}
+.idea .top{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.num{font-weight:700;color:var(--mute)}
+.tests{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.t{font-size:13px;border:1px solid var(--line);border-radius:8px;padding:3px 10px}
+.t.yes{color:var(--ok)}.t.partial{color:var(--warn)}.t.none{color:var(--no)}
+ul{margin:6px 0;padding-left:20px}
+li{margin:3px 0}
+footer{margin:48px 0 32px;padding-top:16px;border-top:1px solid var(--line);color:var(--mute);font-size:14px}
+a{color:var(--tcl)}
+.legend{display:flex;gap:16px;font-size:13px;margin-bottom:8px;flex-wrap:wrap}
+.sw{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+</style>
+</head>
+<body>
+<div class="banner"><div class="wrap" id="disc"></div></div>
+<div class="wrap">
+<header>
+  <h1>TCL Home Comfort: lineup, competitors and growth ideas</h1>
+  <p class="sub" id="by"></p>
+</header>
+
+<section id="findings"><div class="grid g3" id="fgrid"></div></section>
+
+<h2>Lineup explorer</h2>
+<p class="lead">TCL products and the closest competitor models I could confirm, by category. Tags show how well each fact was confirmed.</p>
+<div class="tabs" role="tablist" id="tabs"></div>
+<div id="panel"></div>
+
+<h2>Heating output as it gets cold</h2>
+<p class="lead">Window heat pumps, BTU per hour of heating by outdoor temperature.</p>
+<div class="chart" id="heat"></div>
+
+<h2>What each price point gets you</h2>
+<p class="lead">Listed or retail prices I found. Midea's U-shaped unit sold for $280 to $500 before its recall.</p>
+<div class="chart" id="prices"></div>
+
+<h2>Dehumidifier ratings changed in 2020</h2>
+<p class="lead">The test temperature was lowered, so the same machine now gets a smaller pint number. Comparing a new 50-pint to an old 70-pint is comparing the same capacity.</p>
+<div class="chart" id="pints"></div>
+
+<h2>Why not copy the U-shaped window unit</h2>
+<div class="grid g2">
+  <div class="card comp"><ul class="tl" id="tl"></ul></div>
+  <div class="card"><h3>Patents</h3><p id="pat"></p></div>
+</div>
+
+<h2>What customers say</h2>
+<p class="lead">Small samples, and many retailer reviews were incentivized. Use as themes to check, not proof.</p>
+<div class="grid g2" id="voice"></div>
+
+<h2>Growth ideas, screened on three tests</h2>
+<p class="lead">Gap on TCL's US site, a competitor already sells it, and a customer signal. A check means found, a half means partial, a dash means none found.</p>
+<div id="ideas"></div>
+
+<h2>Fixes customers point to</h2>
+<div class="scroll"><table id="fixes"><thead><tr><th>Product</th><th>What customers report</th><th>Possible fix</th></tr></thead><tbody></tbody></table></div>
+
+<h2>Set aside, and why</h2>
+<div class="scroll"><table id="aside"><thead><tr><th>Idea</th><th>Why I set it aside</th></tr></thead><tbody></tbody></table></div>
+
+<h2>Not yet confirmed</h2>
+<ul id="unc"></ul>
+
+<h2>Now and after</h2>
+<div class="grid g2">
+  <div class="card"><h3>What this research covers</h3><ul id="now"></ul></div>
+  <div class="card"><h3>What would make it decision-ready</h3><ul id="after"></ul></div>
+</div>
+
+<h2>Sources</h2>
+<ol id="srcs"></ol>
+
+<footer>Built with AI assistance from public sources. Not affiliated with or endorsed by TCL. Product names belong to their owners.</footer>
+</div>
+<script src="data/data.js"></script>
+<script>
+(function(){
+var D=window.DATA;
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function $(i){return document.getElementById(i)}
+var order=[],idx={};
+function sref(id){if(!(id in idx)){idx[id]=order.length;order.push(id)}return idx[id]+1}
+$("disc").textContent=D.meta.disclaimer;
+$("by").textContent="By "+D.meta.author+" | Information as of "+D.meta.asOf;
+$("fgrid").innerHTML=D.findings.map(function(f){return '<div class="card"><h3>'+esc(f.h)+'</h3><div>'+esc(f.t)+'</div></div>'}).join("");
+
+var confLabel={tcl:["Manufacturer page or spec sheet","ok"],retail:["Retailer listing","warn"],review:["Review, list price at time","warn"],unconfirmed:["Unconfirmed","no"]};
+function prod(p,cls){
+  var c=confLabel[p.conf]||confLabel.retail;
+  var h='<div class="card '+cls+'"><div class="model">'+esc(p.model)+'</div><div class="name">'+esc(p.name)+'</div><dl>';
+  p.specs.forEach(function(s){h+='<dt>'+esc(s[0])+'</dt><dd>'+esc(s[1])+'</dd>'});
+  h+='</dl><span class="tag '+c[1]+'">'+c[0]+'</span>';
+  if(p.note)h+='<div class="note">'+esc(p.note)+'</div>';
+  h+='<div class="src">'+p.src.map(function(s){var n=sref(s);return '<a href="'+esc(D.sources[s][1])+'" target="_blank" rel="noopener">['+n+']</a>'}).join("")+'</div></div>';
+  return h;
+}
+function show(i){
+  var c=D.categories[i];
+  Array.prototype.forEach.call($("tabs").children,function(b,j){b.setAttribute("aria-selected",j===i?"true":"false")});
+  var h='<div class="grid g2"><div class="col"><h4>TCL</h4><div class="grid">'+c.tcl.map(function(p){return prod(p,"tcl")}).join("")+'</div></div>';
+  h+='<div class="col"><h4>Competitors</h4><div class="grid">'+(c.comp.length?c.comp.map(function(p){return prod(p,"comp")}).join(""):'<div class="card">Not compared yet.</div>')+'</div></div></div>';
+  h+='<div class="cmp"><b>How they compare:</b> '+esc(c.compare)+'</div>';
+  $("panel").innerHTML=h;
+  renderSources();
+}
+D.categories.forEach(function(c,i){
+  var b=document.createElement("button");b.className="tab";b.setAttribute("role","tab");b.textContent=c.name;
+  b.onclick=function(){show(i)};$("tabs").appendChild(b);
+  c.tcl.concat(c.comp).forEach(function(p){p.src.forEach(sref)});
+});
+
+// heating chart
+(function(){
+  var W=640,H=300,L=56,R=16,T=16,B=44;
+  var xs=[0,50],ymax=12000;
+  function X(t){return L+(t-0)/(50)*(W-L-R)}
+  function Y(v){return H-B-(v/ymax)*(H-T-B)}
+  var s='<div class="legend"><span><i class="sw" style="background:var(--tcl)"></i>TCL H12W4KWH</span><span><i class="sw" style="background:var(--comp)"></i>Gradient All-Weather 120V</span></div><svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Heating output of two window heat pumps at 47 and 5 degrees F">';
+  [0,3000,6000,9000,12000].forEach(function(v){s+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+Y(v)+'" y2="'+Y(v)+'" stroke="var(--line)"/><text class="m" x="'+(L-6)+'" y="'+(Y(v)+4)+'" text-anchor="end">'+v.toLocaleString()+'</text>'});
+  [0,10,20,30,40,50].forEach(function(t){s+='<text class="m" x="'+X(t)+'" y="'+(H-B+16)+'" text-anchor="middle">'+t+'°F</text>'});
+  s+='<text class="m" x="'+((L+W-R)/2)+'" y="'+(H-6)+'" text-anchor="middle">Outdoor temperature</text>';
+  function line(d,col,lab,dy){
+    var pts=d.map(function(p){return X(p[0])+","+Y(p[1])}).join(" ");
+    var r='<polyline fill="none" stroke="'+col+'" stroke-width="3" points="'+pts+'"/>';
+    d.forEach(function(p){r+='<circle cx="'+X(p[0])+'" cy="'+Y(p[1])+'" r="5" fill="'+col+'"/><text x="'+(X(p[0])+(p[0]>40?-8:8))+'" y="'+(Y(p[1])+dy)+'" text-anchor="'+(p[0]>40?'end':'start')+'">'+p[1].toLocaleString()+'</text>'});
+    return r;
+  }
+  s+=line(D.heat.tcl,"var(--tcl)","",-10)+line(D.heat.gradient,"var(--comp)","",18);
+  s+='</svg><p class="note">'+esc(D.heat.note)+'</p>';
+  $("heat").innerHTML=s;
+})();
+
+// price bars
+(function(){
+  var max=2000,rowH=34,W=640,L=250,H=rowH*(D.prices.length+1)+10;
+  var s='<div class="legend"><span><i class="sw" style="background:var(--tcl)"></i>TCL</span><span><i class="sw" style="background:var(--comp)"></i>Competitor</span></div><svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Price comparison">';
+  D.prices.forEach(function(p,i){
+    var y=i*rowH+4,w=(p.v/max)*(W-L-70);
+    s+='<text x="'+(L-8)+'" y="'+(y+18)+'" text-anchor="end" style="font-size:11px">'+esc(p.label.length>38?p.label.slice(0,38)+"...":p.label)+'</text><rect class="'+(p.brand==="tcl"?"bar-t":"bar-c")+'" x="'+L+'" y="'+y+'" width="'+w+'" height="24" rx="3"/><text x="'+(L+w+6)+'" y="'+(y+17)+'">$'+p.v.toLocaleString(undefined,{maximumFractionDigits:2})+'</text>';
+  });
+  var m=D.midea_range,y2=D.prices.length*rowH+4,x1=L+(m.lo/max)*(W-L-70),x2=L+(m.hi/max)*(W-L-70);
+  s+='<text x="'+(L-8)+'" y="'+(y2+18)+'" text-anchor="end" style="font-size:11px">'+esc(m.label)+'</text><rect class="bar-c" opacity=".55" x="'+x1+'" y="'+y2+'" width="'+(x2-x1)+'" height="24" rx="3"/><text x="'+(x2+6)+'" y="'+(y2+17)+'">$'+m.lo+' to $'+m.hi+'</text></svg>';
+  s+='<p class="note">Different sizes and rating bases, so read as price tiers, not a like-for-like ranking. The two window prices marked list were prices at the time of the reviews.</p>';
+  $("prices").innerHTML=s;
+})();
+
+// pints
+(function(){
+  var W=640,rowH=64,H=rowH*D.pints.length+20,max=80;
+  function w(v){return v/max*(W-170)}
+  var s='<div class="legend"><span><i class="sw" style="background:var(--comp)"></i>Before 2020 label</span><span><i class="sw" style="background:var(--tcl)"></i>Same machine, current label</span></div><svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Old and new dehumidifier pint ratings">';
+  D.pints.forEach(function(p,i){
+    var y=i*rowH+6;
+    s+='<text x="0" y="'+(y+20)+'">Old '+p.old+'</text><rect class="bar-c" x="80" y="'+y+'" width="'+w(p.old)+'" height="22" rx="3"/><text x="'+(86+w(p.old))+'" y="'+(y+16)+'">'+p.old+' pints</text>';
+    s+='<text x="0" y="'+(y+48)+'">Now '+p.nw+'</text><rect class="bar-t" x="80" y="'+(y+28)+'" width="'+w(p.nw)+'" height="22" rx="3"/><text x="'+(86+w(p.nw))+'" y="'+(y+44)+'">'+p.nw+' pints</text>';
+  });
+  s+='</svg><p class="note">TCL support maps its 50-pint model to the old 70-pint. Source [<a href="'+esc(D.sources.tcl_pint[1])+'" target="_blank" rel="noopener">'+sref("tcl_pint")+'</a>].</p>';
+  $("pints").innerHTML=s;
+})();
+
+$("tl").innerHTML=D.timeline.map(function(t){return '<li><b>'+esc(t.d)+'</b>'+esc(t.t)+'</li>'}).join("");
+$("tl").className="tl";
+['cpsc','classaction','aftermath'].forEach(sref);
+$("pat").innerHTML=esc(D.patents)+' <span class="src">'+['patent1','patent2'].map(function(s){return '<a href="'+esc(D.sources[s][1])+'" target="_blank" rel="noopener">['+sref(s)+']</a>'}).join("")+'</span>';
+$("voice").innerHTML=D.voice.map(function(v){return '<div class="card"><h3>'+esc(v.h)+'</h3><div>'+esc(v.t)+'</div><div class="note">'+esc(v.s)+'</div></div>'}).join("");
+sref("techhive");sref("toms");sref("tcl_care");
+
+var lab={yes:["Yes","yes"],partial:["Partial","partial"],none:["None found","none"]};
+$("ideas").innerHTML=D.ideas.map(function(i){
+  return '<div class="card idea"><div class="top"><span class="num">#'+i.n+'</span><h3 style="margin:0">'+esc(i.h)+'</h3><span class="tag '+(i.n===1?'ok':'warn')+'">'+esc(i.read)+'</span></div>'+
+  '<div class="tests"><span class="t '+lab[i.gap][1]+'">TCL gap: '+lab[i.gap][0]+'</span><span class="t '+lab[i.comp][1]+'">Competitor sells it: '+lab[i.comp][0]+'</span><span class="t '+lab[i.sig][1]+'">Customer signal: '+lab[i.sig][0]+'</span></div>'+
+  '<p><b>Why:</b> '+esc(i.why)+'</p><p><b>Signal:</b> '+esc(i.signal)+'</p><p><b>To test:</b> '+esc(i.test)+'</p></div>';
+}).join("");
+function rows(id,data,n){$(id).querySelector("tbody").innerHTML=data.map(function(r){return '<tr>'+r.map(function(c){return '<td>'+esc(c)+'</td>'}).join("")+'</tr>'}).join("")}
+rows("fixes",D.fixes);rows("aside",D.setaside);
+$("unc").innerHTML=D.unconfirmed.map(function(u){return '<li>'+esc(u)+'</li>'}).join("");
+$("now").innerHTML=D.later.now.map(function(u){return '<li>'+esc(u)+'</li>'}).join("");
+$("after").innerHTML=D.later.after.map(function(u){return '<li>'+esc(u)+'</li>'}).join("");
+
+function renderSources(){
+  Object.keys(D.sources).forEach(function(k){sref(k)});
+  $("srcs").innerHTML=order.map(function(k){var s=D.sources[k];return '<li><a href="'+esc(s[1])+'" target="_blank" rel="noopener">'+esc(s[0])+'</a></li>'}).join("");
+}
+show(0);
+})();
+</script>
+</body>
+</html>
