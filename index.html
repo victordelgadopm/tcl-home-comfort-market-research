@@ -6,14 +6,14 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <title>TCL Home Comfort Research</title>
 <style>
-:root{--bg:#f4f6f8;--card:#fff;--ink:#12171c;--mute:#525c66;--line:#d6dce2;--tcl:#1f5fbf;--comp:#b8560b;--ok:#17703f;--okbg:#e3f4ea;--warn:#8a5b00;--warnbg:#fff0cc;--no:#a3302b;--nobg:#fbe5e3;--chip:#e9edf1;--banner:#fff6d6;--bannerink:#4a3a00;--accent:#12171c;--accink:#fff}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1316;--card:#171c20;--ink:#e8ebee;--mute:#a0aab3;--line:#2c343a;--tcl:#7db0ff;--comp:#f2a46b;--ok:#6fdc9c;--okbg:#14301f;--warn:#e8bd4a;--warnbg:#3a2f0e;--no:#f59a95;--nobg:#3a1816;--chip:#222a30;--banner:#3a3210;--bannerink:#f3e6a8;--accent:#e8ebee;--accink:#12171c}}
-:root[data-theme="dark"]{--bg:#0f1316;--card:#171c20;--ink:#e8ebee;--mute:#a0aab3;--line:#2c343a;--tcl:#7db0ff;--comp:#f2a46b;--ok:#6fdc9c;--okbg:#14301f;--warn:#e8bd4a;--warnbg:#3a2f0e;--no:#f59a95;--nobg:#3a1816;--chip:#222a30;--banner:#3a3210;--bannerink:#f3e6a8;--accent:#e8ebee;--accink:#12171c}
+:root{--bg:#f3f5f8;--card:#fff;--ink:#0f1720;--mute:#516070;--line:#d8dee6;--tcl:#1f5fbf;--comp:#c25a0c;--ok:#13703d;--okbg:#dff3e7;--warn:#8a5b00;--warnbg:#fff0c9;--no:#a3302b;--nobg:#fbe3e1;--chip:#e8edf2;--accent:#0f1720;--accink:#fff;--photo:#fff;--shadow:0 1px 2px rgba(15,23,32,.06),0 6px 18px rgba(15,23,32,.06)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1115;--card:#161b21;--ink:#e9edf1;--mute:#9fabb7;--line:#2a323a;--tcl:#7db0ff;--comp:#f4a46d;--ok:#6fdc9c;--okbg:#12301f;--warn:#e8bd4a;--warnbg:#3a2f0e;--no:#f59a95;--nobg:#3a1816;--chip:#202830;--accent:#e9edf1;--accink:#0f1720;--photo:#eef1f4;--shadow:none}}
+:root[data-theme="dark"]{--bg:#0d1115;--card:#161b21;--ink:#e9edf1;--mute:#9fabb7;--line:#2a323a;--tcl:#7db0ff;--comp:#f4a46d;--ok:#6fdc9c;--okbg:#12301f;--warn:#e8bd4a;--warnbg:#3a2f0e;--no:#f59a95;--nobg:#3a1816;--chip:#202830;--accent:#e9edf1;--accink:#0f1720;--photo:#eef1f4;--shadow:none}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-.wrap{max-width:900px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
-.banner{background:var(--banner);color:var(--bannerink);font-size:12.5px;padding:7px 0}
+.wrap{max-width:980px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+.banner{background:#0b1522;color:#c9d6e4;font-size:12px;padding:6px 0}
 .top{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
 .bar{display:flex;gap:8px;align-items:center;padding:8px 0;overflow-x:auto;scrollbar-width:none}
 .bar::-webkit-scrollbar{display:none}
@@ -21,72 +21,85 @@ body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-ap
 .pill[aria-current="true"]{background:var(--accent);color:var(--accink);border-color:var(--accent)}
 .pill svg{width:20px;height:20px}
 .home{font-weight:800}
-h1{font-size:clamp(24px,6.4vw,38px);line-height:1.12;margin:14px 0 6px}
-h2{font-size:22px;margin:14px 0 4px}
+/* hero */
+.hero{position:relative;overflow:hidden;border-radius:22px;margin:12px 0 18px;padding:26px 20px 22px;color:#fff;background:radial-gradient(120% 140% at 85% -10%,#1f7ae0 0%,rgba(31,122,224,0) 55%),radial-gradient(90% 90% at 0% 110%,#17b8a6 0%,rgba(23,184,166,0) 55%),#0b1b2e}
+.hero .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#9fd8ff;font-weight:700}
+.hero h1{font-size:clamp(30px,8.5vw,52px);line-height:1.04;margin:8px 0 10px;letter-spacing:-.02em}
+.hero p{margin:0 0 16px;color:#d7e4f2;max-width:560px}
+.hero .nums{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:22px;margin:0 0 18px}
+.hero .nums b{display:block;font-size:30px;line-height:1}
+.hero .nums span{font-size:12px;color:#b9cde2}
+.cta{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:13px 20px;font-weight:700;text-decoration:none;font-size:16px;min-height:48px}
+.btn.p{background:#fff;color:#0b1b2e}
+.btn.s{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.35)}
+h2{font-size:22px;margin:18px 0 4px}
 h3{font-size:17px;margin:0 0 4px}
 .lead{color:var(--mute);margin:0 0 12px}
-.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:12px 0 18px}
-@media(min-width:700px){.tiles{grid-template-columns:repeat(3,1fr)}}
-.tiles .tile{flex-direction:column;align-items:flex-start;gap:6px;min-height:128px}
-.tiles .tile .go{display:none}
-.tiles .tile b{font-size:16px}
-.tiles .tile span{font-size:13px;line-height:1.3}
-.tile{display:flex;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;text-decoration:none;color:var(--ink);min-height:76px}
-.tile:active{transform:scale(.985)}
-.tile .ic{flex:0 0 40px;width:40px;height:40px;color:var(--tcl)}
-.tile b{display:block;font-size:17px}
-.tile span{color:var(--mute);font-size:14px}
-.tile .go{margin-left:auto;font-size:22px;color:var(--mute)}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
-.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center}
-.stat b{display:block;font-size:24px;line-height:1.1}
-.stat span{font-size:12.5px;color:var(--mute)}
+.sec{margin:16px 0 6px;font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--mute);font-weight:700}
 .sub{display:flex;gap:8px;overflow-x:auto;padding:4px 0 10px;scrollbar-width:none}
 .sub::-webkit-scrollbar{display:none}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
-.hero{display:flex;gap:14px;align-items:center;margin-bottom:10px}
-.hero .ic{flex:0 0 84px;height:84px;color:var(--tcl);background:var(--chip);border-radius:16px;padding:10px}
-.hero small{color:var(--mute)}
-.snap{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;scrollbar-width:thin}
-.snap>.card{flex:0 0 82%;max-width:340px;scroll-snap-align:start}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;box-shadow:var(--shadow)}
+.snap{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 2px 10px;scrollbar-width:thin}
+.snap>*{flex:0 0 78%;max-width:300px;scroll-snap-align:start}
 .hint{font-size:12.5px;color:var(--mute);margin:2px 0 6px}
-.row{display:grid;grid-template-columns:1fr auto;gap:2px 10px;padding:9px 0;border-bottom:1px solid var(--line)}
-.row:last-child{border:0}
-.row b{font-size:16px}
-.row .p{font-weight:700;text-align:right;color:var(--tcl)}
-.row .d{grid-column:1/3;color:var(--mute);font-size:14px}
-.vs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
-.side{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center;font-size:13.5px}
-.side.t{border-top:4px solid var(--tcl)}.side.c{border-top:4px solid var(--comp)}
-.side small{display:block;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--mute)}
-.side b{display:block}
-.sc{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
-.sr{padding:10px 12px;border-bottom:1px solid var(--line)}
-.sr:last-child{border:0}
-.sr .a{font-weight:700;font-size:15px;display:flex;justify-content:space-between;gap:8px;align-items:center}
-.sr .v{display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:14px;margin-top:4px}
-.sr .v div small{display:block;font-size:11px;color:var(--mute);text-transform:uppercase;letter-spacing:.06em}
+/* photos */
+.ph{margin:0;position:relative}
+.ph .frame{background:var(--photo);border-radius:12px;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.ph img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+.ph .fb{color:#7a8794;width:46%;height:46%}
+.ph figcaption{font-size:11px;color:var(--mute);margin-top:4px;display:flex;justify-content:space-between;gap:6px}
+.ph figcaption a{color:var(--tcl);font-weight:700;text-decoration:none}
+.ph.sm .frame{aspect-ratio:16/10}
+/* scoreboard cards */
+.sb{display:block;text-decoration:none;color:var(--ink)}
+.sb .nm{font-weight:800;margin:8px 0 2px}
+.sb .vv{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px}
 .chip{display:inline-block;flex:0 0 auto;font-size:12px;font-weight:700;border-radius:999px;padding:3px 9px;white-space:nowrap}
 .chip.ahead{background:var(--okbg);color:var(--ok)}
 .chip.even{background:var(--chip);color:var(--mute)}
 .chip.behind{background:var(--nobg);color:var(--no)}
 .chip.unclear{background:var(--warnbg);color:var(--warn)}
-.bottom{margin-top:10px;border-left:4px solid var(--tcl);padding:8px 12px;background:var(--card);border-radius:0 10px 10px 0;font-weight:600}
-.key{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
-.price{font-size:34px;font-weight:800;line-height:1.1;margin:2px 0}
-.big{display:grid;gap:10px}
-.sec{margin:12px 0 4px;font-size:12.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--mute);font-weight:700}
-ul{margin:4px 0;padding-left:20px}li{margin:4px 0}
 .tests{display:flex;gap:6px;flex-wrap:wrap}
 .t{font-size:12.5px;font-weight:700;border-radius:8px;padding:4px 9px}
 .t.yes{background:var(--okbg);color:var(--ok)}.t.partial{background:var(--warnbg);color:var(--warn)}.t.none{background:var(--nobg);color:var(--no)}
-table{width:100%;border-collapse:collapse;font-size:14px;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
-th,td{text-align:left;vertical-align:top;padding:8px 9px;border-bottom:1px solid var(--line)}
-th{background:var(--chip);font-size:12.5px}
-.scroll{overflow-x:auto}
+/* lineup */
+.row{display:grid;grid-template-columns:1fr auto;gap:2px 10px;padding:9px 0;border-bottom:1px solid var(--line)}
+.row:last-child{border:0}
+.row .p{font-weight:700;text-align:right;color:var(--tcl)}
+.row .d{grid-column:1/3;color:var(--mute);font-size:14px}
+.spec{display:flex;justify-content:space-between;gap:8px;font-size:13.5px;padding:3px 0}
+.spec span:first-child{color:var(--mute)}
+.spec span:last-child{text-align:right}
+/* compare */
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.side{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px;font-size:13.5px}
+.side.t1{border-top:4px solid var(--tcl)}.side.c1{border-top:4px solid var(--comp)}
+.side small{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:6px}
+.side b{display:block;margin-top:6px}
+.sc{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.sr{padding:10px 12px;border-bottom:1px solid var(--line)}
+.sr:last-child{border:0}
+.sr .a{font-weight:700;font-size:15px;display:flex;justify-content:space-between;gap:8px;align-items:center}
+.sr .v{display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:14px;margin-top:4px}
+.sr .v small{display:block;font-size:11px;color:var(--mute);text-transform:uppercase;letter-spacing:.06em}
+.key{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 10px}
+.bottom{margin-top:10px;border-left:4px solid var(--tcl);padding:10px 12px;background:var(--card);border-radius:0 12px 12px 0;font-weight:600}
+/* ideas */
+.price{font-size:40px;font-weight:800;line-height:1.05;letter-spacing:-.02em}
+.step{display:flex;gap:12px;margin-bottom:10px}
+.step .n{flex:0 0 30px;height:30px;border-radius:50%;background:var(--accent);color:var(--accink);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px}
+.step .b{flex:1}
+.arrow{display:flex;align-items:center;justify-content:center;font-size:26px;color:var(--mute)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.pair .arrow{display:none}
+.idea{display:flex;gap:12px;align-items:center;text-decoration:none;color:var(--ink)}
+.idea .ph{flex:0 0 38%}
+ul{margin:4px 0;padding-left:20px}li{margin:4px 0}
+table{width:100%;border-collapse:collapse;font-size:14px}
+.chart{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px;margin-top:8px;box-shadow:var(--shadow)}
 svg text{fill:var(--ink);font:12px system-ui,sans-serif}
 svg .m{fill:var(--mute)}.bar-t{fill:var(--tcl)}.bar-c{fill:var(--comp)}
-.chart{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-top:8px}
 .legend{display:flex;gap:14px;font-size:13px;margin-bottom:6px;flex-wrap:wrap}
 .sw{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
 .note{font-size:12.5px;color:var(--mute);margin:6px 0}
@@ -96,15 +109,18 @@ svg .m{fill:var(--mute)}.bar-t{fill:var(--tcl)}.bar-c{fill:var(--comp)}
 .tl b{display:block}
 .src a{font-size:12.5px;color:var(--mute);margin-right:8px}
 a{color:var(--tcl)}
-footer{margin:22px 0 28px;padding-top:12px;border-top:1px solid var(--line);color:var(--mute);font-size:12.5px}
 .tag{font-size:12px;font-weight:700;border-radius:999px;padding:2px 9px;background:var(--chip);color:var(--mute)}
+footer{margin:22px 0 28px;padding-top:12px;border-top:1px solid var(--line);color:var(--mute);font-size:12.5px}
+.fade{animation:f .35s ease both}
+@keyframes f{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.fade{animation:none}}
 </style>
 </head>
 <body>
 <div class="banner"><div class="wrap" id="disc"></div></div>
 <div class="top"><div class="wrap"><nav class="bar" id="nav" aria-label="Sections"></nav></div></div>
-<main class="wrap" id="view"></main>
-<div class="wrap"><footer>Built with AI assistance from public sources. Not affiliated with or endorsed by TCL. Product names belong to their owners. Illustrations are my own simple drawings, not product photos.</footer></div>
+<main class="wrap fade" id="view"></main>
+<div class="wrap"><footer>Built with AI assistance from public sources. Not affiliated with or endorsed by TCL. Product names and product photos belong to their owners and link back to the page they came from. Photos load from those pages, so one may occasionally be missing.</footer></div>
 <script src="data/data.js"></script>
 <script src="data/extra.js"></script>
 <script>
@@ -113,7 +129,6 @@ var D=window.DATA;
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
 function $(i){return document.getElementById(i)}
 $("disc").textContent="Independent research by "+D.meta.author+" from public sources. Not affiliated with or endorsed by TCL. As of "+D.meta.asOf+".";
-
 var S='fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"';
 var ICONS={
  window:'<rect x="8" y="16" width="48" height="32" rx="4"/><path d="M16 27h32M16 33h32M16 39h32"/><path d="M3 54h58"/>',
@@ -131,14 +146,22 @@ var ICONS={
  method:'<circle cx="32" cy="32" r="22"/><path d="M22 33l8 8 14-16"/>'
 };
 function icon(n,cls){return '<svg class="'+(cls||'')+'" viewBox="0 0 64 64" '+S+' aria-hidden="true">'+(ICONS[n]||"")+'</svg>'}
-
+window.__fb=function(el,ic){var d=document.createElement("div");d.innerHTML=icon(ic,"fb");el.parentNode.replaceChild(d.firstChild,el)};
+// photo with link and credit; falls back to a drawing
+function photo(key,ic,sm){
+  var m=D.media[key]||{};
+  var h='<figure class="ph'+(sm?" sm":"")+'"><div class="frame">';
+  h+=m.img?'<img src="'+esc(m.img)+'" alt="'+esc(key)+' product photo" loading="lazy" referrerpolicy="no-referrer" onerror="__fb(this,\''+ic+'\')">':icon(ic,"fb");
+  h+='</div><figcaption><span>'+(m.img?'Photo: '+esc(m.by):'No photo, drawing')+'</span>'+(m.link?'<a href="'+esc(m.link)+'" target="_blank" rel="noopener" aria-label="View product page">View &#8599;</a>':"")+'</figcaption></figure>';
+  return h;
+}
 var VIEWS=[
- {id:"lineup",name:"What TCL sells",short:"Lineup",icon:"lineup",desc:"7 product lines and what you get as the price goes up"},
- {id:"compare",name:"How TCL compares",short:"Compare",icon:"compare",desc:"Where TCL is ahead, even or behind competitors"},
- {id:"grow",name:"Where TCL could grow",short:"Grow",icon:"grow",desc:"4 ideas with a price to test, and fixes to today's products"},
- {id:"voice",name:"What customers say",short:"Customers",icon:"voice",desc:"Review themes, with how thin the evidence is"},
- {id:"traps",name:"Traps I avoided",short:"Traps",icon:"trap",desc:"A recalled design, a rating change, and ideas set aside"},
- {id:"method",name:"How sure I am",short:"Method",icon:"method",desc:"What is unconfirmed, what comes next, and every source"}
+ {id:"lineup",name:"What TCL sells",short:"Lineup",icon:"lineup"},
+ {id:"compare",name:"How TCL compares",short:"Compare",icon:"compare"},
+ {id:"voice",name:"What customers say",short:"Customers",icon:"voice"},
+ {id:"grow",name:"New product ideas",short:"New products",icon:"grow"},
+ {id:"traps",name:"Traps I avoided",short:"Traps",icon:"trap"},
+ {id:"method",name:"How sure I am",short:"Method",icon:"method"}
 ];
 var order=[],idx={};
 function sref(id){if(!(id in idx)){idx[id]=order.length;order.push(id)}return idx[id]+1}
@@ -146,31 +169,18 @@ function srcs(a){return '<div class="src">'+a.map(function(s){var x=D.sources[s]
 function pills(items,cur,base){return '<div class="sub" role="tablist">'+items.map(function(i){return '<a class="pill" role="tab" href="#/'+base+'/'+i.id+'" aria-current="'+(i.id===cur?"true":"false")+'">'+(i.icon?icon(i.icon):"")+esc(i.name)+'</a>'}).join("")+'</div>'}
 var CATS=D.categories.map(function(c){return {id:c.id,name:c.name,icon:c.id}});
 function cat(id){return D.categories.filter(function(c){return c.id===id})[0]}
-
+function catPhotoKey(c){for(var i=0;i<c.tcl.length;i++){var m=D.media[c.tcl[i].model];if(m&&m.img)return c.tcl[i].model}return c.tcl[0].model}
 function nav(cur){
   var h='<a class="pill home" href="#/" aria-current="'+(cur==="home"?"true":"false")+'">Home</a>';
   VIEWS.forEach(function(v){h+='<a class="pill" href="#/'+v.id+'" aria-current="'+(cur===v.id?"true":"false")+'">'+esc(v.short)+'</a>'});
   $("nav").innerHTML=h;
 }
+var VL={ahead:"TCL ahead",even:"Even",behind:"TCL behind",unclear:"Not confirmed"};
+var VS={ahead:"▲ ",even:"= ",behind:"▼ ",unclear:"? "};
+var lab={yes:["Yes","yes"],partial:["Partial","partial"],none:["None found","none"]};
+var IDEAS=D.ideas;
 
-function home(){
-  var h='<h1>TCL Home Comfort market research</h1><p class="lead">What they sell, how they compare, where they could grow. Tap a section.</p>';
-  h+='<div class="card"><b>The short version:</b> TCL has one heat pump window unit, the 12K. Competitors already sell heat pump versions in smaller window, through-the-wall and portable formats.</div>';
-  h+='<div class="tiles">'+VIEWS.map(function(v){return '<a class="tile" href="#/'+v.id+'">'+icon(v.icon,"ic")+'<div><b>'+esc(v.name)+'</b><span>'+esc(v.desc)+'</span></div><span class="go">&rsaquo;</span></a>'}).join("")+'</div>';
-  return h;
-}
-
-function lineup(sub){
-  var id=sub||"window";var c=cat(id),L=D.ladder[id];
-  var h='<h2>What TCL sells</h2><p class="lead">Pick a product line.</p>'+pills(CATS,id,"lineup");
-  h+='<div class="hero">'+icon(id,"ic")+'<div><h3>'+esc(c.name)+'</h3><small>'+esc(L.lead)+'</small></div></div>';
-  h+='<div class="sec">As the price goes up</div><div class="card">'+L.rows.map(function(r){return '<div class="row"><b>'+esc(r[0])+'</b><span class="p">'+esc(r[1])+'</span><span class="d">'+esc(r[2])+'</span></div>'}).join("")+'</div>';
-  h+='<div class="sec">TCL models I found</div><div class="hint">Swipe to see more</div><div class="snap">'+c.tcl.map(function(p){
-    return '<div class="card"><b>'+esc(p.model)+'</b><div class="note" style="margin-top:0">'+esc(p.name)+'</div>'+p.specs.map(function(s){return '<div class="row" style="padding:5px 0"><span class="d" style="grid-column:auto;color:var(--mute)">'+esc(s[0])+'</span><span style="text-align:right;font-size:14px">'+esc(s[1])+'</span></div>'}).join("")+(p.note?'<div class="note">'+esc(p.note)+'</div>':"")+'</div>'}).join("")+'</div>';
-  h+=srcs(L.src);
-  return h;
-}
-
+/* charts */
 function heatChart(){
   var W=420,H=230,Lm=48,R=12,T=10,B=36,ymax=12000;
   function X(t){return Lm+(t/50)*(W-Lm-R)}function Y(v){return H-B-(v/ymax)*(H-T-B)}
@@ -178,7 +188,7 @@ function heatChart(){
   [0,3000,6000,9000,12000].forEach(function(v){s+='<line x1="'+Lm+'" x2="'+(W-R)+'" y1="'+Y(v)+'" y2="'+Y(v)+'" stroke="var(--line)"/><text class="m" x="'+(Lm-5)+'" y="'+(Y(v)+4)+'" text-anchor="end">'+(v/1000)+'k</text>'});
   [0,10,20,30,40,50].forEach(function(t){s+='<text class="m" x="'+X(t)+'" y="'+(H-B+16)+'" text-anchor="middle">'+t+'°F</text>'});
   s+='<text class="m" x="'+((Lm+W-R)/2)+'" y="'+(H-4)+'" text-anchor="middle">Outdoor temperature</text>';
-  function line(d,col,dy){var r='<polyline fill="none" stroke="'+col+'" stroke-width="3" points="'+d.map(function(p){return X(p[0])+","+Y(p[1])}).join(" ")+'"/>';d.forEach(function(p){r+='<circle cx="'+X(p[0])+'" cy="'+Y(p[1])+'" r="5" fill="'+col+'"/><text x="'+(X(p[0])+(p[0]>40?-8:8))+'" y="'+(Y(p[1])+dy)+'" text-anchor="'+(p[0]>40?'end':'start')+'">'+p[1].toLocaleString()+'</text>'});return r}
+  function line(d,col,dy){var r='<polyline fill="none" stroke="'+col+'" stroke-width="3" points="'+d.map(function(p){return X(p[0])+","+Y(p[1])}).join(" ")+'"/>';d.forEach(function(p){r+='<circle cx="'+X(p[0])+'" cy="'+Y(p[1])+'" r="5" fill="'+col+'"/><text x="'+(X(p[0])+(p[0]>40?-8:8))+'" y="'+(Y(p[1])+dy)+'" text-anchor="'+(p[0]>40?'end':'start')+'">'+p[1].toLocaleString()+' BTU</text>'});return r}
   s+=line(D.heat.tcl,"var(--tcl)",-9)+line(D.heat.gradient,"var(--comp)",18)+'</svg><div class="note">'+esc(D.heat.note)+'</div>';
   return '<div class="chart">'+s+'</div>';
 }
@@ -188,28 +198,62 @@ function pintChart(){
   D.pints.forEach(function(p,i){var y=i*rowH+4;
     s+='<text x="0" y="'+(y+17)+'">Old '+p.old+'</text><rect class="bar-c" x="62" y="'+y+'" width="'+w(p.old)+'" height="22" rx="3"/><text x="'+(68+w(p.old))+'" y="'+(y+16)+'">'+p.old+'</text>';
     s+='<text x="0" y="'+(y+45)+'">Now '+p.nw+'</text><rect class="bar-t" x="62" y="'+(y+28)+'" width="'+w(p.nw)+'" height="22" rx="3"/><text x="'+(68+w(p.nw))+'" y="'+(y+44)+'">'+p.nw+'</text>'});
-  return '<div class="chart">'+s+'</svg><div class="note">The 2020 rule lowered the test temperature, so the same machine now gets a smaller pint number. TCL support maps its 50-pint to the old 70-pint. '+'<a href="'+esc(D.sources.tcl_pint[1])+'" target="_blank" rel="noopener">['+sref("tcl_pint")+']</a></div></div>';
+  return '<div class="chart">'+s+'</svg><div class="note">The 2020 rule lowered the test temperature, so the same machine now gets a smaller pint number. TCL support maps its 50-pint to the old 70-pint. <a href="'+esc(D.sources.tcl_pint[1])+'" target="_blank" rel="noopener">['+sref("tcl_pint")+']</a></div></div>';
 }
 function priceChart(){
   var rowH=32,W=420,Lm=178,max=2000,H=rowH*D.prices.length+6;
   var s='<div class="legend"><span><i class="sw" style="background:var(--tcl)"></i>TCL</span><span><i class="sw" style="background:var(--comp)"></i>Competitor</span></div><svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Prices">';
-  D.prices.forEach(function(p,i){var y=i*rowH+3,w=(p.v/max)*(W-Lm-52);var lb=p.label.replace(/^(Dehumidifier|Window|Portable|Through-the-wall)/,"$1");
-    s+='<text x="'+(Lm-6)+'" y="'+(y+16)+'" text-anchor="end" style="font-size:10.5px">'+esc(lb)+'</text><rect class="'+(p.brand==="tcl"?"bar-t":"bar-c")+'" x="'+Lm+'" y="'+y+'" width="'+w+'" height="22" rx="3"/><text x="'+(Lm+w+5)+'" y="'+(y+16)+'" style="font-size:11px">$'+Math.round(p.v).toLocaleString()+'</text>'});
+  D.prices.forEach(function(p,i){var y=i*rowH+3,w=(p.v/max)*(W-Lm-52);
+    s+='<text x="'+(Lm-6)+'" y="'+(y+16)+'" text-anchor="end" style="font-size:10.5px">'+esc(p.label)+'</text><rect class="'+(p.brand==="tcl"?"bar-t":"bar-c")+'" x="'+Lm+'" y="'+y+'" width="'+w+'" height="22" rx="3"/><text x="'+(Lm+w+5)+'" y="'+(y+16)+'" style="font-size:11px">$'+Math.round(p.v).toLocaleString()+'</text>'});
   return '<div class="chart">'+s+'</svg><div class="note">Different sizes and rating bases, so read as price tiers. Midea U sold for $280 to $500 before its recall.</div></div>';
 }
 
-var VL={ahead:"TCL ahead",even:"Even",behind:"TCL behind",unclear:"Not confirmed"};
-var VS={ahead:"▲ ",even:"= ",behind:"▼ ",unclear:"? "};
+/* home */
+function tally(sc){var t={ahead:0,even:0,behind:0,unclear:0};sc.rows.forEach(function(r){t[r[3]]++});return t}
+function home(){
+  var h='<section class="hero"><div class="eyebrow">Independent market research</div><h1>Where TCL Home Comfort can win next</h1><p>I mapped the lineup, matched each product to its closest competitor, read what customers say, and built new product ideas with a price to test.</p>';
+  h+='<div class="nums"><div><b>7</b><span>product lines</span></div><div><b>'+Object.keys(D.score).filter(function(k){return D.score[k].rows.length}).length+'</b><span>comparisons</span></div><div><b>'+IDEAS.length+'</b><span>new ideas</span></div></div>';
+  h+='<div class="cta"><a class="btn p" href="#/compare">See the research</a><a class="btn s" href="#/grow">See new product ideas</a></div></section>';
+  h+='<div class="sec">Market research: TCL against the closest competitor</div><div class="hint">Swipe, then tap a line</div><div class="snap">';
+  D.categories.forEach(function(c){
+    var sc=D.score[c.id],t=sc.rows.length?tally(sc):null;
+    h+='<a class="card sb" href="#/compare/'+c.id+'">'+photo(catPhotoKey(c),c.id,true).replace(/<figcaption>.*<\/figcaption>/,"")+'<div class="nm">'+esc(c.name)+'</div><div class="note" style="margin:0">'+(sc.compL?'vs '+esc(sc.compL):'Not compared yet')+'</div>';
+    if(t){h+='<div class="vv">'+["ahead","even","behind","unclear"].filter(function(k){return t[k]}).map(function(k){return '<span class="chip '+k+'">'+VS[k]+t[k]+' '+VL[k].replace("TCL ","")+'</span>'}).join("")+'</div>'}
+    h+='</a>';
+  });
+  h+='</div>';
+  h+='<div class="sec">The finding in one graph</div><h3>TCL\'s window heat pump out-heats Gradient\'s where both publish numbers</h3>'+heatChart();
+  h+='<div class="sec">New product development: four ideas to test</div><div class="hint">Swipe, then tap an idea</div><div class="snap">';
+  IDEAS.forEach(function(i){var g=D.grow[i.n],pk=D.ideaPair[i.n][0];
+    h+='<a class="card sb" href="#/grow/'+i.n+'">'+photo(pk,["heatpump","ttw","portable","dehum"][i.n-1],true).replace(/<figcaption>.*<\/figcaption>/,"")+'<div class="nm">'+esc(i.h)+'</div><div class="note" style="margin:0">Price to test</div><div style="font-size:22px;font-weight:800">'+esc(g.price)+'</div></a>'});
+  h+='</div>';
+  return h;
+}
+
+/* lineup */
+function lineup(sub){
+  var id=sub||"window";var c=cat(id),L=D.ladder[id];
+  var h='<h2>What TCL sells</h2><p class="lead">Pick a product line, then swipe the models.</p>'+pills(CATS,id,"lineup");
+  h+='<div class="sec" style="margin-top:4px">TCL models I found</div><div class="hint">Swipe for more</div><div class="snap">'+c.tcl.map(function(p){
+    return '<div class="card">'+photo(p.model,id)+'<div style="margin-top:8px"><b>'+esc(p.model)+'</b><div class="note" style="margin:0 0 6px">'+esc(p.name)+'</div>'+p.specs.map(function(s){return '<div class="spec"><span>'+esc(s[0])+'</span><span>'+esc(s[1])+'</span></div>'}).join("")+(p.note?'<div class="note">'+esc(p.note)+'</div>':"")+'</div></div>'}).join("")+'</div>';
+  h+='<div class="sec">As the price goes up</div><p class="note" style="margin-top:0">'+esc(L.lead)+'</p><div class="card">'+L.rows.map(function(r){return '<div class="row"><b>'+esc(r[0])+'</b><span class="p">'+esc(r[1])+'</span><span class="d">'+esc(r[2])+'</span></div>'}).join("")+'</div>';
+  h+=srcs(L.src);
+  return h;
+}
+
+/* compare */
 function compare(sub){
   var id=sub||"window";
   var items=CATS.concat([{id:"prices",name:"Price chart",icon:"grow"}]);
-  var h='<h2>How TCL compares</h2><p class="lead">Pick a product line. Each row says if TCL is ahead, even or behind.</p>'+pills(items,id,"compare");
-  if(id==="prices"){return h+'<h3>Price tiers</h3>'+priceChart()}
+  var h='<h2>How TCL compares</h2><p class="lead">Each row says whether TCL is ahead, even or behind.</p>'+pills(items,id,"compare");
+  if(id==="prices")return h+'<h3>Price tiers</h3>'+priceChart();
   var sc=D.score[id],c=cat(id);
+  if(!sc.rows.length){return h+'<div class="card">'+photo(catPhotoKey(c),id)+'<div class="bottom">'+esc(sc.bottom)+'</div></div>'}
+  var tk=catPhotoKey(c),ck=c.comp[0]?c.comp[0].model:"";
+  if(id==="dehum")ck="GHDD3535W1";
+  if(id==="heatpump")tk="H12W4KWH";
   h+='<div class="key"><span class="chip ahead">▲ TCL ahead</span><span class="chip even">= Even</span><span class="chip behind">▼ TCL behind</span><span class="chip unclear">? Not confirmed</span></div>';
-  if(!sc.rows.length){return h+'<div class="hero">'+icon(id,"ic")+'<div><h3>'+esc(c.name)+'</h3><small>Not compared yet</small></div></div><div class="bottom">'+esc(sc.bottom)+'</div>'}
-  h+='<div class="vs"><div class="side t">'+icon(id,"")+'<small>TCL</small><b>'+esc(sc.tclL)+'</b></div><div class="side c">'+icon(id==="heatpump"?"heatpump":id,"")+'<small>Competitor</small><b>'+esc(sc.compL)+'</b></div></div>';
-  h=h.replace(/<div class="side (t|c)">(<svg[^>]*>)/g,function(m,k,sv){return '<div class="side '+k+'">'+sv.replace('<svg','<svg style="width:38px;height:38px;color:var(--'+(k==="t"?"tcl":"comp")+')"')});
+  h+='<div class="vs"><div class="side t1"><small>TCL</small>'+photo(tk,id,true)+'<b>'+esc(sc.tclL)+'</b></div><div class="side c1"><small>Competitor</small>'+photo(ck,id==="heatpump"?"heatpump":id,true)+'<b>'+esc(sc.compL)+'</b></div></div>';
   h+='<div class="sc">'+sc.rows.map(function(r){return '<div class="sr"><div class="a"><span>'+esc(r[0])+'</span><span class="chip '+r[3]+'">'+VS[r[3]]+VL[r[3]]+'</span></div><div class="v"><div><small>TCL</small>'+esc(r[1])+'</div><div><small>Competitor</small>'+esc(r[2])+'</div></div></div>'}).join("")+'</div>';
   h+='<div class="bottom">'+esc(sc.bottom)+'</div>';
   if(id==="heatpump")h+=heatChart();
@@ -219,41 +263,39 @@ function compare(sub){
   return h;
 }
 
-var IDEAS=D.ideas;var lab={yes:["Yes","yes"],partial:["Partial","partial"],none:["None found","none"]};
+/* new product ideas */
 function grow(sub){
-  var items=[{id:"all",name:"All 4 ideas"}].concat(IDEAS.map(function(i){return {id:String(i.n),name:"Idea "+i.n}})).concat([{id:"fixes",name:"Fixes"}]);
+  var items=[{id:"all",name:"All "+IDEAS.length+" ideas"}].concat(IDEAS.map(function(i){return {id:String(i.n),name:"Idea "+i.n}})).concat([{id:"fixes",name:"Fixes"}]);
   var id=sub||"all";
-  var h='<h2>Where TCL could grow</h2><p class="lead">Each idea shows what is different, why, and a price to test.</p>'+pills(items,id,"grow");
+  var h='<h2>New product ideas</h2><p class="lead">Each idea shows what TCL sells today, who already has it, a price to test, and how I would validate it.</p>'+pills(items,id,"grow");
   if(id==="all"){
-    h+='<div class="hint">Tap an idea for the detail</div>';
-    h+=IDEAS.map(function(i){var g=D.grow[i.n];return '<a class="tile" href="#/grow/'+i.n+'" style="margin-bottom:8px;align-items:flex-start"><div style="flex:1"><b>'+i.n+'. '+esc(i.h)+'</b><div class="tests" style="margin:6px 0"><span class="t '+lab[i.gap][1]+'">Gap: '+lab[i.gap][0]+'</span><span class="t '+lab[i.comp][1]+'">Competitor: '+lab[i.comp][0]+'</span><span class="t '+lab[i.sig][1]+'">Customers: '+lab[i.sig][0]+'</span></div><span>Price to test: <b style="color:var(--ink)">'+esc(g.price)+'</b> | '+esc(i.read)+'</span></div><span class="go">&rsaquo;</span></a>'}).join("");
+    h+=IDEAS.map(function(i){var g=D.grow[i.n],pk=D.ideaPair[i.n][0];return '<a class="card idea" href="#/grow/'+i.n+'" style="margin-bottom:10px">'+photo(pk,["heatpump","ttw","portable","dehum"][i.n-1],true).replace(/<figcaption>.*<\/figcaption>/,"")+'<div><b>'+i.n+'. '+esc(i.h)+'</b><div class="tests" style="margin:6px 0"><span class="t '+lab[i.gap][1]+'">Gap: '+lab[i.gap][0]+'</span><span class="t '+lab[i.comp][1]+'">Competitor: '+lab[i.comp][0]+'</span><span class="t '+lab[i.sig][1]+'">Customers: '+lab[i.sig][0]+'</span></div><div class="note" style="margin:0">Price to test</div><div style="font-size:22px;font-weight:800">'+esc(g.price)+'</div></div></a>'}).join("");
     h+='<div class="note">Price ranges are my starting points to test, built from the prices I found. They are not forecasts.</div>';
     return h;
   }
   if(id==="fixes"){
     h+='<div class="hint">Updates to what TCL sells today, from what customers report</div>';
-    h+=D.fixes.map(function(f){return '<div class="card" style="margin-bottom:8px"><b>'+esc(f[0])+'</b><div class="sec" style="margin:6px 0 2px">What customers report</div>'+esc(f[1])+'<div class="sec" style="margin:8px 0 2px">Possible fix</div><b>'+esc(f[2])+'</b></div>'}).join("");
+    h+=D.fixes.map(function(f){return '<div class="card" style="margin-bottom:10px"><b>'+esc(f[0])+'</b><div class="sec" style="margin:8px 0 2px">What customers report</div>'+esc(f[1])+'<div class="sec" style="margin:8px 0 2px">Possible fix</div><b>'+esc(f[2])+'</b></div>'}).join("");
     return h;
   }
-  var i=IDEAS.filter(function(x){return String(x.n)===id})[0],g=D.grow[i.n];
-  var iconId=["heatpump","ttw","portable","dehum"][i.n-1];
-  h+='<div class="hero">'+icon(iconId,"ic")+'<div><h3>'+i.n+'. '+esc(i.h)+'</h3><small>'+esc(i.read)+'</small></div></div>';
-  h+='<div class="big"><div class="card"><div class="sec" style="margin-top:0">What it is</div>'+esc(g.what)+'<div class="sec">What is different</div>'+esc(g.diff)+'</div>';
-  h+='<div class="card"><div class="sec" style="margin-top:0">Price to test</div><div class="price">'+esc(g.price)+'</div><div class="note">'+esc(g.basis)+'</div></div>';
-  h+='<div class="card"><div class="sec" style="margin-top:0">Three tests</div><div class="tests"><span class="t '+lab[i.gap][1]+'">TCL gap: '+lab[i.gap][0]+'</span><span class="t '+lab[i.comp][1]+'">Competitor sells it: '+lab[i.comp][0]+'</span><span class="t '+lab[i.sig][1]+'">Customer signal: '+lab[i.sig][0]+'</span></div><div class="sec">Why</div><ul>'+g.bullets.map(function(b){return '<li>'+esc(b)+'</li>'}).join("")+'</ul></div>';
-  h+='<div class="card"><div class="sec" style="margin-top:0">What I would check next</div>'+esc(i.test)+'</div></div>';
+  var i=IDEAS.filter(function(x){return String(x.n)===id})[0],g=D.grow[i.n],pr=D.ideaPair[i.n];
+  var ic=["heatpump","ttw","portable","dehum"][i.n-1];
+  h+='<div class="card" style="margin-bottom:10px"><h3 style="font-size:20px">'+i.n+'. '+esc(i.h)+'</h3><span class="tag">'+esc(i.read)+'</span></div>';
+  h+='<div class="sec" style="margin-top:0">Today</div><div class="pair"><div class="card">'+photo(pr[0],ic,true)+'<b style="display:block;margin-top:6px">'+esc(D.ideaPairNames[pr[0]])+'</b><div class="note" style="margin:0">What TCL sells now</div></div><div class="arrow">vs</div><div class="card">'+photo(pr[1],ic,true)+'<b style="display:block;margin-top:6px">'+esc(D.ideaPairNames[pr[1]])+'</b><div class="note" style="margin:0">What a competitor already sells</div></div></div>';
+  h+='<div class="card" style="margin-bottom:10px"><div class="step"><div class="n">1</div><div class="b"><b>The idea</b><div>'+esc(g.what)+'</div></div></div><div class="step"><div class="n">2</div><div class="b"><b>What is different</b><div>'+esc(g.diff)+'</div></div></div><div class="step" style="margin:0"><div class="n">3</div><div class="b"><b>Why</b><ul>'+g.bullets.map(function(b){return '<li>'+esc(b)+'</li>'}).join("")+'</ul></div></div></div>';
+  h+='<div class="card" style="margin-bottom:10px"><div class="sec" style="margin-top:0">Price to test</div><div class="price">'+esc(g.price)+'</div><div class="note">'+esc(g.basis)+'</div></div>';
+  h+='<div class="card" style="margin-bottom:10px"><div class="sec" style="margin-top:0">Three tests</div><div class="tests"><span class="t '+lab[i.gap][1]+'">TCL gap: '+lab[i.gap][0]+'</span><span class="t '+lab[i.comp][1]+'">Competitor sells it: '+lab[i.comp][0]+'</span><span class="t '+lab[i.sig][1]+'">Customer signal: '+lab[i.sig][0]+'</span></div></div>';
+  h+='<div class="card"><div class="sec" style="margin-top:0">How I would validate it</div>'+esc(i.test)+'</div>';
   var nx=IDEAS[i.n%IDEAS.length].n;
   h+='<p style="text-align:right"><a class="pill" href="#/grow/'+nx+'">Next idea &rsaquo;</a></p>';
   return h;
 }
-
 function voice(sub){
   var items=D.voice.map(function(v,i){return {id:String(i),name:v.h}});var id=sub||"0";var v=D.voice[+id];
   var h='<h2>What customers say</h2><p class="lead">Small samples, and many retailer reviews were incentivized. Treat these as themes to check, not proof.</p>'+pills(items,id,"voice");
   h+='<div class="card"><h3>'+esc(v.h)+'</h3><p>'+esc(v.t)+'</p><span class="tag">Evidence: '+esc(v.s)+'</span></div>';
   return h;
 }
-
 function traps(sub){
   var items=[{id:"ushape",name:"U-shape recall"},{id:"pints",name:"Pint ratings"},{id:"aside",name:"Set aside"}];var id=sub||"ushape";
   var h='<h2>Traps I avoided</h2><p class="lead">Things that look like opportunities but are not.</p>'+pills(items,id,"traps");
@@ -261,34 +303,26 @@ function traps(sub){
     h+='<div class="card"><h3>Midea U-shaped window unit</h3><p class="note" style="margin-top:0">A competing design. Recalled, so not a design to copy.</p><ul class="tl">'+D.timeline.map(function(t){return '<li><b>'+esc(t.d)+'</b>'+esc(t.t)+'</li>'}).join("")+'</ul></div>';
     h+='<div class="card" style="margin-top:10px"><h3>Patents</h3><p style="margin:0">'+esc(D.patents)+'</p></div>';
     h+=srcs(["cpsc","classaction","aftermath","patent1","patent2"]);
-  } else if(id==="pints"){
-    h+='<h3>Same machine, different number</h3>'+pintChart();
-  } else {
-    h+='<div class="hint">Looked at, then dropped</div>'+D.setaside.map(function(r){return '<div class="card" style="margin-bottom:8px"><b>'+esc(r[0])+'</b><div style="color:var(--mute);font-size:14px;margin-top:2px">'+esc(r[1])+'</div></div>'}).join("");
-  }
+  } else if(id==="pints"){h+='<h3>Same machine, different number</h3>'+pintChart();}
+  else {h+='<div class="hint">Looked at, then dropped</div>'+D.setaside.map(function(r){return '<div class="card" style="margin-bottom:8px"><b>'+esc(r[0])+'</b><div style="color:var(--mute);font-size:14px;margin-top:2px">'+esc(r[1])+'</div></div>'}).join("")}
   return h;
 }
-
 function method(sub){
   var items=[{id:"unc",name:"Not confirmed"},{id:"next",name:"Now and after"},{id:"src",name:"Sources"}];var id=sub||"unc";
   var h='<h2>How sure I am</h2><p class="lead">What I could not confirm, what comes next, and where everything came from.</p>'+pills(items,id,"method");
   if(id==="unc"){h+='<div class="card"><ul>'+D.unconfirmed.map(function(u){return '<li>'+esc(u)+'</li>'}).join("")+'</ul></div>'}
   else if(id==="next"){h+='<div class="card" style="margin-bottom:10px"><h3>Now: public research</h3><ul>'+D.later.now.map(function(u){return '<li>'+esc(u)+'</li>'}).join("")+'</ul></div><div class="card"><h3>After: with TCL data</h3><ul>'+D.later.after.map(function(u){return '<li>'+esc(u)+'</li>'}).join("")+'</ul></div>'}
-  else{
-    Object.keys(D.sources).forEach(function(k){sref(k)});
-    h+='<div class="card"><ol style="margin:0;padding-left:22px">'+order.map(function(k){var s=D.sources[k];return '<li><a href="'+esc(s[1])+'" target="_blank" rel="noopener">'+esc(s[0])+'</a></li>'}).join("")+'</ol></div>';
-  }
+  else{Object.keys(D.sources).forEach(function(k){sref(k)});h+='<div class="card"><ol style="margin:0;padding-left:22px">'+order.map(function(k){var s=D.sources[k];return '<li><a href="'+esc(s[1])+'" target="_blank" rel="noopener">'+esc(s[0])+'</a></li>'}).join("")+'</ol></div>'}
   return h;
 }
-
-// pre-seed source numbers in a stable order
 Object.keys(D.sources).forEach(sref);
 var R={lineup:lineup,compare:compare,grow:grow,voice:voice,traps:traps,method:method};
 function route(){
   var p=(location.hash||"#/").replace(/^#\/?/,"").split("/");var v=p[0]||"home";
   if(v!=="home"&&!R[v])v="home";
   nav(v);
-  $("view").innerHTML=v==="home"?home():R[v](p[1]);
+  var el=$("view");el.classList.remove("fade");void el.offsetWidth;el.classList.add("fade");
+  el.innerHTML=v==="home"?home():R[v](p[1]);
   window.scrollTo(0,0);
   var sel=document.querySelector('.sub [aria-current="true"]');if(sel&&sel.scrollIntoView)try{sel.scrollIntoView({inline:"center",block:"nearest"})}catch(e){}
 }
