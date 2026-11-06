@@ -14,12 +14,11 @@ html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 .wrap{max-width:980px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
 .banner{background:#0b1522;color:#c9d6e4;font-size:12px;padding:6px 0}
-.top{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
-.bar{display:flex;gap:8px;align-items:center;padding:8px 0;overflow-x:auto;scrollbar-width:none}
-.bar::-webkit-scrollbar{display:none}
-.pill{flex:0 0 auto;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:9px 15px;font:inherit;font-size:14px;font-weight:600;cursor:pointer;min-height:42px;display:inline-flex;gap:7px;align-items:center;text-decoration:none}
+.top{background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:8px 0}
+.pill{flex:0 0 auto;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:7px 12px;font:inherit;font-size:13.5px;font-weight:600;cursor:pointer;min-height:38px;display:inline-flex;gap:6px;align-items:center;text-decoration:none}
 .pill[aria-current="true"]{background:var(--accent);color:var(--accink);border-color:var(--accent)}
-.pill svg{width:20px;height:20px}
+.pill svg{width:18px;height:18px}
 .home{font-weight:800}
 /* hero */
 .hero{position:relative;overflow:hidden;border-radius:22px;margin:12px 0 18px;padding:26px 20px 22px;color:#fff;background:radial-gradient(120% 140% at 85% -10%,#1f7ae0 0%,rgba(31,122,224,0) 55%),radial-gradient(90% 90% at 0% 110%,#17b8a6 0%,rgba(23,184,166,0) 55%),#0b1b2e}
@@ -37,11 +36,15 @@ h2{font-size:22px;margin:18px 0 4px}
 h3{font-size:17px;margin:0 0 4px}
 .lead{color:var(--mute);margin:0 0 12px}
 .sec{margin:16px 0 6px;font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--mute);font-weight:700}
-.sub{display:flex;gap:8px;overflow-x:auto;padding:4px 0 10px;scrollbar-width:none}
-.sub::-webkit-scrollbar{display:none}
+.sub{display:flex;flex-wrap:wrap;gap:6px;padding:4px 0 12px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;box-shadow:var(--shadow)}
-.snap{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 2px 10px;scrollbar-width:thin}
-.snap>*{flex:0 0 78%;max-width:300px;scroll-snap-align:start}
+.snap{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:2px 0 10px}
+@media(min-width:700px){.snap{grid-template-columns:repeat(4,1fr)}}
+.lgrid{display:grid;grid-template-columns:1fr;gap:10px}
+@media(min-width:760px){.lgrid{grid-template-columns:1fr 1fr}}
+.lcard{display:flex;gap:12px;align-items:flex-start}
+.lcard .ph{flex:0 0 42%}
+.lcard .info{flex:1;min-width:0}
 .hint{font-size:12.5px;color:var(--mute);margin:2px 0 6px}
 /* photos */
 .ph{margin:0;position:relative}
@@ -160,8 +163,8 @@ var VIEWS=[
  {id:"compare",name:"How TCL compares",short:"Compare",icon:"compare"},
  {id:"voice",name:"What customers say",short:"Customers",icon:"voice"},
  {id:"grow",name:"New product ideas",short:"New products",icon:"grow"},
- {id:"traps",name:"Traps I avoided",short:"Traps",icon:"trap"},
- {id:"method",name:"How sure I am",short:"Method",icon:"method"}
+ {id:"ruledout",name:"What I ruled out",short:"Ruled out",icon:"trap"},
+ {id:"process",name:"How I research",short:"How I research",icon:"method"}
 ];
 var order=[],idx={};
 function sref(id){if(!(id in idx)){idx[id]=order.length;order.push(id)}return idx[id]+1}
@@ -214,7 +217,7 @@ function home(){
   var h='<section class="hero"><div class="eyebrow">Independent market research</div><h1>Where TCL Home Comfort can win next</h1><p>I mapped the lineup, matched each product to its closest competitor, read what customers say, and built new product ideas with a price to test.</p>';
   h+='<div class="nums"><div><b>7</b><span>product lines</span></div><div><b>'+Object.keys(D.score).filter(function(k){return D.score[k].rows.length}).length+'</b><span>comparisons</span></div><div><b>'+IDEAS.length+'</b><span>new ideas</span></div></div>';
   h+='<div class="cta"><a class="btn p" href="#/compare">See the research</a><a class="btn s" href="#/grow">See new product ideas</a></div></section>';
-  h+='<div class="sec">Market research: TCL against the closest competitor</div><div class="hint">Swipe, then tap a line</div><div class="snap">';
+  h+='<div class="sec">Market research: TCL vs the closest competitor</div><div class="hint">Tap a product line</div><div class="snap">';
   D.categories.forEach(function(c){
     var sc=D.score[c.id],t=sc.rows.length?tally(sc):null;
     h+='<a class="card sb" href="#/compare/'+c.id+'">'+photo(catPhotoKey(c),c.id,true).replace(/<figcaption>.*<\/figcaption>/,"")+'<div class="nm">'+esc(c.name)+'</div><div class="note" style="margin:0">'+(sc.compL?'vs '+esc(sc.compL):'Not compared yet')+'</div>';
@@ -222,8 +225,8 @@ function home(){
     h+='</a>';
   });
   h+='</div>';
-  h+='<div class="sec">The finding in one graph</div><h3>TCL\'s window heat pump out-heats Gradient\'s where both publish numbers</h3>'+heatChart();
-  h+='<div class="sec">New product development: four ideas to test</div><div class="hint">Swipe, then tap an idea</div><div class="snap">';
+  h+='<div class="sec">Key finding</div><h3>TCL\'s window heat pump out-heats Gradient\'s where both publish numbers</h3>'+heatChart();
+  h+='<div class="sec">New product development: four ideas to test</div><div class="hint">Tap an idea</div><div class="snap">';
   IDEAS.forEach(function(i){var g=D.grow[i.n],pk=D.ideaPair[i.n][0];
     h+='<a class="card sb" href="#/grow/'+i.n+'">'+photo(pk,["heatpump","ttw","portable","dehum"][i.n-1],true).replace(/<figcaption>.*<\/figcaption>/,"")+'<div class="nm">'+esc(i.h)+'</div><div class="note" style="margin:0">Price to test</div><div style="font-size:22px;font-weight:800">'+esc(g.price)+'</div></a>'});
   h+='</div>';
@@ -234,8 +237,8 @@ function home(){
 function lineup(sub){
   var id=sub||"window";var c=cat(id),L=D.ladder[id];
   var h='<h2>What TCL sells</h2><p class="lead">Pick a product line, then swipe the models.</p>'+pills(CATS,id,"lineup");
-  h+='<div class="sec" style="margin-top:4px">TCL models I found</div><div class="hint">Swipe for more</div><div class="snap">'+c.tcl.map(function(p){
-    return '<div class="card">'+photo(p.model,id)+'<div style="margin-top:8px"><b>'+esc(p.model)+'</b><div class="note" style="margin:0 0 6px">'+esc(p.name)+'</div>'+p.specs.map(function(s){return '<div class="spec"><span>'+esc(s[0])+'</span><span>'+esc(s[1])+'</span></div>'}).join("")+(p.note?'<div class="note">'+esc(p.note)+'</div>':"")+'</div></div>'}).join("")+'</div>';
+  h+='<div class="sec" style="margin-top:4px">TCL models I found</div><div class="lgrid">'+c.tcl.map(function(p){
+    return '<div class="card lcard">'+photo(p.model,id,true)+'<div class="info"><b>'+esc(p.model)+'</b><div class="note" style="margin:0 0 6px">'+esc(p.name)+'</div>'+p.specs.map(function(s){return '<div class="spec"><span>'+esc(s[0])+'</span><span>'+esc(s[1])+'</span></div>'}).join("")+(p.note?'<div class="note">'+esc(p.note)+'</div>':"")+'</div></div>'}).join("")+'</div>';
   h+='<div class="sec">As the price goes up</div><p class="note" style="margin-top:0">'+esc(L.lead)+'</p><div class="card">'+L.rows.map(function(r){return '<div class="row"><b>'+esc(r[0])+'</b><span class="p">'+esc(r[1])+'</span><span class="d">'+esc(r[2])+'</span></div>'}).join("")+'</div>';
   h+=srcs(L.src);
   return h;
@@ -265,7 +268,7 @@ function compare(sub){
 
 /* new product ideas */
 function grow(sub){
-  var items=[{id:"all",name:"All "+IDEAS.length+" ideas"}].concat(IDEAS.map(function(i){return {id:String(i.n),name:"Idea "+i.n}})).concat([{id:"fixes",name:"Fixes"}]);
+  var items=[{id:"all",name:"All "+IDEAS.length+" ideas"}].concat(IDEAS.map(function(i){return {id:String(i.n),name:"Idea "+i.n}})).concat([{id:"fixes",name:"Improve today's products"}]);
   var id=sub||"all";
   var h='<h2>New product ideas</h2><p class="lead">Each idea shows what TCL sells today, who already has it, a price to test, and how I would validate it.</p>'+pills(items,id,"grow");
   if(id==="all"){
@@ -274,7 +277,7 @@ function grow(sub){
     return h;
   }
   if(id==="fixes"){
-    h+='<div class="hint">Updates to what TCL sells today, from what customers report</div>';
+    h+='<h3>Improvements to products TCL sells today</h3><p class="note" style="margin-top:0">From what customers report in reviews.</p>';
     h+=D.fixes.map(function(f){return '<div class="card" style="margin-bottom:10px"><b>'+esc(f[0])+'</b><div class="sec" style="margin:8px 0 2px">What customers report</div>'+esc(f[1])+'<div class="sec" style="margin:8px 0 2px">Possible fix</div><b>'+esc(f[2])+'</b></div>'}).join("");
     return h;
   }
@@ -296,27 +299,40 @@ function voice(sub){
   h+='<div class="card"><h3>'+esc(v.h)+'</h3><p>'+esc(v.t)+'</p><span class="tag">Evidence: '+esc(v.s)+'</span></div>';
   return h;
 }
-function traps(sub){
-  var items=[{id:"ushape",name:"U-shape recall"},{id:"pints",name:"Pint ratings"},{id:"aside",name:"Set aside"}];var id=sub||"ushape";
-  var h='<h2>Traps I avoided</h2><p class="lead">Things that look like opportunities but are not.</p>'+pills(items,id,"traps");
+function ruledout(sub){
+  var items=[{id:"ushape",name:"Midea U-shape"},{id:"pints",name:"Pint rating change"},{id:"aside",name:"Other ideas dropped"}];var id=sub||"ushape";
+  var h='<h2>What I ruled out</h2><p class="lead">Things that look like opportunities but are not. I check these before recommending anything.</p>'+pills(items,id,"ruledout");
   if(id==="ushape"){
-    h+='<div class="card"><h3>Midea U-shaped window unit</h3><p class="note" style="margin-top:0">A competing design. Recalled, so not a design to copy.</p><ul class="tl">'+D.timeline.map(function(t){return '<li><b>'+esc(t.d)+'</b>'+esc(t.t)+'</li>'}).join("")+'</ul></div>';
+    h+='<div class="card"><h3>Copying the Midea U-shaped window unit</h3><p class="note" style="margin-top:0">A competing design that was recalled, so not one to copy.</p><ul class="tl">'+D.timeline.map(function(t){return '<li><b>'+esc(t.d)+'</b>'+esc(t.t)+'</li>'}).join("")+'</ul></div>';
     h+='<div class="card" style="margin-top:10px"><h3>Patents</h3><p style="margin:0">'+esc(D.patents)+'</p></div>';
     h+=srcs(["cpsc","classaction","aftermath","patent1","patent2"]);
-  } else if(id==="pints"){h+='<h3>Same machine, different number</h3>'+pintChart();}
-  else {h+='<div class="hint">Looked at, then dropped</div>'+D.setaside.map(function(r){return '<div class="card" style="margin-bottom:8px"><b>'+esc(r[0])+'</b><div style="color:var(--mute);font-size:14px;margin-top:2px">'+esc(r[1])+'</div></div>'}).join("")}
+  } else if(id==="pints"){h+='<h3>A "larger dehumidifier" is not a gap</h3><p class="note" style="margin-top:0">The same machine now carries a smaller pint number, so old and new ratings cannot be compared.</p>'+pintChart();}
+  else {h+='<h3>Other ideas I looked at and dropped</h3>'+D.setaside.map(function(r){return '<div class="card" style="margin-bottom:8px"><b>'+esc(r[0])+'</b><div style="color:var(--mute);font-size:14px;margin-top:2px">'+esc(r[1])+'</div></div>'}).join("")}
   return h;
 }
-function method(sub){
-  var items=[{id:"unc",name:"Not confirmed"},{id:"next",name:"Now and after"},{id:"src",name:"Sources"}];var id=sub||"unc";
-  var h='<h2>How sure I am</h2><p class="lead">What I could not confirm, what comes next, and where everything came from.</p>'+pills(items,id,"method");
-  if(id==="unc"){h+='<div class="card"><ul>'+D.unconfirmed.map(function(u){return '<li>'+esc(u)+'</li>'}).join("")+'</ul></div>'}
-  else if(id==="next"){h+='<div class="card" style="margin-bottom:10px"><h3>Now: public research</h3><ul>'+D.later.now.map(function(u){return '<li>'+esc(u)+'</li>'}).join("")+'</ul></div><div class="card"><h3>After: with TCL data</h3><ul>'+D.later.after.map(function(u){return '<li>'+esc(u)+'</li>'}).join("")+'</ul></div>'}
-  else{Object.keys(D.sources).forEach(function(k){sref(k)});h+='<div class="card"><ol style="margin:0;padding-left:22px">'+order.map(function(k){var s=D.sources[k];return '<li><a href="'+esc(s[1])+'" target="_blank" rel="noopener">'+esc(s[0])+'</a></li>'}).join("")+'</ol></div>'}
+function process(sub){
+  var items=[{id:"steps",name:"My process"},{id:"unc",name:"Not yet confirmed"},{id:"next",name:"Next: with TCL data"},{id:"src",name:"Sources"}];var id=sub||"steps";
+  var h='<h2>How I research</h2><p class="lead">How I go from public information to new product ideas.</p>'+pills(items,id,"process");
+  if(id==="steps"){
+    var st=[
+     ["Map the lineup","Read TCL's US site, spec sheets and retailer listings for 7 product lines. Record models, sizes and prices.","lineup","See the lineup"],
+     ["Match the closest competitor","For each line, find the nearest competing model and compare it spec by spec: TCL ahead, even, behind, or not confirmed.","compare","See the comparisons"],
+     ["Read what customers say","Read reviews and listings, and note the sample size and whether reviews were incentivized.","voice","See customer themes"],
+     ["Look for gaps","Keep an idea only if it passes three tests: a gap in TCL's lineup, a competitor already sells it, and a customer signal.","grow","See the ideas"],
+     ["Rule out traps","Check recalls, patents and rating changes before suggesting anything.","ruledout","See what I ruled out"],
+     ["Set a price to test","Anchor each idea on prices I found for TCL and competitor products.","grow","See the prices"],
+     ["Validate with TCL data","Public research stops here. Sales, returns, support data and a business case decide what is real.","process/next","See what comes next"]
+    ];
+    h+=st.map(function(x,i){return '<div class="card step" style="margin-bottom:8px"><div class="n">'+(i+1)+'</div><div class="b"><b>'+esc(x[0])+'</b><div>'+esc(x[1])+'</div><a href="#/'+x[2]+'" style="font-size:13.5px;font-weight:700">'+esc(x[3])+' &rsaquo;</a></div></div>'}).join("");
+    h+='<div class="card"><h3>How I mark confidence</h3><p class="note" style="margin-top:0">Every fact on a product card says where it came from: manufacturer page or spec sheet, retailer listing, review, or unconfirmed. Anything I could not confirm is listed, not guessed.</p></div>';
+  }
+  else if(id==="unc"){h+='<h3>Things I could not confirm</h3><div class="card"><ul>'+D.unconfirmed.map(function(u){return '<li>'+esc(u)+'</li>'}).join("")+'</ul></div>'}
+  else if(id==="next"){h+='<div class="card" style="margin-bottom:10px"><h3>What this research covers now</h3><ul>'+D.later.now.map(function(u){return '<li>'+esc(u)+'</li>'}).join("")+'</ul></div><div class="card"><h3>What would make it decision-ready with TCL data</h3><ul>'+D.later.after.map(function(u){return '<li>'+esc(u)+'</li>'}).join("")+'</ul></div>'}
+  else{Object.keys(D.sources).forEach(function(k){sref(k)});h+='<h3>Every source</h3><div class="card"><ol style="margin:0;padding-left:22px">'+order.map(function(k){var s=D.sources[k];return '<li><a href="'+esc(s[1])+'" target="_blank" rel="noopener">'+esc(s[0])+'</a></li>'}).join("")+'</ol></div>'}
   return h;
 }
 Object.keys(D.sources).forEach(sref);
-var R={lineup:lineup,compare:compare,grow:grow,voice:voice,traps:traps,method:method};
+var R={lineup:lineup,compare:compare,grow:grow,voice:voice,ruledout:ruledout,process:process};
 function route(){
   var p=(location.hash||"#/").replace(/^#\/?/,"").split("/");var v=p[0]||"home";
   if(v!=="home"&&!R[v])v="home";
