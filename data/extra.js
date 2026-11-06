@@ -21,9 +21,8 @@ D.score={
   rows:[["Heating at 47°F","11,700 BTU","9,000 BTU","ahead"],
         ["Heating at 5°F","About 8,400 BTU","7,200 BTU","ahead"],
         ["Coldest published point","5°F","-13°F on page, -7°F on spec sheet","behind"],
-        ["Meant to stay in all winter","Care page says remove at season end","Sold for year-round use","behind"],
-        ["Price","About $748 to $750 (Zoro, Quill)","Not confirmed","unclear"]],
-  bottom:"TCL out-heats Gradient where both publish numbers. Gradient's edge is year-round use and a colder published rating."},
+                ["Price","About $748 to $750 (Zoro, Quill)","Not confirmed","unclear"]],
+  bottom:"TCL out-heats Gradient where both publish numbers. Gradient's edge is a colder published rating."},
  ttw:{tclL:"TCL H12T9XH 12K",compL:"Friedrich KHVS12B33A",
   rows:[["Heat","Electric elements, 11,600 BTU","Heat pump 11,400 BTU plus electric","behind"],
         ["Price","$649.99","$1,799","ahead"],
@@ -61,10 +60,9 @@ D.ladder={
 };
 
 D.grow={
- 1:{what:"A heat pump window unit made to stay in the window all winter.",diff:"Same heat pump as today's 12K, plus winter sealing, a freeze-safe drain, a cover and a tool-free mount.",price:"$799 to $899",basis:"Today's 12K heat pump sells for about $748 to $750. A modest premium for the winter features. Gradient's price is not confirmed.",bullets:["TCL's care page says to remove window units at season end and does not mention the heat pump.","Gradient sells a window heat pump for year-round use with no drilling.","A TechHive reviewer drilled the 8K and removes it each winter."]},
- 2:{what:"A smaller heat pump window unit, 8K or 10K.",diff:"TCL's only heat pump window unit is 12K. This adds a smaller, cheaper way into heating.",price:"$599 to $699",basis:"TCL's 8K and 10K list for $399 and $449 cooling-only, and heating adds about $250 on the 12K.",bullets:["Gradient sells a roughly 9,000 BTU unit.","Midea lists an 8K Heat & Cool window unit. Heat type not confirmed.","No customer signal found yet."]},
- 3:{what:"A through-the-wall unit with a heat pump.",diff:"TCL's through-the-wall unit heats with electric elements. This swaps in a heat pump.",price:"$899 to $1,199",basis:"Between TCL's $649.99 and Friedrich's $1,799. A wide range, so test it.",bullets:["Friedrich KHVS12B33A has a heat pump at $1,799 and shows discontinued at one retailer.","Why it was discontinued is not known yet.","No customer signal found yet."]},
- 4:{what:"A portable air conditioner with a heat pump.",diff:"TCL's portables use a heater, type not confirmed. This moves heating to a heat pump.",price:"$449 to $549",basis:"TCL's 10K dual-hose is $359.99. Hisense's heat pump portable shows $212 to $435 in deal posts. Weakest price anchor, check first.",bullets:["Hisense sells an 8K dual-hose inverter with a heat pump.","I could not confirm what TCL's heater uses.","No customer signal found yet."]},
- 5:{what:"A dehumidifier with a built-in air filter.",diff:"TCL sells dehumidifiers and Breeva purifiers separately. This puts both in one unit.",price:"$299 to $349",basis:"TCL's 50-pint is $264.99 and Frigidaire's 35-pint 2-in-1 is $314.",bullets:["Frigidaire GHDD3535W1 combines a 35-pint dehumidifier with an allergy filter.","Unknown whether TCL dehumidifier and Breeva buyers overlap.","No customer signal found yet."]}
+ 1:{what:"A smaller heat pump window unit, 8K or 10K.",diff:"TCL's only heat pump window unit is 12K. This adds a smaller, cheaper way into heating.",price:"$599 to $699",basis:"TCL's 8K and 10K list for $399 and $449 cooling-only, and heating adds about $250 on the 12K.",bullets:["Gradient sells a roughly 9,000 BTU unit.","Midea lists an 8K Heat & Cool window unit. Heat type not confirmed.","No customer signal found yet."]},
+ 2:{what:"A through-the-wall unit with a heat pump.",diff:"TCL's through-the-wall unit heats with electric elements. This swaps in a heat pump.",price:"$899 to $1,199",basis:"Between TCL's $649.99 and Friedrich's $1,799. A wide range, so test it.",bullets:["Friedrich KHVS12B33A has a heat pump at $1,799 and shows discontinued at one retailer.","Why it was discontinued is not known yet.","No customer signal found yet."]},
+ 3:{what:"A portable air conditioner with a heat pump.",diff:"TCL's portables use a heater, type not confirmed. This moves heating to a heat pump.",price:"$449 to $549",basis:"TCL's 10K dual-hose is $359.99. Hisense's heat pump portable shows $212 to $435 in deal posts. Weakest price anchor, check first.",bullets:["Hisense sells an 8K dual-hose inverter with a heat pump.","I could not confirm what TCL's heater uses.","No customer signal found yet."]},
+ 4:{what:"A dehumidifier with a built-in air filter.",diff:"TCL sells dehumidifiers and Breeva purifiers separately. This puts both in one unit.",price:"$299 to $349",basis:"TCL's 50-pint is $264.99 and Frigidaire's 35-pint 2-in-1 is $314.",bullets:["Frigidaire GHDD3535W1 combines a 35-pint dehumidifier with an allergy filter.","Unknown whether TCL dehumidifier and Breeva buyers overlap.","No customer signal found yet."]}
 };
 })();

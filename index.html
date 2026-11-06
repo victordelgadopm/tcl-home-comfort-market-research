@@ -135,7 +135,7 @@ function icon(n,cls){return '<svg class="'+(cls||'')+'" viewBox="0 0 64 64" '+S+
 var VIEWS=[
  {id:"lineup",name:"What TCL sells",short:"Lineup",icon:"lineup",desc:"7 product lines and what you get as the price goes up"},
  {id:"compare",name:"How TCL compares",short:"Compare",icon:"compare",desc:"Where TCL is ahead, even or behind competitors"},
- {id:"grow",name:"Where TCL could grow",short:"Grow",icon:"grow",desc:"5 ideas with a price to test, and fixes to today's products"},
+ {id:"grow",name:"Where TCL could grow",short:"Grow",icon:"grow",desc:"4 ideas with a price to test, and fixes to today's products"},
  {id:"voice",name:"What customers say",short:"Customers",icon:"voice",desc:"Review themes, with how thin the evidence is"},
  {id:"traps",name:"Traps I avoided",short:"Traps",icon:"trap",desc:"A recalled design, a rating change, and ideas set aside"},
  {id:"method",name:"How sure I am",short:"Method",icon:"method",desc:"What is unconfirmed, what comes next, and every source"}
@@ -155,7 +155,7 @@ function nav(cur){
 
 function home(){
   var h='<h1>TCL Home Comfort market research</h1><p class="lead">What they sell, how they compare, where they could grow. Tap a section.</p>';
-  h+='<div class="card"><b>The short version:</b> TCL already sells a 12K window heat pump. The clearest gap is one built to stay in the window all winter, which a competitor already sells.</div>';
+  h+='<div class="card"><b>The short version:</b> TCL has one heat pump window unit, the 12K. Competitors already sell heat pump versions in smaller window, through-the-wall and portable formats.</div>';
   h+='<div class="tiles">'+VIEWS.map(function(v){return '<a class="tile" href="#/'+v.id+'">'+icon(v.icon,"ic")+'<div><b>'+esc(v.name)+'</b><span>'+esc(v.desc)+'</span></div><span class="go">&rsaquo;</span></a>'}).join("")+'</div>';
   return h;
 }
@@ -221,7 +221,7 @@ function compare(sub){
 
 var IDEAS=D.ideas;var lab={yes:["Yes","yes"],partial:["Partial","partial"],none:["None found","none"]};
 function grow(sub){
-  var items=[{id:"all",name:"All 5 ideas"}].concat(IDEAS.map(function(i){return {id:String(i.n),name:"Idea "+i.n}})).concat([{id:"fixes",name:"Fixes"}]);
+  var items=[{id:"all",name:"All 4 ideas"}].concat(IDEAS.map(function(i){return {id:String(i.n),name:"Idea "+i.n}})).concat([{id:"fixes",name:"Fixes"}]);
   var id=sub||"all";
   var h='<h2>Where TCL could grow</h2><p class="lead">Each idea shows what is different, why, and a price to test.</p>'+pills(items,id,"grow");
   if(id==="all"){
@@ -236,7 +236,7 @@ function grow(sub){
     return h;
   }
   var i=IDEAS.filter(function(x){return String(x.n)===id})[0],g=D.grow[i.n];
-  var iconId=["heatpump","heatpump","ttw","portable","dehum"][i.n-1];
+  var iconId=["heatpump","ttw","portable","dehum"][i.n-1];
   h+='<div class="hero">'+icon(iconId,"ic")+'<div><h3>'+i.n+'. '+esc(i.h)+'</h3><small>'+esc(i.read)+'</small></div></div>';
   h+='<div class="big"><div class="card"><div class="sec" style="margin-top:0">What it is</div>'+esc(g.what)+'<div class="sec">What is different</div>'+esc(g.diff)+'</div>';
   h+='<div class="card"><div class="sec" style="margin-top:0">Price to test</div><div class="price">'+esc(g.price)+'</div><div class="note">'+esc(g.basis)+'</div></div>';

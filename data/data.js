@@ -8,7 +8,7 @@ meta: {
 },
 findings: [
   { h: "TCL's range is broader than it looks", t: "Window, through-the-wall, portable, dehumidifier, air purifier and mini split lines, including a 12K window heat pump and Elite mini splits that are all heat pumps." },
-  { h: "The clearest gap is a heat pump window unit built to stay in all winter", t: "TCL's window AC care page says to remove the unit at season end and does not mention its heat pump model. Gradient sells a heat pump window unit for year-round use, and TCL already has a 12K heat pump." },
+  { h: "The gaps are heat pump versions in other formats", t: "TCL has one heat pump window unit, the 12K. Competitors already sell heat pump versions in smaller window, through-the-wall and portable formats." },
   { h: "Two traps I checked before suggesting anything", t: "Midea's U-shaped window unit was recalled for drainage and mold, and dehumidifier pint ratings changed in 2020, so an old 70-pint unit equals a new 50-pint unit." }
 ],
 categories: [
@@ -25,13 +25,13 @@ categories: [
  },
  { id:"heatpump", name:"Window heat pump",
    tcl:[
-    {model:"H12W4KWH", name:"Q Series 12K heat pump", specs:[["Heating","11,700 BTU (100% at 47°F)"],["At 5°F","72% of rated heating, about 8,400 BTU"],["Efficiency","CEER 14.4, 1,190 W, 115V"],["Window","29.5 to 41 in. wide"]], conf:"tcl", src:["hd_hp_pdf","lowes_hp","tcl_care"], note:"Titled heat pump at Lowe's and Amazon, and supplemental heat at Best Buy and Home Depot."}
+    {model:"H12W4KWH", name:"Q Series 12K heat pump", specs:[["Heating","11,700 BTU (100% at 47°F)"],["At 5°F","72% of rated heating, about 8,400 BTU"],["Efficiency","CEER 14.4, 1,190 W, 115V"],["Window","29.5 to 41 in. wide"]], conf:"tcl", src:["hd_hp_pdf","lowes_hp"], note:"Titled heat pump at Lowe's and Amazon, and supplemental heat at Best Buy and Home Depot."}
    ],
    comp:[
     {model:"All-Weather 120V", name:"Gradient window heat pump", brand:"Gradient", specs:[["Heating","9,000 BTU at 47°F, 7,200 BTU at 5°F"],["Low temperature","Product page lists 7,026 BTU at -13°F; spec sheet lists 4,900 BTU at -7°F"],["Install","No drilling or permits (product page)"],["Weight","125 lb (spec sheet)"]], conf:"tcl", src:["gradient_page","gradient_spec"], note:"Gradient's two documents disagree on low-temperature output and efficiency."},
     {model:"MAW08H1ZWT", name:"Midea 8K Heat & Cool window unit", brand:"Midea", specs:[["Heating type","Unconfirmed"],["Size","8,000 BTU"]], conf:"unconfirmed", src:["midea_8k"]}
    ],
-   compare:"TCL has more heating capacity in one unit (11,700 BTU at 47°F against 9,000). At 5°F the two are closer, about 8,400 BTU for TCL and 7,200 for Gradient. Gradient publishes operation down to -13°F, while the lowest TCL point I found is 5°F. TCL's window AC care page says to remove the unit at season end (it does not mention heat pump models), while Gradient sells its unit for year-round use."
+   compare:"TCL has more heating capacity in one unit (11,700 BTU at 47°F against 9,000). At 5°F the two are closer, about 8,400 BTU for TCL and 7,200 for Gradient. Gradient publishes operation down to -13°F, while the lowest TCL point I found is 5°F."
  },
  { id:"ttw", name:"Through-the-wall",
    tcl:[
@@ -117,23 +117,19 @@ voice:[
   {h:"Support and warranty", t:"Templated replies, long holds, and a hard warranty process.", s:"Several small sources."}
 ],
 ideas:[
-  {n:1, h:"Heat pump window unit built to stay in all winter", gap:"yes", comp:"yes", sig:"partial", read:"Strongest",
-   why:"TCL's H12W4KWH already heats (11,700 BTU, 72% output at 5°F), but TCL's window AC care page says to remove the unit at season end and does not mention heat pump models. Gradient sells a heat pump window unit for year-round use with no drilling.",
-   signal:"TechHive drilled the 8K and removes it each winter. A Staples reviewer needed help lifting it.",
-   test:"Ask what TCL tells heat pump owners in winter. Check returns and support data for H12W4KWH. Scope weather sealing, a freeze-safe drain, an included cover and a tool-free mount. Price against Gradient."},
-  {n:2, h:"Smaller heat pump window unit (8K, 10K)", gap:"yes", comp:"partial", sig:"none", read:"Worth testing",
+  {n:1, h:"Smaller heat pump window unit (8K, 10K)", gap:"yes", comp:"partial", sig:"none", read:"Best-supported idea",
    why:"TCL's only heat pump window unit is the 12K. Gradient sells a roughly 9,000 BTU unit. Midea lists an 8K Heat & Cool window unit, heat type unconfirmed.",
    signal:"None found.",
    test:"Pull TCL window sales by size to see how much volume is 8K and 10K. Confirm Midea's heating type."},
-  {n:3, h:"Heat pump through-the-wall unit", gap:"yes", comp:"partial", sig:"none", read:"Check",
+  {n:2, h:"Heat pump through-the-wall unit", gap:"yes", comp:"partial", sig:"none", read:"Check",
    why:"TCL's H12T9XH heats with 11,600 BTU of electric elements. Friedrich KHVS12B33A adds a heat pump (11,400 BTU) at $1,799 and is shown discontinued at one retailer.",
    signal:"None found.",
    test:"Confirm whether TCL's through-the-wall units are inverter. Find out why Friedrich's was discontinued. Size the wall-sleeve replacement market."},
-  {n:4, h:"Heat pump portable", gap:"partial", comp:"yes", sig:"none", read:"Check",
+  {n:3, h:"Heat pump portable", gap:"partial", comp:"yes", sig:"none", read:"Check",
    why:"TCL's Q Series portables use a heater, type unconfirmed. Hisense sells an 8K dual-hose inverter portable with a heat pump.",
    signal:"None found.",
    test:"Confirm TCL's heater type. Check US availability and reviews of Hisense's model."},
-  {n:5, h:"Dehumidifier with a built-in filter (2-in-1)", gap:"yes", comp:"yes", sig:"none", read:"Weaker",
+  {n:4, h:"Dehumidifier with a built-in filter (2-in-1)", gap:"yes", comp:"yes", sig:"none", read:"Weaker",
    why:"TCL sells dehumidifiers and Breeva purifiers separately. Frigidaire GHDD3535W1 combines a 35-pint dehumidifier with an allergy filter, Wi-Fi and Energy Star for $314.",
    signal:"None found.",
    test:"Read Frigidaire's reviews. Check customer overlap between TCL dehumidifier and Breeva buyers."}
@@ -146,6 +142,7 @@ fixes:[
   ["All products","Templated support replies and a hard warranty process (several sources)","Faster first-season replacement and a clearer warranty"]
 ],
 setaside:[
+  ["Window unit built to stay in all winter","Not a gap. TCL's care page and Midea's manual both say to remove window units at season end. Gradient markets year-round comfort, but I found no statement that its unit stays in all winter."],
   ["Larger dehumidifiers","Same size class as TCL once ratings match. Frigidaire's 69.7-pint is the old rating for about 50 pints new."],
   ["U-shaped window design","Recalled for drainage and mold, and the look is covered by design patents."],
   ["Window units above 15K BTU","TCL's 18K is no longer sold at Best Buy and the 15K already weighs 92.6 lb."],
