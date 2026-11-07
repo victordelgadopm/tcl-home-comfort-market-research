@@ -20,50 +20,60 @@ D.score={
  heatpump:{tclL:"TCL H12W4KWH 12K",compL:"Gradient All-Weather 120V",
   rows:[["Heating at 47°F","11,700 BTU","9,000 BTU","ahead"],
         ["Heating at 5°F","About 8,400 BTU","7,200 BTU","ahead"],
-        ["Coldest published point","5°F","-13°F (7,026 BTU)","behind"],
-                ["Price","About $748 to $750 (Zoro, Quill)","Not confirmed","unclear"]],
-  bottom:"TCL out-heats Gradient where both publish numbers. Gradient's edge is a colder published rating."},
- ttw:{tclL:"TCL H12T9XH 12K",compL:"Friedrich KHVS12B33A",
-  rows:[["Heat","Electric elements, 11,600 BTU","Heat pump 11,400 BTU plus electric","behind"],
-        ["Price","$649.99","$1,799","ahead"],
-        ["Inverter","Not confirmed","Yes","unclear"]],
-  bottom:"TCL costs far less but heats with electric elements. Friedrich adds a heat pump at a much higher price."},
- portable:{tclL:"TCL H10PD56W 10K dual hose",compL:"Hisense AP0825TW1SAHP 8K",
+        ["Coldest published point","-6°F (manual)","-13°F (Gradient), -22°F (Midea)","behind"],
+        ["Price","$749.99","$3,800 (Gradient), $2,800 to $3,000 (Midea)","ahead"],
+        ["Buyer feedback","Home Depot 3.9 of 5, 33% recommend (17)","Press: Midea pilot users report heat in single digits","behind"]],
+  bottom:"TCL costs about a quarter as much and out-heats Gradient at 47°F and 5°F. Gradient and Midea go colder, and TCL's own documents give three different cold limits."},
+ ttw:{tclL:"TCL H12T9XH 12K",compL:"Friedrich WallMaster WHVT14B33A",
+  rows:[["Heat","11,600 BTU supplemental, type not stated","Heat and cool (its KHVS12B33A heat pump is discontinued)","unclear"],
+        ["Price","$649.99","$1,699.97","ahead"],
+        ["Inverter","Not stated on TCL's pages","Yes","behind"],
+        ["Rating","3.6 of 5, 34 reviews (Home Depot)","3.4 of 5 (PC Richard)","even"]],
+  bottom:"TCL costs about $1,000 less. Friedrich advertises inverter, TCL does not. Both rate low."},
+ portable:{tclL:"TCL H10PD56W 10K dual hose",compL:"Hisense APT0825UW1WD 8K",
   rows:[["Design","Dual hose, inverter","Dual hose, inverter","even"],
-        ["Heating","Heater version exists, type not confirmed","Heat pump","unclear"],
-        ["Capacity","10,000 BTU (DOE)","8,000 BTU (SACC)","unclear"]],
-  bottom:"Not enough confirmed to call it. Hisense sells a heat pump portable, and I could not confirm what TCL's heater uses."},
+        ["Heating","Heater version, called supplemental heating","Heat pump","behind"],
+        ["Heat mode limit","Recommended above 46°F outdoors (TCL support)","Heat pump, limit not on the page","unclear"],],
+  bottom:"TCL's reviews are strong. On heat, Hisense says heat pump and TCL does not name its heater type."},
  dehum:{tclL:"TCL 50-pint (photo: T50DC9SPB with pump)",compL:"Frigidaire FGAC5044W1 50-pint and GHDD3535W1 2-in-1 (photo: 2-in-1)",
   rows:[["50-pint model","Energy Star, Wi-Fi","Energy Star, Wi-Fi","even"],
-        ["2-in-1 with air filter","None found","Yes, 35-pint, $314","behind"],
-        ["Drain pump","2 of 17 listings","Not checked","unclear"]],
-  bottom:"Matched at 50 pints. The gap is a dehumidifier with a built-in filter."},
- purifier:{rows:[],bottom:"Competitor comparison not done yet. It is the next step."},
- split:{rows:[],bottom:"Competitor comparison not done yet. TCL's range here is broad, so I expect a strength to confirm."}
+        ["2-in-1 with air filter","None","Yes, 35-pint, 4.9 of 5 from 29, shown no longer available at AJ Madison","behind"],
+        ["Drain pump","5 of 17 listings","Not on the 50-pint listing","unclear"]],
+  bottom:"Matched at 50 pints. The gap is a dehumidifier with a built-in filter, though Frigidaire's may be discontinued."},
+ purifier:{tclL:"TCL Breeva A3",compL:"Levoit Core 300S",
+  rows:[["Price","$79.99","$149.99","ahead"],
+        ["Airflow (CADR)","159 CFM","141 CFM","ahead"],
+        ["Warranty","12 months","2 years","behind"],
+        ["Noise","Quiet low, loud at max (65.8 dBA)","22 to 50 dB","behind"]],
+  bottom:"TCL's A3 costs about half as much with more airflow. Levoit has the longer warranty and quieter range."},
+ split:{tclL:"TCL T-PRO 12K",compL:"Pioneer, Senville, MrCool 12K",
+  rows:[["Price","$1,749 to $1,849 (out of stock)","$817 to $1,914","behind"],
+        ["Efficiency","Elite 23 SEER2, 9.5 HSPF2","Pioneer 20 SEER2, 9.5 HSPF2","ahead"],],
+  bottom:"TCL is about double Pioneer and Senville and level with MrCool. The do-it-yourself install is the edge to study."}
 };
 
 D.ladder={
  window:{lead:"Bigger size, more room covered. TCL's 15K is the heaviest.",
   rows:[["8K","$399 list","Covers 350 sq ft. 61.7 lb."],["10K","$449 list","Covers 450 sq ft."],["12K","$499 list","Covers 550 sq ft. 40 dB."],["15K","Price not found","Covers 550 to 700 sq ft."]],src:["tcl_h8","bb_10k","tcl_h12","tcl_h15"]},
- heatpump:{lead:"One model today. About $250 more than the cooling-only 12K list price.",
-  rows:[["12K heat pump","About $748 to $750","11,700 BTU heating. 72% of that at 5°F. Window 29.5 to 41 in."]],src:["zoro_hp","quill_hp","hd_hp_pdf"]},
- ttw:{lead:"11 listings from 8K to 14K. I priced one.",
-  rows:[["12K with heat","$649.99","11,600 BTU electric supplemental heat. Fits a 26 in. sleeve."]],src:["bb_ttw"]},
- portable:{lead:"About 22 listings. I priced one.",
-  rows:[["10K dual hose","$359.99","Inverter, covers 450 sq ft."],["10K with heater","Price not found","Heater type not confirmed."]],src:["bb_portable","zoro_portable"]},
+ heatpump:{lead:"One TCL model today, against $2,800 to $3,800 from Midea and Gradient.",
+  rows:[["TCL 12K heat pump","$749.99","11,700 BTU heating. 72% at 5°F. Manual: operates to -6°F. Window 29.5 to 41 in."],["Midea packaged 9K","$2,800 to $3,000","Heats to -22°F. Installer channel."],["Gradient 120V 9,300 BTU","$3,800","7,026 BTU at -13°F. 140 lb."]],src:["hd_hp_page","hd_hp_pdf","tcl_hp_manual","fc_midea","hdigest_cold"]},
+ ttw:{lead:"11 listings from 8K to 14K, 64 to 76 lb, professional install recommended.",
+  rows:[["TCL 12K with heat","$649.99","11,600 BTU supplemental heat. Home Depot 3.6 of 5 (34)."],["Friedrich WallMaster 15K","$1,699.97","Inverter, heat and cool, 3.4 of 5."]],src:["bb_ttw","hd_ttw_qa","tcl_ttw","pcrichard_wm"]},
+ portable:{lead:"About 22 listings.",
+  rows:[["TCL 10K dual hose","$359.99","Inverter, covers 450 sq ft. 4.86 of 5 from 22 at Staples."],["TCL 10K with heater","Retailer out of stock","\"Supplemental heating.\" Heat mode recommended above 46°F."]],src:["bb_portable","zoro_portable","tcl_support_heat"]},
  dehum:{lead:"20 to 50 pints. A drain pump is on 2 of 17 listings.",
   rows:[["50-pint smart","$264.99","Energy Star, Wi-Fi, covers 4,500 sq ft, hose drain port."],["50-pint with pump","Price not found","Pump in the product name."]],src:["quill_h50","tcl_dehum"]},
- purifier:{lead:"Six Breeva models, 3 to 5 filter stages. Prices not collected.",
-  rows:[["A1, A1W","Not collected","Covers 161 to 322 sq ft."],["A1C","Not collected","Covers 219 to 438 sq ft."],["A2","Not collected","4-stage. Covers 182 to 441 sq ft."],["A3","Not collected","5-stage. Covers 256 to 596 sq ft."],["A5","Not collected","Covers 365 to 883 sq ft."]],src:["tcl_purifier"]},
- split:{lead:"All Elite models are heat pumps. Prices not collected.",
-  rows:[["Elite 12K","Not collected","23 SEER2, 9.5 HSPF2."],["Elite 24K","Not collected","21 SEER2, 9.5 HSPF2."],["Multi-Match","Not collected","Up to 5 indoor units."],["Ultimate 24K","Not collected","Rated to -22°F (retailer)."]],src:["tcl_elite","tcl_multi","msw_24"]}
+ purifier:{lead:"Six Breeva models, 3 to 5 filter stages.",
+  rows:[["A2","$59.99 (Amazon, per a reviewer)","4-stage. Covers 182 to 441 sq ft."],["A3","$79.99 (Amazon, per a reviewer)","5-stage, CADR 159. Covers 256 to 596 sq ft."],["A1, A1W, A1C, A5","Price not on the pages I read","A1 161 to 322 sq ft, A1C 219 to 438, A5 365 to 883."]],src:["tcl_purifier","apf_a3"]},
+ split:{lead:"All Elite models are heat pumps. T-PRO is sold on TCL's store and shows out of stock.",
+  rows:[["T-PRO 9K","$1,449 to $1,549","230V or 115V."],["T-PRO 12K","$1,749 to $1,849","230V or 115V."],["T-PRO 18K","$2,399","230V."],["T-PRO 24K","$2,899","230V."],["Elite 12K","Retailers","23 SEER2, 9.5 HSPF2."]],src:["tcl_pro","tcl_elite","tcl_multi","msw_24"]}
 };
 
 D.grow={
- 1:{what:"A smaller heat pump window unit, 8K or 10K.",diff:"TCL's only heat pump window unit is 12K. This adds a smaller, cheaper way into heating.",price:"$599 to $699",basis:"TCL's 8K and 10K list for $399 and $449 cooling-only, and heating adds about $250 on the 12K.",bullets:["Gradient sells a roughly 9,000 BTU unit.","Midea lists an 8K Heat & Cool window unit. Heat type not confirmed.","No customer signal found yet."]},
- 2:{what:"A through-the-wall unit with a heat pump.",diff:"TCL's through-the-wall unit heats with electric elements. This swaps in a heat pump.",price:"$899 to $1,199",basis:"Between TCL's $649.99 and Friedrich's $1,799. A wide range, so test it.",bullets:["Friedrich KHVS12B33A has a heat pump at $1,799 and shows discontinued at one retailer.","Why it was discontinued is not known yet.","No customer signal found yet."]},
- 3:{what:"A portable air conditioner with a heat pump.",diff:"TCL's portables use a heater, type not confirmed. This moves heating to a heat pump.",price:"$449 to $549",basis:"TCL's 10K dual-hose is $359.99. Hisense's heat pump portable shows $212 to $435 in deal posts. Weakest price anchor, check first.",bullets:["Hisense sells an 8K dual-hose inverter with a heat pump.","I could not confirm what TCL's heater uses.","No customer signal found yet."]},
- 4:{what:"A dehumidifier with a built-in air filter.",diff:"TCL sells dehumidifiers and Breeva purifiers separately. This puts both in one unit.",price:"$299 to $349",basis:"TCL's 50-pint is $264.99 and Frigidaire's 35-pint 2-in-1 is $314.",bullets:["Frigidaire GHDD3535W1 combines a 35-pint dehumidifier with an allergy filter.","Unknown whether TCL dehumidifier and Breeva buyers overlap.","No customer signal found yet."]}
+ 1:{what:"A window heat pump that heats in the cold, at a mid price.",diff:"TCL's 12K is $749.99 and its documents give three cold limits. Midea and Gradient go colder at $2,800 to $3,800. This fills the gap between.",price:"$1,199 to $1,799",basis:"A test range between $750 and $2,800, not a finding.",bullets:["Midea 9K: $2,800 to $3,000, heats to -22°F, sold through installers.","Gradient 9,300 BTU: $3,800, 7,026 BTU at -13°F.","Press: cheaper units often heat only above about 40°F, and cost is the main barrier.","Home Depot: TCL's 12K is 3.9 of 5 from 17 reviews, 33% recommend."]},
+ 2:{what:"A through-the-wall unit with a heat pump.",diff:"TCL's H12T9XH has 11,600 BTU supplemental heat and never says inverter. This adds a heat pump and inverter.",price:"$899 to $1,199",basis:"Between TCL's $649.99 and Friedrich's $1,699.97.",bullets:["Friedrich's heat pump KHVS12B33A ($1,799) is discontinued.","Friedrich WallMaster 15K: inverter, $1,699.97, 3.4 of 5.","TCL's H12T9XH: 3.6 of 5 from 34 reviews at Home Depot, so quality is the opening."]},
+ 3:{what:"A portable air conditioner with a heat pump.",diff:"TCL calls its portable heat supplemental heating and does not name the type. Hisense states heat pump.",price:"$449 to $549",basis:"Anchored on Westinghouse's 14K portable with heat at $549.99, a weak anchor.",bullets:["Hisense lists an 8K dual-hose inverter with heat pump on its US site.","Westinghouse 14K with heat: 4.5 of 5 from 394 reviews (Tractor Supply listing).","TCL's 10K portable: 4.86 of 5 from 22 at Staples, about 4.4 of 5 at Best Buy."]},
+ 4:{what:"A dehumidifier with a built-in air filter.",diff:"TCL sells dehumidifiers and Breeva purifiers separately. This puts both in one unit.",price:"$299 to $349",basis:"TCL's 50-pint is $264.99 and Frigidaire's 35-pint 2-in-1 was $314.",bullets:["Frigidaire GHDD3535W1: 35-pint with PureAir filter, 4.9 of 5 from 29 reviews.","It is shown as no longer available at AJ Madison, so check why.","Weakest of the four."]}
 };
 })();
 
@@ -97,14 +107,14 @@ window.DATA.media={
 };
 /* Idea pages: the TCL product today and the competitor that already has the idea (model keys into media). */
 window.DATA.ideaPair={1:["H12W4KWH","All-Weather 120V"],2:["H12T9XH","KHVS12B33A"],3:["H10PD56W","AP0825TW1SAHP"],4:["T50DC9SPB","GHDD3535W1"]};
-window.DATA.ideaPairNames={"H12W4KWH":"TCL 12K heat pump window unit","All-Weather 120V":"Gradient All-Weather 120V","H12T9XH":"TCL H12T9XH through-the-wall","KHVS12B33A":"Friedrich KHVS12B33A","H10PD56W":"TCL H10PD56W portable","AP0825TW1SAHP":"Hisense AP0825TW1SAHP","T50DC9SPB":"TCL 50-pint dehumidifier with pump","GHDD3535W1":"Frigidaire GHDD3535W1 2-in-1"};
+window.DATA.ideaPairNames={"H12W4KWH":"TCL 12K heat pump window unit","All-Weather 120V":"Gradient All-Weather 120V","H12T9XH":"TCL H12T9XH through-the-wall","KHVS12B33A":"Friedrich through-the-wall heat pump (discontinued)","H10PD56W":"TCL H10PD56W portable","AP0825TW1SAHP":"Hisense 8K heat pump portable","T50DC9SPB":"TCL 50-pint dehumidifier with pump","GHDD3535W1":"Frigidaire GHDD3535W1 2-in-1"};
 
 /* Full range on TCL's US collection pages (counts from the page filter; model lists are the first page shown). */
 window.DATA.range={
  window:{count:"34 listings",line:"TCL's window AC range runs from 5K to 15K BTU and mixes several generations. Almost every item on TCL's own store showed as out of stock when I checked.",listed:[["H6W23W","6K"],["W5WC72M","5K"],["T05WV9M","5K"],["T08WV9S","8K"],["T10WV9S","10K"],["T12WV9S","12K"],["T14WV9S","14K"],["W8W92-B4","8K"],["W10W92-B4","10K"],["H8W35W","8K"],["H10W35W","10K"],["H12W35W","12K"],["H14W35W","14K"],["H5W33M","5K"],["W8W9E2-3","8K"],["W10W9E2-3","10K"],["W12W9E2-3","12K"],["W14W9E2-3","14K"],["W6W32","6K"],["W5W3M","5K"],["W5WM","5K"],["H15W4KW","15K"],["H12W4MW","12K"],["H10W4MW","10K"],["H8W4MW","8K"]],link:"https://us.tcl.com/collections/window-air-conditioners",src:"25 named here of 34 listings; the rest are older or color variants"},
  heatpump:{count:"1 model, retail only",line:"The H12W4KWH is the only window heat pump I found. It is sold at Home Depot, Lowe's, Best Buy and Zoro, not on TCL's own store.",listed:[["H12W4KWH","12K heat pump"]],link:"https://www.lowes.com/pd/TCL-Large-Room-Window-Air-Conditioner-with-Heater-Remote-Included-115-Volt-12000-BTU/5016583701",src:"retailer-only"},
  ttw:{count:"11 listings",line:"TCL's store lists 11 through-the-wall models, 8K to 14K. The Best Buy H12T9XH ($649.99) is not on TCL's own store list.",listed:[["W8T9E1-A","8K"],["8T3E1","8K"],["W10T9E1-A","10K"],["W10T9EX1-A","10K"],["12T3E1","12K"],["W12T9E1-A","12K"],["W12T9EX1-A","12K"],["W14T9X1-A","14K"],["H8T9E1-A","8K"],["H10T9E1-A","10K"],["H12T9E1-A","12K"]],link:"https://us.tcl.com/collections/through-the-wall-air-conditioners",src:"11 of 11 listed"},
- portable:{count:"About 22 listings",line:"I looked at the dual-hose inverter models in detail.",listed:[],link:"https://us.tcl.com/collections/portable-air-conditioners",src:""},
+ portable:{count:"22 listings",line:"TCL's portable range runs from 5K to 10K DOE. Two to three carry supplemental heat. Model codes below are as TCL lists them.",listed:[["T06PC9S","6K"],["T06PC5S","6K"],["T06PC3S","6K"],["T08PC9S","8K"],["T08PC9SB","8K"],["T08PC5S","8K"],["W8P95-5","8K"],["W8P95-B5","8K"],["W8P95-B3","8K"],["H8P27W","12K ASHRAE, UV-C"],["T10PC9S","10K"],["T10PC9SB","10K"],["T10PC5S","10K"],["W10P95-5","10K"],["W10P95-B5","10K"],["W10PH95-5","10K, supplemental heat"],["W10PH95-B","10K, supplemental heat"],["W5P93","5K"],["W5P93-5","5K"],["H5P24W","7,500 BTU"],["H5P44W","5K"],["10K DOE smart (unnamed)","10K, supplemental heat"]],link:"https://us.tcl.com/collections/portable-air-conditioners",src:"22 of 22 listed"},
  dehum:{count:"17 listings",line:"TCL's dehumidifiers run from 20 to 50 pints, with several pump models.",listed:[["T25DC9R","25 pint"],["T32DC9R","32 pint"],["W25D92","25 pint"],["H25D44W","25 pint"],["H30D44W","30 pint"],["20D91","20 pint"],["30D91","30 pint"],["40D91","40 pint"],["50D91","50 pint"],["50D91-B","50 pint"],["W35D92","35 pint"],["H50D44W","50 pint"],["H50D46W","50 pint, pump"],["W50D9P3","50 pint, pump"],["W50D9P2","50 pint, pump"],["W50D9P2-B","50 pint, pump"],["T50DC9SPB","50 pint, pump"]],link:"https://us.tcl.com/collections/dehumidifiers",src:"17 of 17"},
  purifier:{count:"6 models",line:"The Breeva line is the full set.",listed:[],link:"https://us.tcl.com/pages/air-purifiers",src:""},
  split:{count:"4 series",line:"Elite, Multi-Match, Ultimate and ready-to-install systems, from 9K to 36K BTU.",listed:[],link:"https://www.tcl.com/usca/content/dam/tcl/product/hvac/documents/elite-series/Elite%20HVAC%20SpecSheet%202025.pdf",src:""}

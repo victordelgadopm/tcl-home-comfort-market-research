@@ -313,7 +313,7 @@ function ruledout(sub){
   return h;
 }
 function process(sub){
-  var items=[{id:"steps",name:"My process"},{id:"unc",name:"Not yet confirmed"},{id:"next",name:"Next: with TCL data"},{id:"src",name:"Sources"}];var id=sub||"steps";
+  var items=[{id:"steps",name:"My process"},{id:"unc",name:"Data to align"},{id:"next",name:"Next: with TCL data"},{id:"src",name:"Sources"}];var id=sub||"steps";
   var h='<h2>How I research</h2><p class="lead">How I go from public information to new product ideas.</p>'+pills(items,id,"process");
   if(id==="steps"){
     var st=[
@@ -328,7 +328,7 @@ function process(sub){
     h+=st.map(function(x,i){return '<div class="card step" style="margin-bottom:8px"><div class="n">'+(i+1)+'</div><div class="b"><b>'+esc(x[0])+'</b><div>'+esc(x[1])+'</div><a href="#/'+x[2]+'" style="font-size:13.5px;font-weight:700">'+esc(x[3])+' &rsaquo;</a></div></div>'}).join("");
     h+='<div class="card"><h3>How I mark confidence</h3><p class="note" style="margin-top:0">Every fact on a product card says where it came from: manufacturer page or spec sheet, retailer listing, review, or unconfirmed. Anything I could not confirm is listed, not guessed.</p></div>';
   }
-  else if(id==="unc"){h+='<h3>Things I could not confirm</h3><div class="card"><ul>'+D.unconfirmed.map(function(u){return '<li>'+esc(u)+'</li>'}).join("")+'</ul></div>'}
+  else if(id==="unc"){h+='<h3>Where TCL data does not line up</h3><div class="card"><ul>'+D.unconfirmed.map(function(u){return '<li>'+esc(u)+'</li>'}).join("")+'</ul></div>'}
   else if(id==="next"){h+='<div class="card" style="margin-bottom:10px"><h3>What this research covers now</h3><ul>'+D.later.now.map(function(u){return '<li>'+esc(u)+'</li>'}).join("")+'</ul></div><div class="card"><h3>What would make it decision-ready with TCL data</h3><ul>'+D.later.after.map(function(u){return '<li>'+esc(u)+'</li>'}).join("")+'</ul></div>'}
   else{Object.keys(D.sources).forEach(function(k){sref(k)});h+='<h3>Every source</h3><div class="card"><ol style="margin:0;padding-left:22px">'+order.map(function(k){var s=D.sources[k];return '<li><a href="'+esc(s[1])+'" target="_blank" rel="noopener">'+esc(s[0])+'</a></li>'}).join("")+'</ol></div>'}
   return h;

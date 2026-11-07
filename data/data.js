@@ -8,7 +8,7 @@ meta: {
 },
 findings: [
   { h: "TCL's range is broader than it looks", t: "Window, through-the-wall, portable, dehumidifier, air purifier and mini split lines, including a 12K window heat pump and Elite mini splits that are all heat pumps." },
-  { h: "The gaps are heat pump versions in other formats", t: "TCL has one heat pump window unit, the 12K. Competitors already sell heat pump versions in smaller window, through-the-wall and portable formats." },
+  { h: "The biggest gap is heat, and it is a price gap", t: "TCL's window heat pump is $749.99. Midea and Gradient's cold-climate units cost $2,800 to $3,800. TCL's own documents give three different cold limits, and Home Depot buyers recommend the unit 33% of the time." },
   { h: "Two traps I checked before suggesting anything", t: "Midea's U-shaped window unit was recalled for drainage and mold, and dehumidifier pint ratings changed in 2020, so an old 70-pint unit equals a new 50-pint unit." }
 ],
 categories: [
@@ -25,32 +25,34 @@ categories: [
  },
  { id:"heatpump", name:"Window heat pump",
    tcl:[
-    {model:"H12W4KWH", name:"Q Series 12K heat pump", specs:[["Heating","11,700 BTU (100% at 47°F)"],["At 5°F","72% of rated heating, about 8,400 BTU"],["Efficiency","CEER 14.4, 1,190 W, 115V"],["Window","29.5 to 41 in. wide"]], conf:"tcl", src:["hd_hp_pdf","lowes_hp"], note:"TCL's spec sheet says heat pump. Lowe's, Best Buy and Zoro titles say heater or supplemental heat. Sold through retailers only, not on TCL's own store. A Best Buy answer says it is more efficient at 47°F and above."}
+    {model:"H12W4KWH", name:"Q Series 12K heat pump", specs:[["Heating","11,700 BTU (100% at 47°F)"],["At 5°F","72% of rated heating, about 8,400 BTU"],["Cold range","Manual: heats down to -6°F outdoors. Spec sheet: 72% at 5°F. A Home Depot answer: about 42°F."],["Efficiency","CEER 14.4, 1,190 W, 115V"],["Window","29.5 to 41 in. wide"]], conf:"tcl", src:["hd_hp_pdf","lowes_hp","hd_hp_page","tcl_hp_manual"], note:"TCL's spec sheet and Home Depot description say heat pump, but titles at Home Depot, Lowe's, Best Buy and Zoro say heater or supplemental heat. Retail only, not on TCL's own store. Home Depot reviews: 3.9 of 5 from 17, 33% recommend."}
    ],
    comp:[
     {model:"All-Weather 120V", name:"Gradient window heat pump", brand:"Gradient", specs:[["Cooling","9,300 BTU"],["Heating","9,000 BTU at 47°F and 17°F, 7,200 BTU at 5°F, 7,026 BTU at -13°F"],["Install","No drilling or permits (product page)"],["Weight","140 lb total"]], conf:"tcl", src:["gradient_page","gradient_spec"], note:"Product page and the May 2025 brochure agree. An older spec sheet I used earlier gave different low-temperature figures, so I dropped it."},
-    {model:"MAW08H1ZWT", name:"Midea 8K Heat & Cool window unit", brand:"Midea", specs:[["Heating type","Unconfirmed"],["Size","8,000 BTU"]], conf:"unconfirmed", src:["midea_8k"]}
+    {model:"MAH09H1AGR", name:"Midea packaged window heat pump 9K", brand:"Midea", specs:[["Price","$2,800 to $3,000 at launch"],["Cold","Heats to -22°F without electric backup"],["Size","About 300 to 500 sq ft"],["Sold","Through distributors, installers at launch"]], conf:"review", src:["fc_midea"]},
+    {model:"MAW08H1ZWT", name:"Midea 8K Heat & Cool window unit", brand:"Midea", specs:[["Heating","Manual mentions an electric heater, so likely electric heat"],["Size","8,000 BTU"]], conf:"tcl", src:["midea_8k","midea_manual"]}
    ],
-   compare:"TCL has more heating capacity in one unit (11,700 BTU at 47°F against 9,000). At 5°F the two are closer, about 8,400 BTU for TCL and 7,200 for Gradient. Gradient publishes output down to -13°F (7,026 BTU), while the lowest TCL point I found is 5°F."
+   compare:"TCL costs about a quarter as much ($749.99 against $2,800 to $3,800) and has more heating capacity (11,700 BTU at 47°F against 9,000). Gradient and Midea go colder (-13°F and -22°F) and TCL's own documents give three different cold limits. Home Depot buyers recommend the TCL unit 33% of the time."
  },
  { id:"ttw", name:"Through-the-wall",
    tcl:[
-    {model:"H12T9XH", name:"12K through-the-wall", specs:[["Heat","11,600 BTU supplemental electric"],["Price","$649.99 (Best Buy)"],["Sleeve","Fits a 26 in. wall sleeve"],["Range","8K to 14K BTU"]], conf:"retail", src:["bb_ttw"]}
+    {model:"H12T9XH", name:"12K through-the-wall", specs:[["Heat","11,600 BTU supplemental, type not stated"],["Price","$649.99 (Best Buy)"],["Reviews","3.6 of 5 from 34 (Home Depot)"],["Weight","64 to 76 lb across TCL's through-the-wall pages, professional install recommended"],["Inverter","None of TCL's through-the-wall pages says inverter"]], conf:"retail", src:["bb_ttw","hd_ttw_qa","tcl_ttw"]}
    ],
    comp:[
-    {model:"KHVS12B33A", name:"Friedrich slide-out chassis", brand:"Friedrich", specs:[["Heat","Heat pump 11,400 BTU plus electric heat"],["Cooling","12,600 BTU, inverter, 230V"],["Efficiency","CEER 14.4, Energy Star"],["Price","$1,799, shown discontinued at one retailer"]], conf:"retail", src:["friedrich"]}
+    {model:"KHVS12B33A", name:"Friedrich slide-out chassis", brand:"Friedrich", specs:[["Heat","Heat pump 11,400 BTU plus electric heat"],["Cooling","12,600 BTU, inverter, 230V"],["Efficiency","CEER 14.4, Energy Star"],["Price","$1,799, discontinued and sold out (Town Appliance)"]], conf:"retail", src:["friedrich"]},
+    {model:"WHVT14B33A", name:"Friedrich WallMaster 15K", brand:"Friedrich", specs:[["Cooling","15,200 BTU, inverter, heat and cool"],["Price","$1,699.97, special order"],["Rating","3.4 of 5 (PC Richard)"],["Voltage","230V, 20A circuit"]], conf:"retail", src:["pcrichard_wm"]}
    ],
-   compare:"TCL heats with electric elements. Friedrich adds a heat pump at a premium price. I could not confirm whether TCL's through-the-wall units are inverter."
+   compare:"TCL costs about $1,000 less. Friedrich advertises inverter and sold a heat pump model (now discontinued); TCL's pages never say inverter. Both rate low: TCL 3.6 of 5 at Home Depot, Friedrich 3.4 at PC Richard."
  },
  { id:"portable", name:"Portable AC",
    tcl:[
     {model:"H10PD56W", name:"Q Series dual-hose inverter, 10K DOE", specs:[["Price","$359.99 (Best Buy)"],["Room size","450 sq ft"],["Design","Dual hose, inverter"]], conf:"retail", src:["bb_portable","zoro_portable"], note:"Model number cross-referenced from a retailer listing."},
-    {model:"H10PDH56W", name:"Same series with heater", specs:[["Heat","Heater, type unconfirmed"]], conf:"unconfirmed", src:["zoro_portable"]}
+    {model:"H10PDH56W", name:"Same series with heater", specs:[["Heat","\"Supplemental heating\", TCL does not name the type"],["Heat mode","TCL support: recommended above 46°F outdoors"]], conf:"tcl", src:["zoro_portable","tcl_support_heat"]}
    ],
    comp:[
-    {model:"AP0825TW1SAHP", name:"Hisense 8K dual-hose inverter with heat pump", brand:"Hisense", specs:[["Size","8,000 BTU (SACC)"],["Design","Dual-hose tower, inverter"],["Heat","Heat pump"]], conf:"retail", src:["hisense_ca"], note:"Model number from Hisense Canada."}
+    {model:"APT0825UW1WD", name:"Hisense 8K dual-hose inverter, heat and cool", brand:"Hisense", specs:[["Size","8,000 BTU"],["Design","Dual-hose, inverter, Matter"],["Heat","Heat pump (Hisense US page)"]], conf:"tcl", src:["hisense_us"], note:"Listed on Hisense's US site. A related Canadian model is AP0825TW1SAHP."}
    ],
-   compare:"TCL's portables use a heater. Hisense offers a heat pump version."
+   compare:"TCL's portable reviews are strong (Staples 4.86 of 5 from 22; Best Buy about 4.4 of 5, 86% recommend). On heat, TCL says \"supplemental heating\" and recommends heat mode above 46°F outdoors without naming the type. Hisense states heat pump."
  },
  { id:"dehum", name:"Dehumidifier",
    tcl:[
@@ -59,18 +61,20 @@ categories: [
    ],
    comp:[
     {model:"FGAC5044W1", name:"Frigidaire Gallery 50-pint", brand:"Frigidaire", specs:[["Features","Energy Star, Wi-Fi"]], conf:"retail", src:["frig_5044"]},
-    {model:"GHDD3535W1", name:"Frigidaire 35-pint 2-in-1", brand:"Frigidaire", specs:[["Function","Dehumidifier plus allergy filter"],["Features","Wi-Fi, Energy Star"],["Price","$314"]], conf:"retail", src:["frig_2in1"]}
+    {model:"GHDD3535W1", name:"Frigidaire 35-pint 2-in-1", brand:"Frigidaire", specs:[["Function","Dehumidifier plus allergy filter"],["Features","Wi-Fi, Energy Star"],["Price","$314 earlier"],["Reviews","4.9 of 5 from 29 (AJ Madison)"],["Status","Shown as no longer available at AJ Madison"]], conf:"retail", src:["frig_2in1"]}
    ],
    compare:"Direct match at 50 pints. Pints compare only under the same rating: TCL's 50-pint (2020 rating) equals the old 70-pint, so a larger unit is not a gap."
  },
  { id:"purifier", name:"Air purifier",
    tcl:[
     {model:"Breeva A5", name:"5-stage, smart", specs:[["Coverage","365 to 883 sq ft"]], conf:"tcl", src:["tcl_purifier"]},
-    {model:"Breeva A3", name:"5-stage, smart", specs:[["Coverage","256 to 596 sq ft"]], conf:"tcl", src:["tcl_purifier"]},
+    {model:"Breeva A3", name:"5-stage, smart", specs:[["Coverage","256 to 596 sq ft"],["Price","$79.99 at Amazon (per a reviewer)"],["Airflow","CADR 159 CFM, H13 HEPA"],["Warranty","12 months"]], conf:"tcl", src:["tcl_purifier","apf_a3"]},
     {model:"Breeva A2", name:"4-stage, smart", specs:[["Coverage","182 to 441 sq ft"]], conf:"tcl", src:["tcl_purifier"]},
     {model:"Breeva A1C, A1W, A1", name:"3-stage", specs:[["Coverage","161 to 438 sq ft"],["Smart","A1W only"]], conf:"tcl", src:["tcl_purifier"]}
    ],
-   comp:[], compare:"Competitor comparison not done yet. Next step."
+   comp:[
+    {model:"Core 300S", name:"Levoit smart true HEPA", brand:"Levoit", specs:[["Price","$149.99"],["Airflow","CADR 141 CFM, 3-stage"],["Noise","22 to 50 dB"],["Warranty","2 years, filter $29.99"]], conf:"tcl", src:["levoit_300s"]}
+   ], compare:"TCL's A3 costs about half as much and has a higher CADR (159 against 141). Levoit has the longer warranty (2 years against 12 months) and a lower noise floor. A reviewer found the A3 loud at max speed (65.8 dBA)."
  },
  { id:"split", name:"Mini split and HVAC",
    tcl:[
@@ -80,13 +84,17 @@ categories: [
     {model:"Multi-Match", name:"Multi-zone systems", specs:[["Zones","Up to 5 indoor units"],["Indoor types","Cassette, slim duct, floor/ceiling"]], conf:"tcl", src:["tcl_multi"]},
     {model:"Ultimate 24K", name:"Cold-climate model", specs:[["Rating","Heating to -22°F (retailer)"]], conf:"retail", src:["msw_24"]}
    ],
-   comp:[], compare:"Competitor comparison not done yet. Next step. TCL's range here is broad, so this looks like a strength to confirm."
+   comp:[
+    {model:"Diamante Pro 12K", name:"Pioneer 12K high wall", brand:"Pioneer", specs:[["Price","$898 on sale ($1,279 list)"],["Efficiency","20 SEER2, 9.5 HSPF2, 230V"],["Warranty","5 years parts and compressor"]], conf:"tcl", src:["pioneer_12k"]},
+    {model:"Leto 12K", name:"Senville 12K", brand:"Senville", specs:[["Price","$817 (115V)"],["Warranty","5-year limited"]], conf:"retail", src:["senville_12k"]},
+    {model:"DIY-12-HP-WM-115C25", name:"MrCool DIY 4th Gen 12K", brand:"MrCool", specs:[["Price","$1,914 on sale ($2,392.50 list), sold out"],["Efficiency","22 SEER"],["Install","25 ft pre-charged lines, do-it-yourself"]], conf:"retail", src:["mrcool_12k"]}
+   ], compare:"TCL's T-PRO 12K is $1,749 to $1,849 on its own store (out of stock), about double Pioneer and Senville and level with MrCool's do-it-yourself system. TCL's Elite line rates 23 SEER2 against Pioneer's 20. MrCool's edge is the pre-charged do-it-yourself install."
  }
 ],
 heat: { // BTU/h of heating by outdoor temperature (F)
   tcl:[[47,11700],[5,8424]],
   gradient:[[47,9000],[5,7200]],
-  note:"TCL's 5°F point is calculated from its published 72% of rated heating. Gradient's page and brochure agree (7,026 BTU at -13°F). TCL's spec sheet gives 72% at 5°F, but a Best Buy answer says the unit is more efficient at 47°F and above, so treat low-temperature output as contested."
+  note:"TCL's 5°F point is calculated from its spec sheet (72% of rated heating). TCL's manual lists heating operation down to -6°F, and a Home Depot answer says about 42°F, so treat the cold range as unresolved until TCL publishes one figure."
 },
 prices:[
   {label:"Dehumidifier, TCL 50-pint H50D44W", brand:"tcl", v:264.99},
@@ -111,33 +119,34 @@ patents:"Two design patents (D847320, filed 2017, granted 2019; D1045044, filed 
 voice:[
   {h:"Portables", t:"Window kit does not fit some windows (panels cut for 30 to 35 in. windows, missing slider adapter). Short, stiff, uninsulated hose and short cord. Drain hose and reservoir. Weight of 60 to 75 lb.", s:"Best Buy and Staples reviews. Many were received in exchange for the product."},
   {h:"Window units", t:"Quiet and efficient. The 8K needs holes drilled to secure it, weighs 61.7 lb, and has to come out each winter. Tom's Guide measured about 49 dBA at six feet and said it feels underpowered next to the Midea U, so size up.", s:"TechHive and Tom's Guide reviews, one reviewer each."},
-  {h:"Heat pump listing", t:"TCL's spec sheet calls the 12K a heat pump, but Lowe's, Best Buy and Zoro titles say heater or supplemental heat.", s:"Retailer listings."},
+  {h:"Window heat pump", t:"Home Depot: 3.9 of 5 from 17 reviews, 33% recommend; complaints are build quality, faults and noises. Staples: 4.8 of 5 from 5 reviews, all free-product. TCL's spec sheet and Home Depot description say heat pump, but titles at Home Depot, Lowe's, Best Buy and Zoro say heater or supplemental heat.", s:"Home Depot, Staples, Lowe's, Best Buy and Zoro listings."},
   {h:"Dehumidifiers", t:"Noise, a small tank, and one failure at a month.", s:"Three reviews on one Best Buy listing. Thin evidence."},
   {h:"Mini splits", t:"Poorly translated instructions and extra parts needed.", s:"One Home Depot listing."},
   {h:"Support and warranty", t:"Templated replies, long holds, and a hard warranty process.", s:"Several small sources."}
 ],
 ideas:[
-  {n:1, h:"Smaller heat pump window unit (8K, 10K)", gap:"yes", comp:"partial", sig:"none", read:"Best-supported idea",
-   why:"TCL's only heat pump window unit is the 12K. Gradient sells a 9,300 BTU unit. Midea lists an 8K Heat & Cool window unit, heat type unconfirmed.",
-   signal:"None found.",
-   test:"Pull TCL window sales by size to see how much volume is 8K and 10K. Confirm Midea's heating type."},
-  {n:2, h:"Heat pump through-the-wall unit", gap:"yes", comp:"partial", sig:"none", read:"Check",
-   why:"TCL's H12T9XH heats with 11,600 BTU of electric elements. Friedrich KHVS12B33A adds a heat pump (11,400 BTU) at $1,799 and is shown discontinued at one retailer.",
-   signal:"None found.",
-   test:"Confirm whether TCL's through-the-wall units are inverter. Find out why Friedrich's was discontinued. Size the wall-sleeve replacement market."},
-  {n:3, h:"Heat pump portable", gap:"partial", comp:"yes", sig:"none", read:"Check",
-   why:"TCL's Q Series portables use a heater, type unconfirmed. Hisense sells an 8K dual-hose inverter portable with a heat pump.",
-   signal:"None found.",
-   test:"Confirm TCL's heater type. Check US availability and reviews of Hisense's model."},
-  {n:4, h:"Dehumidifier with a built-in filter (2-in-1)", gap:"yes", comp:"yes", sig:"none", read:"Weaker",
-   why:"TCL sells dehumidifiers and Breeva purifiers separately. Frigidaire GHDD3535W1 combines a 35-pint dehumidifier with an allergy filter, Wi-Fi and Energy Star for $314.",
-   signal:"None found.",
-   test:"Read Frigidaire's reviews. Check customer overlap between TCL dehumidifier and Breeva buyers."}
+  {n:1, h:"Window heat pump that heats in the cold, at a mid price", gap:"yes", comp:"yes", sig:"partial", read:"Best-supported idea",
+   why:"TCL's 12K is $749.99 and its documents give three cold limits (-6°F manual, 72% at 5°F spec sheet, about 42°F retailer answer). Midea (9K, to -22°F, $2,800 to $3,000) and Gradient (9,300 BTU, $3,800) sit far above it.",
+   signal:"Press: cheaper units often heat only above about 40°F and cost is the main barrier. Home Depot: TCL's 12K is 3.9 of 5 from 17 reviews and 33% recommend. Midea pilot users report heat in single digits.",
+   test:"Pull TCL's returns and support tickets for the 12K by reason. Test $1,199 to $1,799 with retailers. Ask the factory what a colder-rated unit would cost."},
+  {n:2, h:"Heat pump through-the-wall unit", gap:"yes", comp:"partial", sig:"partial", read:"Test",
+   why:"TCL's H12T9XH has 11,600 BTU supplemental heat at $649.99 and its pages never say inverter. Friedrich's WallMaster 15K is inverter at $1,699.97, and its heat pump KHVS12B33A ($1,799) is discontinued.",
+   signal:"Indirect. TCL's H12T9XH is 3.6 of 5 from 34 reviews at Home Depot. Friedrich's 15K is 3.4 of 5 at PC Richard. Both low, so quality is the opening.",
+   test:"Ask TCL if the units are inverter. Size the wall-sleeve replacement market. Ask a retailer why Friedrich dropped its heat pump."},
+  {n:3, h:"Heat pump portable", gap:"partial", comp:"yes", sig:"partial", read:"Test",
+   why:"TCL calls its portable heat supplemental heating and does not name the type; TCL support recommends heat mode above 46°F. Hisense lists an 8K dual-hose inverter portable with a heat pump on its US site.",
+   signal:"Portables with heat sell: Westinghouse 14K with heat is $549.99, 4.5 of 5 from 394 reviews (Tractor Supply listing). TCL's 10K is 4.86 of 5 from 22 at Staples and about 4.4 of 5 at Best Buy.",
+   test:"Ask TCL what its heater is. Compare heat-mode returns with cooling returns. Price against Hisense in store."},
+  {n:4, h:"Dehumidifier with a built-in filter (2-in-1)", gap:"yes", comp:"partial", sig:"partial", read:"Weaker",
+   why:"TCL sells dehumidifiers and Breeva purifiers separately. Frigidaire's GHDD3535W1 combines a 35-pint dehumidifier with an allergy filter and Wi-Fi, but is shown as no longer available at AJ Madison.",
+   signal:"Frigidaire's 2-in-1: 4.9 of 5 from 29 reviews, so buyers like the idea. Availability is the question.",
+   test:"Find out why Frigidaire's is unavailable. Check customer overlap between TCL dehumidifier and Breeva buyers."}
 ],
 fixes:[
   ["Portable AC","Window kit does not fit some windows, short stiff hose and cord, drain hose and reservoir, 60 to 75 lb","Adjustable panel with slider and casement adapters, longer insulated hose and cord, better drain, handles"],
-  ["Window AC","Drilling to secure the unit, 61.7 lb (8K), heat pump wording differs between retailers","Tool-free mount, install video, handles, and the same heat pump wording on every listing"],
-  ["Dehumidifier","Only 3 reviews: noise, small tank, one failure at a month","Publish noise levels and add a pump option on more models (pump on 2 of 17 listings)"],
+  ["Window AC","Drilling to secure the unit, 61.7 lb (8K), heat pump wording and cold range differ across manual, spec sheet and retailers","Tool-free mount, install video, handles, and one heat claim and cold range on every document"],
+  ["Dehumidifier","Only 3 reviews: noise, small tank, one failure at a month","Publish noise levels and add a pump option on more models (pump on 5 of 17 listings)"],
+  ["Through-the-wall","Low ratings (3.6 and 3.4), 75 lb, professional install, inverter never stated","State inverter and efficiency if true, add install support"],
   ["Mini split","Poorly translated instructions, extra parts needed","Rewrite instructions, include common installer parts, correct listing Q&A"],
   ["All products","Templated support replies and a hard warranty process (several sources)","Faster first-season replacement and a clearer warranty"]
 ],
@@ -149,20 +158,34 @@ setaside:[
   ["Humidifiers, fans, heaters","None on TCL's US site, but I found no customer demand, only that Midea sells them."]
 ],
 unconfirmed:[
-  "Heater type in TCL's portables.",
-  "Whether TCL's through-the-wall units are inverter.",
-  "Heating type of Midea's 8K Heat & Cool window unit.",
-  "TCL's heat pump output below 5°F.",
-  "How the TCL 12K heat pump performs in real cold (spec sheet says 72% at 5°F, a Best Buy answer says best at 47°F and above).",
-  "H15W4KW weight (not on TCL's page).",
-  "TCL portable model number H10PD56W (from a retailer listing) and the Hisense model number (from Hisense Canada).",
-  "Competitor comparisons for air purifiers and mini splits (not done yet)."
+  "TCL's heat pump cold range: three figures exist (-6°F in the manual, 72% at 5°F on the spec sheet, about 42°F in a retailer answer). TCL should publish one.",
+  "TCL's portable and through-the-wall heat: TCL says \"supplemental heating\" and never names the type. Hisense and Friedrich name theirs.",
+  "Inverter on TCL's through-the-wall units: none of TCL's pages for them says inverter. Friedrich's does.",
+  "Midea's 8K Heat & Cool window unit: the manual mentions an electric heater, so it is likely electric, not a heat pump.",
+  "H15W4KW weight: TCL's page does not list it, so it is left out.",
+  "Competitor prices move. Mini split, purifier and heat pump prices are as seen on the seller pages in November 2026."
 ],
 later:{
   now:["Public lineup, specs and prices","Competitor models matched by category","Review themes with sample sizes shown","Ideas screened on three tests"],
   after:["Business case per idea: market size, margin, tooling and certification cost, plus a price test","Requirements and specs: turn the review fixes into a product brief with Marketing and Sales","Pricing and promo: benchmark against Midea, Gradient and Frigidaire by retailer and size, and track promo depth","Line reviews and launch: retailer comparison sheets, matching listing copy, launch milestones","Validate with TCL data: sales by size, tier and retailer; returns and support tickets by model; margin","Feasibility with R&D, the factory and compliance"]
 },
 sources:{
+ hd_hp_page:["Home Depot, TCL H12W4KWH listing","https://www.homedepot.com/p/Q-Series-12-000-DOE-BTU-115-Volt-Smart-Inverter-Window-AC-Cools-550-sq-ft-w-Heater-Remote-Wi-Fi-Enabled-in-White-H12W4KWH/336174572"],
+ tcl_hp_manual:["TCL H12W4KWH user manual (copy on manuals.plus)","https://manuals.plus/m/cc10f297db6527c2af0c6a5e80b0bab8f4797f3b9b61456bc9dd82ec881e9f6c"],
+ fc_midea:["Fast Company, Midea window heat pump review","https://www.fastcompany.com/91448042/midea-heat-pump-review"],
+ hdigest_cold:["HouseDigest, do window heat pumps work in cold climates","https://www.housedigest.com/2043056/do-window-heat-pumps-really-work-cold-climate"],
+ midea_manual:["Midea MAW08H1ZWT and MAW12H2ZWT user manual","https://www.midea.com/content/dam/midea-aem/us/air-conditioners/window-air-conditioners/maw12h2zwt/MAW12H2ZWT-User-Manual.pdf"],
+ hd_ttw_qa:["Home Depot, TCL H12T9XH questions","https://www.homedepot.com/p/questions/TCL-12-000-DOE-BTU-230-Volts-Through-the-Wall-Air-Conditioner-Cools-550-sq-ft-with-Heater-Remote-and-Wi-Fi-in-White-H12T9XH/335843561/1"],
+ tcl_ttw:["TCL US, through-the-wall collection","https://us.tcl.com/collections/through-the-wall-air-conditioners"],
+ pcrichard_wm:["PC Richard, Friedrich WallMaster WHVT14B33A","https://www.pcrichard.com/friedrich-wallmaster-series-15200-btu-heat-cool-smart-through-the-wall-air-conditioner-with-inverter-3-fan-speeds-and-remote-control-white/WHVT14B33A.html"],
+ tcl_support_heat:["TCL support, minimum outdoor temperature in heat mode","https://support.tcl.com/en_US/common-questions-PAC/minimum-outdoor-temperature-for-portable-air-conditioners-to-run-in-heat-mode"],
+ hisense_us:["Hisense US, 8K heat and cool portable","https://www.hisense.com/us/en/air-product/hisense-smart-inverter-dual-hose-8-000-btu-heat-cool-portable-ac-apt0825uw1wd"],
+ apf_a3:["Air Purifier First, TCL Breeva A3","https://www.airpurifierfirst.com/review/tcl-breeva-a3/"],
+ levoit_300s:["Levoit Core 300S","https://levoit.com/products/core-300s-smart-true-hepa-air-purifier"],
+ pioneer_12k:["Pioneer, Diamante Pro 12K","https://pioneerminisplit.com/products/pioneer-diamante-pro-high-wall-series-12-000-btu-20-seer2-230v-ductless-mini-split-air-conditioner-inverter-heat-pump-with-16-ft-kit"],
+ senville_12k:["Sylvane, Senville Leto 12K 115V","https://www.sylvane.com/collections/ductless-mini-split-systems/products/senville-leto-12000-btu-115v-mini-split-heat-pump-wifi"],
+ mrcool_12k:["MrCool DIY Direct, 4th Gen 12K","https://mrcooldiydirect.com/products/4th-gen-12k-btu"],
+ tcl_pro:["TCL US, T-PRO mini splits","https://us.tcl.com/collections/air-conditioners"],
  techhive:["TechHive review, TCL Q Series 8K","https://www.techhive.com/article/2477737/tcl-q-series-smart-inverter-window-ac-review.html"],
  toms:["Tom's Guide review, TCL window AC","https://www.tomsguide.com/home/home-appliances/tcl-smart-inverter-window-air-conditioner-review"],
  tcl_h8:["TCL US, 8K Q Series H8W25WQ","https://us.tcl.com/products/tcl-8-000-btu-q-series-smart-inverter-window-air-conditioner-h8w25wq"],
