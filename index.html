@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="claude:viewport-fit-sides" content="cover">
-<title>TCL Home Comfort Research</title>
+<title>TCL Home Comfort: Product Market Research</title>
 <style>
 :root{--bg:#f3f5f8;--card:#fff;--ink:#0f1720;--mute:#516070;--line:#d8dee6;--tcl:#1f5fbf;--comp:#c25a0c;--ok:#13703d;--okbg:#dff3e7;--warn:#8a5b00;--warnbg:#fff0c9;--no:#a3302b;--nobg:#fbe3e1;--chip:#e8edf2;--accent:#0f1720;--accink:#fff;--photo:#fff;--shadow:0 1px 2px rgba(15,23,32,.06),0 6px 18px rgba(15,23,32,.06)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1115;--card:#161b21;--ink:#e9edf1;--mute:#9fabb7;--line:#2a323a;--tcl:#7db0ff;--comp:#f4a46d;--ok:#6fdc9c;--okbg:#12301f;--warn:#e8bd4a;--warnbg:#3a2f0e;--no:#f59a95;--nobg:#3a1816;--chip:#202830;--accent:#e9edf1;--accink:#0f1720;--photo:#eef1f4;--shadow:none}}
@@ -117,6 +117,27 @@ footer{margin:22px 0 28px;padding-top:12px;border-top:1px solid var(--line);colo
 .fade{animation:f .35s ease both}
 @keyframes f{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.fade{animation:none}}
+
+.ladder{width:100%;height:auto;display:block}
+.ladder text{font:600 11px Inter,system-ui,sans-serif;fill:var(--ink)}
+.ladder .m{font-weight:500;fill:var(--mute);font-size:10px}
+.ladder .newband{animation:slidein 1.4s ease-out both}
+.ladder .newlbl{animation:fadein 1.4s ease-out .5s both}
+@keyframes slidein{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:none}}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.ladder .newband,.ladder .newlbl{animation:none}}
+.ba{display:grid;grid-template-columns:1fr;gap:8px;margin-bottom:8px}
+.ba .rw{border:1px solid var(--line);border-radius:14px;background:var(--card);overflow:hidden}
+.ba .hd{display:flex;gap:8px;align-items:center;padding:8px 12px;font-weight:800;border-bottom:1px solid var(--line)}
+.ba .hd i{flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:var(--accent);color:var(--accink);font-style:normal;font-size:12px;display:grid;place-items:center}
+.ba .cols{display:grid;grid-template-columns:1fr}
+@media(min-width:640px){.ba .cols{grid-template-columns:1fr 1fr}}
+.ba .b,.ba .a{padding:10px 12px;font-size:14px}
+.ba .b{background:var(--nobg)}.ba .a{background:var(--okbg)}
+.ba small{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:800;margin-bottom:3px;opacity:.85}
+.ba .b small{color:var(--no)}.ba .a small{color:var(--ok)}
+.listing{border:1px dashed var(--line);border-radius:12px;padding:10px 12px;background:var(--card);font-size:14px}
+.concept{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;background:var(--warnbg);color:var(--warn);border-radius:999px;padding:3px 9px;margin-bottom:6px}
 </style>
 </head>
 <body>
@@ -129,9 +150,19 @@ footer{margin:22px 0 28px;padding-top:12px;border-top:1px solid var(--line);colo
 <script>
 (function(){
 var D=window.DATA;
-function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function esc(s){return String(s).replace(/: ([a-z])/g,function(m,c){return ": "+c.toUpperCase()}).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
 function $(i){return document.getElementById(i)}
-$("disc").textContent="Independent research by "+D.meta.author+" from public sources. Not affiliated with or endorsed by TCL. As of "+D.meta.asOf+".";
+var SMALL={a:1,an:1,and:1,as:1,at:1,but:1,by:1,for:1,in:1,of:1,on:1,or:1,the:1,to:1,vs:1,with:1,is:1};
+function cap(w){return w.charAt(0).toUpperCase()+w.slice(1)}
+function tc(s){var first=true;return String(s).replace(/(\S+)(\s*)/g,function(m,w,sp){
+  var lead=first;first=false;
+  var out=w.split("-").map(function(p,k){
+    if(/[0-9]/.test(p)||/[A-Z]/.test(p.slice(1)))return p;
+    var low=p.toLowerCase();if(SMALL[low]&&!(lead&&k===0))return p;return cap(p)}).join("-");
+  if(/[:;]$/.test(w))first=true;
+  return out+sp})}
+function tcDom(root){Array.prototype.forEach.call(root.querySelectorAll("h1,h2,h3,.sec,.pill,.btn,.eyebrow,.nm"),function(el){Array.prototype.forEach.call(el.childNodes,function(n){if(n.nodeType===3&&n.nodeValue.trim())n.nodeValue=tc(n.nodeValue)})})}
+$("disc").textContent="AI-assisted research by "+D.meta.author+" from public sources, still to be vetted. Not affiliated with or endorsed by TCL. As of "+D.meta.asOf+".";
 var S='fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"';
 var ICONS={
  window:'<rect x="8" y="16" width="48" height="32" rx="4"/><path d="M16 27h32M16 33h32M16 39h32"/><path d="M3 54h58"/>',
@@ -164,7 +195,9 @@ var VIEWS=[
  {id:"voice",name:"What customers say",short:"Customers",icon:"voice"},
  {id:"grow",name:"New product ideas",short:"New products",icon:"grow"},
  {id:"ruledout",name:"What I ruled out",short:"Ruled out",icon:"trap"},
- {id:"process",name:"How I research",short:"How I research",icon:"method"}
+ {id:"process",name:"How I research",short:"How I research",icon:"method"},
+ {id:"roadmap",name:"From research to roadmap",short:"Roadmap",icon:"lineup"},
+ {id:"casestudy",name:"Case study",short:"Case study",icon:"grow"}
 ];
 var order=[],idx={};
 function sref(id){if(!(id in idx)){idx[id]=order.length;order.push(id)}return idx[id]+1}
@@ -214,9 +247,14 @@ function priceChart(){
 /* home */
 function tally(sc){var t={ahead:0,even:0,behind:0,unclear:0};sc.rows.forEach(function(r){t[r[3]]++});return t}
 function home(){
-  var h='<section class="hero"><div class="eyebrow">Independent market research</div><h1>Where TCL Home Comfort can win next</h1><p>I mapped the lineup, matched each product to its closest competitor, read what customers say, and built new product ideas with a price to test.</p>';
+  var h='<section class="hero"><div class="eyebrow">AI-assisted overview from public sources</div><h1>TCL Home Comfort: Product Market Research</h1><p><b>Purpose:</b> This is a high-level look at TCL\'s US Home Comfort line (seven product types), built from public sources. It covers where TCL stands against competitors, what customers say, and where to look first. Each finding still needs to be vetted. With TCL\'s product, sales, and returns data I would drill down, confirm what holds, and drop what does not.</p>';
   h+='<div class="nums"><div><b>7</b><span>product lines</span></div><div><b>'+Object.keys(D.score).filter(function(k){return D.score[k].rows.length}).length+'</b><span>comparisons</span></div><div><b>'+IDEAS.length+'</b><span>new ideas</span></div></div>';
-  h+='<div class="cta"><a class="btn p" href="#/compare">See the research</a><a class="btn s" href="#/grow">See new product ideas</a></div></section>';
+  h+='<div class="cta"><a class="btn p" href="#/compare">See the research</a><a class="btn s" href="#/casestudy">See the case study</a></div></section>';
+  h+='<div class="sec">Summary: TCL is competitive on price, and heat is the opening</div>';
+  [["Position","Where prices could be compared, TCL is at or below the closest competitor in four of five product types (window AC, window heat pump, through-the-wall, air purifier). Mini splits are the exception, at about double Pioneer and Senville."],
+   ["Opportunity","Cold-weather window heating. A buyer today chooses between TCL\'s window heat pump at $749.99, which has an unclear cold rating and is recommended by only 33% of Home Depot buyers, or Midea and Gradient at $2,800 to $3,800, rated to \u221222\u00b0F and \u221213\u00b0F. No product sits between them."],
+   ["Where I would start","A mid-priced, cold-rated window heat pump (test range $1,199 to $1,799). It has the strongest evidence of four ideas, and the first step is cheap, which is to check TCL\'s own returns and sales data against what public reviews suggest."]
+  ].forEach(function(x){h+='<div class="card" style="margin-bottom:8px"><b>'+esc(x[0])+':</b> '+esc(x[1])+'</div>'});
   h+='<div class="sec">Market research: TCL vs the closest competitor</div><div class="hint">Tap a product line</div><div class="snap">';
   D.categories.forEach(function(c){
     var sc=D.score[c.id],t=sc.rows.length?tally(sc):null;
@@ -225,10 +263,10 @@ function home(){
     h+='</a>';
   });
   h+='</div>';
-  h+='<div class="sec">Key finding</div><h3>TCL\'s window heat pump out-heats Gradient\'s where both publish numbers</h3>'+heatChart();
+  h+='<div class="sec">Key finding</div><h3>On Paper, TCL\'s Window Heat Pump Out-Heats Gradient\'s, but Its Cold Limit Is Unclear</h3>'+heatChart();
   h+='<div class="sec">New product development: four ideas to test</div><div class="hint">Tap an idea</div><div class="snap">';
   IDEAS.forEach(function(i){var g=D.grow[i.n],pk=D.ideaPair[i.n][0];
-    h+='<a class="card sb" href="#/grow/'+i.n+'">'+photo(pk,["heatpump","ttw","portable","dehum"][i.n-1],true).replace(/<figcaption>.*<\/figcaption>/,"")+'<div class="nm">'+esc(i.h)+'</div><div class="note" style="margin:0">Price to test</div><div style="font-size:22px;font-weight:800">'+esc(g.price)+'</div></a>'});
+    h+='<a class="card sb" href="#/grow/'+i.n+'">'+photo(pk,["heatpump","ttw","portable","dehum"][i.n-1],true).replace(/<figcaption>.*<\/figcaption>/,"")+'<div class="nm">'+esc(tc(i.h))+'</div><div class="note" style="margin:0">Price to test</div><div style="font-size:22px;font-weight:800">'+esc(g.price)+'</div></a>'});
   h+='</div>';
   return h;
 }
@@ -274,7 +312,7 @@ function grow(sub){
   var id=sub||"all";
   var h='<h2>New product ideas</h2><p class="lead">Each idea shows what TCL sells today, who already has it, a price to test, and how I would validate it.</p>'+pills(items,id,"grow");
   if(id==="all"){
-    h+=IDEAS.map(function(i){var g=D.grow[i.n],pk=D.ideaPair[i.n][0];return '<a class="card idea" href="#/grow/'+i.n+'" style="margin-bottom:10px">'+photo(pk,["heatpump","ttw","portable","dehum"][i.n-1],true).replace(/<figcaption>.*<\/figcaption>/,"")+'<div><b>'+i.n+'. '+esc(i.h)+'</b><div class="tests" style="margin:6px 0"><span class="t '+lab[i.gap][1]+'">Gap: '+lab[i.gap][0]+'</span><span class="t '+lab[i.comp][1]+'">Competitor: '+lab[i.comp][0]+'</span><span class="t '+lab[i.sig][1]+'">Customers: '+lab[i.sig][0]+'</span></div><div class="note" style="margin:0">Price to test</div><div style="font-size:22px;font-weight:800">'+esc(g.price)+'</div></div></a>'}).join("");
+    h+=IDEAS.map(function(i){var g=D.grow[i.n],pk=D.ideaPair[i.n][0];return '<a class="card idea" href="#/grow/'+i.n+'" style="margin-bottom:10px">'+photo(pk,["heatpump","ttw","portable","dehum"][i.n-1],true).replace(/<figcaption>.*<\/figcaption>/,"")+'<div><b>'+i.n+'. '+esc(tc(i.h))+'</b><div class="tests" style="margin:6px 0"><span class="t '+lab[i.gap][1]+'">Gap: '+lab[i.gap][0]+'</span><span class="t '+lab[i.comp][1]+'">Competitor: '+lab[i.comp][0]+'</span><span class="t '+lab[i.sig][1]+'">Customers: '+lab[i.sig][0]+'</span></div><div class="note" style="margin:0">Price to test</div><div style="font-size:22px;font-weight:800">'+esc(g.price)+'</div></div></a>'}).join("");
     h+='<div class="note">Price ranges are my starting points to test, built from the prices I found. They are not forecasts.</div>';
     return h;
   }
@@ -285,7 +323,7 @@ function grow(sub){
   }
   var i=IDEAS.filter(function(x){return String(x.n)===id})[0],g=D.grow[i.n],pr=D.ideaPair[i.n];
   var ic=["heatpump","ttw","portable","dehum"][i.n-1];
-  h+='<div class="card" style="margin-bottom:10px"><h3 style="font-size:20px">'+i.n+'. '+esc(i.h)+'</h3><span class="tag">'+esc(i.read)+'</span></div>';
+  h+='<div class="card" style="margin-bottom:10px"><h3 style="font-size:20px">'+i.n+'. '+esc(tc(i.h))+'</h3><span class="tag">'+esc(i.read)+'</span></div>';
   h+='<div class="sec" style="margin-top:0">Today</div><div class="pair"><div class="card">'+photo(pr[0],ic,true)+'<b style="display:block;margin-top:6px">'+esc(D.ideaPairNames[pr[0]])+'</b><div class="note" style="margin:0">What TCL sells now</div></div><div class="arrow">vs</div><div class="card">'+photo(pr[1],ic,true)+'<b style="display:block;margin-top:6px">'+esc(D.ideaPairNames[pr[1]])+'</b><div class="note" style="margin:0">What a competitor already sells</div></div></div>';
   h+='<div class="card" style="margin-bottom:10px"><div class="step"><div class="n">1</div><div class="b"><b>The idea</b><div>'+esc(g.what)+'</div></div></div><div class="step"><div class="n">2</div><div class="b"><b>What is different</b><div>'+esc(g.diff)+'</div></div></div><div class="step" style="margin:0"><div class="n">3</div><div class="b"><b>Why</b><ul>'+g.bullets.map(function(b){return '<li>'+esc(b)+'</li>'}).join("")+'</ul></div></div></div>';
   h+='<div class="card" style="margin-bottom:10px"><div class="sec" style="margin-top:0">Price to test</div><div class="price">'+esc(g.price)+'</div><div class="note">'+esc(g.basis)+'</div></div>';
@@ -298,7 +336,7 @@ function grow(sub){
 function voice(sub){
   var items=D.voice.map(function(v,i){return {id:String(i),name:v.h}});var id=sub||"0";var v=D.voice[+id];
   var h='<h2>What customers say</h2><p class="lead">Small samples, and many retailer reviews were incentivized. Treat these as themes to check, not proof.</p>'+pills(items,id,"voice");
-  h+='<div class="card"><h3>'+esc(v.h)+'</h3><p>'+esc(v.t)+'</p><span class="tag">Evidence: '+esc(v.s)+'</span></div>';
+  h+='<div class="card"><h3>'+esc(tc(v.h))+'</h3><p>'+esc(v.t)+'</p><span class="tag">Evidence: '+esc(v.s)+'</span></div>';
   return h;
 }
 function ruledout(sub){
@@ -310,6 +348,69 @@ function ruledout(sub){
     h+=srcs(["cpsc","classaction","aftermath","patent1","patent2"]);
   } else if(id==="pints"){h+='<h3>A "larger dehumidifier" is not a gap</h3><p class="note" style="margin-top:0">The same machine now carries a smaller pint number, so old and new ratings cannot be compared.</p>'+pintChart();}
   else {h+='<h3>Other ideas I looked at and dropped</h3>'+D.setaside.map(function(r){return '<div class="card" style="margin-bottom:8px"><b>'+esc(r[0])+'</b><div style="color:var(--mute);font-size:14px;margin-top:2px">'+esc(r[1])+'</div></div>'}).join("")}
+  return h;
+}
+function roadmap(){
+  var h='<h2>From research to roadmap: how I would work the line</h2><p class="lead">What I would do as Product Manager once I have TCL\'s own data.</p>';
+  [["Understand the current line","Review each model\'s sales, margin, returns, and retailer placement. Map the line by size, price tier, and feature. Learn what Sales and retail buyers need from it, and confirm which findings here hold up."],
+   ["Enhance products for the next version","Turn customer feedback and competitive gaps into product briefs. Work with R&D, the factory, and compliance on feasibility, cost, and certification."],
+   ["Add to the assortment","Build a business case for each opportunity (market size, margin, price point, tooling). Bring recommendations and competitive comparisons to retailer line reviews."],
+   ["Use customer feedback to fix current products","Gather reviews, returns, and support tickets by model. Work with QA and QC to confirm which complaints are true product issues (build quality, faults, noise) and which are setup or expectation issues. Feed confirmed issues into updates and listing content."],
+   ["Keep claims and pricing accurate","Align heat, cold-range, and inverter claims across manuals, spec sheets, and retailer listings. Track sell-through, promotions, and price against competitors with Sales and Finance."]
+  ].forEach(function(x,i){h+='<div class="card step" style="margin-bottom:8px"><div class="n">'+(i+1)+'</div><div class="b"><b>'+esc(x[0])+'</b><div>'+esc(x[1])+'</div></div></div>'});
+  h+='<p style="text-align:right"><a class="pill" href="#/casestudy">See the case study &rsaquo;</a></p>';
+  return h;
+}
+
+function ladder(){
+  var W=420,H=290,L=14,Rr=14,max=4000;function X(v){return L+v/max*(W-L-Rr)}
+  var s='<svg class="ladder" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Price ladder for window heat pumps before and after the proposed unit">';
+  function axis(y){var t='<line x1="'+L+'" x2="'+(W-Rr)+'" y1="'+y+'" y2="'+y+'" stroke="var(--line)" stroke-width="2"/>';[0,1000,2000,3000,4000].forEach(function(v){t+='<line x1="'+X(v)+'" x2="'+X(v)+'" y1="'+(y-4)+'" y2="'+(y+4)+'" stroke="var(--mute)"/><text class="m" x="'+X(v)+'" y="'+(y+17)+'" text-anchor="middle">$'+v.toLocaleString()+'</text>'});return t}
+  function comps(y){
+    var t='<circle cx="'+X(749.99)+'" cy="'+y+'" r="7" fill="var(--tcl)"/><text x="'+(X(749.99)+16)+'" y="'+(y-14)+'" text-anchor="end">TCL 12K $750</text>';
+    t+='<rect x="'+X(2800)+'" y="'+(y-7)+'" width="'+(X(3000)-X(2800))+'" height="14" rx="4" fill="var(--comp)"/><text x="'+X(2900)+'" y="'+(y-30)+'" text-anchor="middle">Midea $2,800+</text>';
+    t+='<circle cx="'+X(3800)+'" cy="'+y+'" r="7" fill="var(--comp)"/><text x="'+(W-Rr)+'" y="'+(y-14)+'" text-anchor="end">Gradient $3,800</text>';
+    return t}
+  s+='<text x="'+L+'" y="16" style="font-size:12px">BEFORE: A big empty gap</text>';
+  s+='<rect x="'+X(750)+'" y="28" width="'+(X(2800)-X(750))+'" height="26" rx="6" fill="var(--nobg)" stroke="var(--no)" stroke-dasharray="4 3"/><text x="'+((X(750)+X(2800))/2)+'" y="45" text-anchor="middle" style="fill:var(--no)">No product here</text>';
+  s+=axis(100)+comps(100);
+  s+='<text x="'+L+'" y="152" style="font-size:12px">AFTER: Gap filled (concept, to be tested)</text>';
+  s+='<text class="newlbl" x="'+((X(1199)+X(1799))/2)+'" y="186" text-anchor="middle" style="fill:var(--tcl)">New unit: $1,199 to $1,799</text>';
+  s+='<g class="newband"><rect x="'+X(1199)+'" y="194" width="'+(X(1799)-X(1199))+'" height="36" rx="8" fill="var(--tcl)" opacity=".2" stroke="var(--tcl)" stroke-width="2"/></g>';
+  s+='<g class="newband"><path d="M'+X(1199)+' 230V262M'+X(1799)+' 230V262" stroke="var(--tcl)" stroke-width="2" stroke-dasharray="3 3"/><rect x="'+X(1199)+'" y="255" width="'+(X(1799)-X(1199))+'" height="14" rx="4" fill="var(--tcl)"/></g>';
+  s+=axis(262)+comps(262);
+  s+='</svg>';
+  return '<div class="card" style="margin-bottom:10px"><div class="sec" style="margin-top:0">The Problem and the Opening</div>'+s+'<div class="note" style="margin-bottom:0">Prices as found in November 2026. The blue band is a test range from the research, not a decided price. It sits between TCL\'s $750 unit and the $2,800 to $3,800 cold-climate units.</div></div>';
+}
+function beforeAfter(){
+  var rows=[
+   ["Cold rating","Three different limits in TCL’s materials: −6°F (manual), 72% output at 5°F (spec sheet), about 42°F (retailer answer).","One published cold limit, stated the same way in the manual, spec sheet, and every listing. Competitors set the bar: Midea to −22°F, Gradient 7,026 BTU at −13°F."],
+   ["Heating output","Rated 11,700 BTU. Output at 5°F is calculated from the spec sheet (about 8,400 BTU).","Output published at 47°F, 17°F, and 5°F, measured and confirmed."],
+   ["Listing wording","Spec sheet says heat pump. Home Depot, Lowe’s, Best Buy, and Zoro titles say heater or supplemental heat.","One name everywhere: window heat pump, with the cold rating in the title."],
+   ["Customer experience","Home Depot: 3.9 of 5 from 17 reviews, 33% recommend. Complaints are build quality, faults, and noise.","Return reasons confirmed with QA and QC, then fixed: sturdier build, quieter operation, fewer faults."],
+   ["Installation","92.6 lb, drilling required, hard to handle alone.","Easier mounting and handling (tool-free mount, handles), checked against install complaints."],
+   ["Price","$749.99, with no product between it and $2,800.","Test $1,199 to $1,799 with retailers before committing."]
+  ];
+  var h='<div class="sec">Before and After</div><div class="ba">'+rows.map(function(x,i){return '<div class="rw"><div class="hd"><i>'+(i+1)+'</i>'+esc(x[0])+'</div><div class="cols"><div class="b"><small>Before (today)</small>'+esc(x[1])+'</div><div class="a"><small>After (target)</small>'+esc(x[2])+'</div></div></div>'}).join("")+'</div>';
+  h+='<div class="note">Before is from public sources. After is a proposed requirement to validate with TCL data, not a finished product.</div>';
+  h+='<div class="sec">Listing Rewrite Example</div><div class="listing"><small style="display:block;color:var(--no);font-weight:800;font-size:11px;letter-spacing:.08em">BEFORE</small>Retailer titles today describe it as a heater or supplemental heat.<br><small style="display:block;color:var(--ok);font-weight:800;font-size:11px;letter-spacing:.08em;margin-top:8px">AFTER (CONCEPT)</small>TCL Q Series Window Heat Pump, Heats to [One Published Limit]°F, Cools and Heats Year-Round</div>';
+  return h;
+}
+function casestudy(){
+  var h='<h2>Case study: how I would build the cold-weather window heat pump</h2><p class="lead">A worked example of the roadmap, written from the public data so far.</p>';
+  h+=ladder();
+  h+='<div class="card" style="margin-bottom:10px"><div class="sec" style="margin-top:0">The Evidence: Heating Output by Outdoor Temperature</div>'+heatChart()+'</div>';
+  h+=beforeAfter();
+  h+='<div class="sec">The Plan, Step by Step</div>';
+  [["The problem","A buyer who wants window heat has two choices: TCL\'s 12K at $749.99, or Midea and Gradient at $2,800 to $3,800. TCL\'s materials give three different cold limits (\u22126\u00b0F in the manual, 72% output at 5\u00b0F on the spec sheet, about 42\u00b0F in a retailer answer). Home Depot buyers rate it 3.9 of 5 from 17 reviews, and 33% recommend it."],
+   ["The hypothesis","Buyers who will not pay $3,000 but do not trust a $750 unit would pay roughly $1,200 to $1,800 for a unit rated and proven to heat to a published cold limit. Competitors set the bar: Gradient delivers 7,026 BTU at \u221213\u00b0F, and Midea heats to \u221222\u00b0F."],
+   ["What I would confirm first","With QA and QC, TCL returns and support tickets for the 12K by reason (cold performance, faults, noise, installation). With Sales, volume by retailer and region, since cold-climate demand decides the size of the opportunity."],
+   ["Draft requirements","One published cold-weather rating, stated the same way in the manual, spec sheet, and every retailer listing. Heating output published at 47\u00b0F, 17\u00b0F, and 5\u00b0F. Quieter operation, stronger build, and easier installation (tool-free mount, handles). Clear heat pump wording in listing titles."],
+   ["Business case inputs","Price test with retailers, target margin, tooling and certification cost, volume forecast, and how much it would take from the 12K. Feasibility with R&D and the factory."],
+   ["Decision point","Proceed if returns point to cold performance and cold-climate volume supports the investment. If returns point to quality instead, fix the 12K first. If volume is small, move to the portable heat pump idea."],
+   ["Launch and sales support","Retailer line-review sheet comparing TCL against Midea and Gradient on price and cold rating, listing content built on the verified rating, and a launch plan with Marketing and Sales."]
+  ].forEach(function(x,i){h+='<div class="card step" style="margin-bottom:8px"><div class="n">'+(i+1)+'</div><div class="b"><b>'+esc(x[0])+'</b><div>'+esc(x[1])+'</div></div></div>'});
+  h+='<p style="text-align:right"><a class="pill" href="#/grow/1">See idea 1 and its evidence &rsaquo;</a></p>';
   return h;
 }
 function process(sub){
@@ -334,13 +435,13 @@ function process(sub){
   return h;
 }
 Object.keys(D.sources).forEach(sref);
-var R={lineup:lineup,compare:compare,grow:grow,voice:voice,ruledout:ruledout,process:process};
+var R={lineup:lineup,compare:compare,grow:grow,voice:voice,ruledout:ruledout,process:process,roadmap:roadmap,casestudy:casestudy};
 function route(){
   var p=(location.hash||"#/").replace(/^#\/?/,"").split("/");var v=p[0]||"home";
   if(v!=="home"&&!R[v])v="home";
   nav(v);
   var el=$("view");el.classList.remove("fade");void el.offsetWidth;el.classList.add("fade");
-  el.innerHTML=v==="home"?home():R[v](p[1]);
+  el.innerHTML=v==="home"?home():R[v](p[1]);tcDom(el);tcDom($("nav"));
   window.scrollTo(0,0);
   var sel=document.querySelector('.sub [aria-current="true"]');if(sel&&sel.scrollIntoView)try{sel.scrollIntoView({inline:"center",block:"nearest"})}catch(e){}
 }

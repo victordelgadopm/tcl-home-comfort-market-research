@@ -1,10 +1,10 @@
 /* Single source of truth for the site. Edit facts here; every fact points to a source id. */
 window.DATA = {
 meta: {
-  title: "TCL Home Comfort Market Research",
+  title: "TCL Home Comfort: Product Market Research",
   author: "Victor Delgado",
   asOf: "November 2026",
-  disclaimer: "Independent research from public sources by Victor Delgado. Not affiliated with or endorsed by TCL. Prices and specs change, so each item shows its source and should be checked before anyone relies on it."
+  disclaimer: "AI-assisted research from public sources by Victor Delgado, still to be vetted. Not affiliated with or endorsed by TCL. Prices and specs change, so each item shows its source and should be checked before anyone relies on it."
 },
 findings: [
   { h: "TCL's range is broader than it looks", t: "Window, through-the-wall, portable, dehumidifier, air purifier and mini split lines, including a 12K window heat pump and Elite mini splits that are all heat pumps." },
