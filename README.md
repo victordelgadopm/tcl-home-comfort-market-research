@@ -12,5 +12,3 @@ All content lives in `data/data.js`. Each product points to source ids listed at
 
 ## What is and is not confirmed
 The site lists unconfirmed items openly (see "Not yet confirmed"). Built with AI assistance.
-
-Live site: https://victordelgadopm.github.io/tcl-home-comfort-market-research/

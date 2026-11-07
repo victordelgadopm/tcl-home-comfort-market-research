@@ -20,7 +20,7 @@ D.score={
  heatpump:{tclL:"TCL H12W4KWH 12K",compL:"Gradient All-Weather 120V",
   rows:[["Heating at 47°F","11,700 BTU","9,000 BTU","ahead"],
         ["Heating at 5°F","About 8,400 BTU","7,200 BTU","ahead"],
-        ["Coldest published point","5°F","-13°F on page, -7°F on spec sheet","behind"],
+        ["Coldest published point","5°F","-13°F (7,026 BTU)","behind"],
                 ["Price","About $748 to $750 (Zoro, Quill)","Not confirmed","unclear"]],
   bottom:"TCL out-heats Gradient where both publish numbers. Gradient's edge is a colder published rating."},
  ttw:{tclL:"TCL H12T9XH 12K",compL:"Friedrich KHVS12B33A",
@@ -44,7 +44,7 @@ D.score={
 
 D.ladder={
  window:{lead:"Bigger size, more room covered. TCL's 15K is the heaviest.",
-  rows:[["8K","$399 list","Covers 350 sq ft. 61.7 lb."],["10K","$449 list","Covers 450 sq ft."],["12K","$499 list","Covers 550 sq ft. 40 dB."],["15K","Price not found","Covers 550 to 700 sq ft. 92.6 lb."]],src:["tcl_h8","bb_10k","tcl_h12","tcl_h15"]},
+  rows:[["8K","$399 list","Covers 350 sq ft. 61.7 lb."],["10K","$449 list","Covers 450 sq ft."],["12K","$499 list","Covers 550 sq ft. 40 dB."],["15K","Price not found","Covers 550 to 700 sq ft."]],src:["tcl_h8","bb_10k","tcl_h12","tcl_h15"]},
  heatpump:{lead:"One model today. About $250 more than the cooling-only 12K list price.",
   rows:[["12K heat pump","About $748 to $750","11,700 BTU heating. 72% of that at 5°F. Window 29.5 to 41 in."]],src:["zoro_hp","quill_hp","hd_hp_pdf"]},
  ttw:{lead:"11 listings from 8K to 14K. I priced one.",
@@ -101,11 +101,11 @@ window.DATA.ideaPairNames={"H12W4KWH":"TCL 12K heat pump window unit","All-Weath
 
 /* Full range on TCL's US collection pages (counts from the page filter; model lists are the first page shown). */
 window.DATA.range={
- window:{count:"34 listings",line:"TCL's window AC range runs from 5K to 14K BTU and mixes several generations.",listed:[["H6W23W","6K"],["W5WC72M","5K"],["T08WV9S","8K"],["T10WV9S","10K"],["T12WV9S","12K"],["T14WV9S","14K"],["W8W92-B4","8K"],["W10W92-B4","10K"],["H8W35W","8K"],["H5W33M","5K"],["W8W9E2-3","8K"],["W8W9E2-B3","8K black"],["W10W9E2-3","10K"],["W10W9E2-B3","10K black"],["W12W9E2-3","12K"],["W14W9E2-3","14K"]],link:"https://us.tcl.com/collections/window-air-conditioners",src:"16 of 34 shown"},
- heatpump:{count:"1 model found",line:"The H12W4KWH is the only window heat pump I found on TCL's US site and at retailers.",listed:[],link:"https://www.lowes.com/pd/TCL-Large-Room-Window-Air-Conditioner-with-Heater-Remote-Included-115-Volt-12000-BTU/5016583701",src:""},
- ttw:{count:"11 listings",line:"TCL's through-the-wall range runs from 8K to 14K BTU. The H12T9XH below is the one I priced at Best Buy, and I did not see it in the 8 shown.",listed:[["W8T9E1-A","8K"],["8T3E1","8K"],["W10T9E1-A","10K"],["W10T9EX1-A","10K"],["12T3E1","12K"],["W12T9E1-A","12K"],["W12T9EX1-A","12K"],["W14T9X1-A","14K"]],link:"https://us.tcl.com/collections/through-the-wall-air-conditioners",src:"8 of 11 shown"},
+ window:{count:"34 listings",line:"TCL's window AC range runs from 5K to 15K BTU and mixes several generations. Almost every item on TCL's own store showed as out of stock when I checked.",listed:[["H6W23W","6K"],["W5WC72M","5K"],["T05WV9M","5K"],["T08WV9S","8K"],["T10WV9S","10K"],["T12WV9S","12K"],["T14WV9S","14K"],["W8W92-B4","8K"],["W10W92-B4","10K"],["H8W35W","8K"],["H10W35W","10K"],["H12W35W","12K"],["H14W35W","14K"],["H5W33M","5K"],["W8W9E2-3","8K"],["W10W9E2-3","10K"],["W12W9E2-3","12K"],["W14W9E2-3","14K"],["W6W32","6K"],["W5W3M","5K"],["W5WM","5K"],["H15W4KW","15K"],["H12W4MW","12K"],["H10W4MW","10K"],["H8W4MW","8K"]],link:"https://us.tcl.com/collections/window-air-conditioners",src:"25 named here of 34 listings; the rest are older or color variants"},
+ heatpump:{count:"1 model, retail only",line:"The H12W4KWH is the only window heat pump I found. It is sold at Home Depot, Lowe's, Best Buy and Zoro, not on TCL's own store.",listed:[["H12W4KWH","12K heat pump"]],link:"https://www.lowes.com/pd/TCL-Large-Room-Window-Air-Conditioner-with-Heater-Remote-Included-115-Volt-12000-BTU/5016583701",src:"retailer-only"},
+ ttw:{count:"11 listings",line:"TCL's store lists 11 through-the-wall models, 8K to 14K. The Best Buy H12T9XH ($649.99) is not on TCL's own store list.",listed:[["W8T9E1-A","8K"],["8T3E1","8K"],["W10T9E1-A","10K"],["W10T9EX1-A","10K"],["12T3E1","12K"],["W12T9E1-A","12K"],["W12T9EX1-A","12K"],["W14T9X1-A","14K"],["H8T9E1-A","8K"],["H10T9E1-A","10K"],["H12T9E1-A","12K"]],link:"https://us.tcl.com/collections/through-the-wall-air-conditioners",src:"11 of 11 listed"},
  portable:{count:"About 22 listings",line:"I looked at the dual-hose inverter models in detail.",listed:[],link:"https://us.tcl.com/collections/portable-air-conditioners",src:""},
- dehum:{count:"17 listings",line:"TCL's dehumidifiers run from 20 to 50 pints.",listed:[["20D91","20 pint"],["30D91","30 pint"],["T25DC9R","25 pint"],["T32DC9R","32 pint"],["40D91","40 pint"],["50D91","50 pint"],["50D91-B","50 pint"],["T50DC9SPB","50 pint, pump"]],link:"https://us.tcl.com/collections/dehumidifiers",src:"8 of 17 shown"},
+ dehum:{count:"17 listings",line:"TCL's dehumidifiers run from 20 to 50 pints, with several pump models.",listed:[["T25DC9R","25 pint"],["T32DC9R","32 pint"],["W25D92","25 pint"],["H25D44W","25 pint"],["H30D44W","30 pint"],["20D91","20 pint"],["30D91","30 pint"],["40D91","40 pint"],["50D91","50 pint"],["50D91-B","50 pint"],["W35D92","35 pint"],["H50D44W","50 pint"],["H50D46W","50 pint, pump"],["W50D9P3","50 pint, pump"],["W50D9P2","50 pint, pump"],["W50D9P2-B","50 pint, pump"],["T50DC9SPB","50 pint, pump"]],link:"https://us.tcl.com/collections/dehumidifiers",src:"17 of 17"},
  purifier:{count:"6 models",line:"The Breeva line is the full set.",listed:[],link:"https://us.tcl.com/pages/air-purifiers",src:""},
  split:{count:"4 series",line:"Elite, Multi-Match, Ultimate and ready-to-install systems, from 9K to 36K BTU.",listed:[],link:"https://www.tcl.com/usca/content/dam/tcl/product/hvac/documents/elite-series/Elite%20HVAC%20SpecSheet%202025.pdf",src:""}
 };

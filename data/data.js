@@ -16,7 +16,7 @@ categories: [
    tcl:[
     {model:"H8W25WQ", name:"Q Series 8K inverter", specs:[["List price","$399 (at review)"],["Room size","350 sq ft"],["Weight","61.7 lb"],["Features","Energy Star, Matter (per review)"]], conf:"review", note:"Model number from TCL's product page. The price is from a review, as TCL's page showed it sold out.", src:["tcl_h8","techhive","toms"]},
     {model:"H12W4MW", name:"Q Series 12K inverter", specs:[["List price","$499 (at review)"],["Room size","550 sq ft"],["Window","26 to 36 in. wide"],["Features","Energy Star, Matter"]], conf:"tcl", src:["tcl_h12","toms"]},
-    {model:"H15W4KW", name:"Smart 15K inverter", specs:[["Room size","550 to 700 sq ft"],["Weight","92.6 lb"],["Noise","36 to 40 dB"],["Features","Energy Star, Matter"]], conf:"tcl", src:["tcl_h15"]}
+    {model:"H15W4KW", name:"Smart 15K inverter", specs:[["Room size","550 to 700 sq ft"],["Noise","36 to 40 dB"],["Features","Energy Star, Matter"]], conf:"tcl", src:["tcl_h15"]}
    ],
    comp:[
     {model:"MAW08V1QWT, MAW10V1QWT, MAW12V1QWT", name:"Midea U-shaped inverter", brand:"Midea", specs:[["Price sold at","$280 to $500 (CPSC)"],["Sizes","8K, 10K, 12K"],["Design","Window sash drops into a U-slot"],["Status","Recalled June 2025"]], conf:"tcl", src:["cpsc","midea_u"]}
@@ -25,13 +25,13 @@ categories: [
  },
  { id:"heatpump", name:"Window heat pump",
    tcl:[
-    {model:"H12W4KWH", name:"Q Series 12K heat pump", specs:[["Heating","11,700 BTU (100% at 47°F)"],["At 5°F","72% of rated heating, about 8,400 BTU"],["Efficiency","CEER 14.4, 1,190 W, 115V"],["Window","29.5 to 41 in. wide"]], conf:"tcl", src:["hd_hp_pdf","lowes_hp"], note:"Titled heat pump at Lowe's and Amazon, and supplemental heat at Best Buy and Home Depot."}
+    {model:"H12W4KWH", name:"Q Series 12K heat pump", specs:[["Heating","11,700 BTU (100% at 47°F)"],["At 5°F","72% of rated heating, about 8,400 BTU"],["Efficiency","CEER 14.4, 1,190 W, 115V"],["Window","29.5 to 41 in. wide"]], conf:"tcl", src:["hd_hp_pdf","lowes_hp"], note:"TCL's spec sheet says heat pump. Lowe's, Best Buy and Zoro titles say heater or supplemental heat. Sold through retailers only, not on TCL's own store. A Best Buy answer says it is more efficient at 47°F and above."}
    ],
    comp:[
-    {model:"All-Weather 120V", name:"Gradient window heat pump", brand:"Gradient", specs:[["Heating","9,000 BTU at 47°F, 7,200 BTU at 5°F"],["Low temperature","Product page lists 7,026 BTU at -13°F; spec sheet lists 4,900 BTU at -7°F"],["Install","No drilling or permits (product page)"],["Weight","125 lb (spec sheet)"]], conf:"tcl", src:["gradient_page","gradient_spec"], note:"Gradient's two documents disagree on low-temperature output and efficiency."},
+    {model:"All-Weather 120V", name:"Gradient window heat pump", brand:"Gradient", specs:[["Cooling","9,300 BTU"],["Heating","9,000 BTU at 47°F and 17°F, 7,200 BTU at 5°F, 7,026 BTU at -13°F"],["Install","No drilling or permits (product page)"],["Weight","140 lb total"]], conf:"tcl", src:["gradient_page","gradient_spec"], note:"Product page and the May 2025 brochure agree. An older spec sheet I used earlier gave different low-temperature figures, so I dropped it."},
     {model:"MAW08H1ZWT", name:"Midea 8K Heat & Cool window unit", brand:"Midea", specs:[["Heating type","Unconfirmed"],["Size","8,000 BTU"]], conf:"unconfirmed", src:["midea_8k"]}
    ],
-   compare:"TCL has more heating capacity in one unit (11,700 BTU at 47°F against 9,000). At 5°F the two are closer, about 8,400 BTU for TCL and 7,200 for Gradient. Gradient publishes operation down to -13°F, while the lowest TCL point I found is 5°F."
+   compare:"TCL has more heating capacity in one unit (11,700 BTU at 47°F against 9,000). At 5°F the two are closer, about 8,400 BTU for TCL and 7,200 for Gradient. Gradient publishes output down to -13°F (7,026 BTU), while the lowest TCL point I found is 5°F."
  },
  { id:"ttw", name:"Through-the-wall",
    tcl:[
@@ -86,7 +86,7 @@ categories: [
 heat: { // BTU/h of heating by outdoor temperature (F)
   tcl:[[47,11700],[5,8424]],
   gradient:[[47,9000],[5,7200]],
-  note:"TCL's 5°F point is calculated from its published 72% of rated heating. Gradient's two documents disagree below 5°F (7,026 BTU at -13°F on the product page, 4,900 BTU at -7°F on the spec sheet), so only the points they agree on are drawn."
+  note:"TCL's 5°F point is calculated from its published 72% of rated heating. Gradient's page and brochure agree (7,026 BTU at -13°F). TCL's spec sheet gives 72% at 5°F, but a Best Buy answer says the unit is more efficient at 47°F and above, so treat low-temperature output as contested."
 },
 prices:[
   {label:"Dehumidifier, TCL 50-pint H50D44W", brand:"tcl", v:264.99},
@@ -111,14 +111,14 @@ patents:"Two design patents (D847320, filed 2017, granted 2019; D1045044, filed 
 voice:[
   {h:"Portables", t:"Window kit does not fit some windows (panels cut for 30 to 35 in. windows, missing slider adapter). Short, stiff, uninsulated hose and short cord. Drain hose and reservoir. Weight of 60 to 75 lb.", s:"Best Buy and Staples reviews. Many were received in exchange for the product."},
   {h:"Window units", t:"Quiet and efficient. The 8K needs holes drilled to secure it, weighs 61.7 lb, and has to come out each winter. Tom's Guide measured about 49 dBA at six feet and said it feels underpowered next to the Midea U, so size up.", s:"TechHive and Tom's Guide reviews, one reviewer each."},
-  {h:"Heat pump listing", t:"The 12K model is titled heat pump at Lowe's and Amazon, and supplemental heat at Best Buy and Home Depot.", s:"Retailer listings."},
+  {h:"Heat pump listing", t:"TCL's spec sheet calls the 12K a heat pump, but Lowe's, Best Buy and Zoro titles say heater or supplemental heat.", s:"Retailer listings."},
   {h:"Dehumidifiers", t:"Noise, a small tank, and one failure at a month.", s:"Three reviews on one Best Buy listing. Thin evidence."},
   {h:"Mini splits", t:"Poorly translated instructions and extra parts needed.", s:"One Home Depot listing."},
   {h:"Support and warranty", t:"Templated replies, long holds, and a hard warranty process.", s:"Several small sources."}
 ],
 ideas:[
   {n:1, h:"Smaller heat pump window unit (8K, 10K)", gap:"yes", comp:"partial", sig:"none", read:"Best-supported idea",
-   why:"TCL's only heat pump window unit is the 12K. Gradient sells a roughly 9,000 BTU unit. Midea lists an 8K Heat & Cool window unit, heat type unconfirmed.",
+   why:"TCL's only heat pump window unit is the 12K. Gradient sells a 9,300 BTU unit. Midea lists an 8K Heat & Cool window unit, heat type unconfirmed.",
    signal:"None found.",
    test:"Pull TCL window sales by size to see how much volume is 8K and 10K. Confirm Midea's heating type."},
   {n:2, h:"Heat pump through-the-wall unit", gap:"yes", comp:"partial", sig:"none", read:"Check",
@@ -145,7 +145,7 @@ setaside:[
   ["Window unit built to stay in all winter","Not a gap. TCL's care page and Midea's manual both say to remove window units at season end. Gradient markets year-round comfort, but I found no statement that its unit stays in all winter."],
   ["Larger dehumidifiers","Same size class as TCL once ratings match. Frigidaire's 69.7-pint is the old rating for about 50 pints new."],
   ["U-shaped window design","Recalled for drainage and mold, and the look is covered by design patents."],
-  ["Window units above 15K BTU","TCL's 18K is no longer sold at Best Buy and the 15K already weighs 92.6 lb."],
+  ["Window units above 15K BTU","TCL's 18K is no longer sold at Best Buy and the 12K heat pump already weighs 92.6 lb."],
   ["Humidifiers, fans, heaters","None on TCL's US site, but I found no customer demand, only that Midea sells them."]
 ],
 unconfirmed:[
@@ -153,13 +153,14 @@ unconfirmed:[
   "Whether TCL's through-the-wall units are inverter.",
   "Heating type of Midea's 8K Heat & Cool window unit.",
   "TCL's heat pump output below 5°F.",
-  "Gradient's low-temperature figures, where its two documents disagree.",
+  "How the TCL 12K heat pump performs in real cold (spec sheet says 72% at 5°F, a Best Buy answer says best at 47°F and above).",
+  "H15W4KW weight (not on TCL's page).",
   "TCL portable model number H10PD56W (from a retailer listing) and the Hisense model number (from Hisense Canada).",
   "Competitor comparisons for air purifiers and mini splits (not done yet)."
 ],
 later:{
   now:["Public lineup, specs and prices","Competitor models matched by category","Review themes with sample sizes shown","Ideas screened on three tests"],
-  after:["Sales by size, tier and retailer","Returns and support tickets by model and reason","Reviews read at scale","Business case per idea: market size, margin, tooling and certification cost","Feasibility with factory and engineering teams"]
+  after:["Business case per idea: market size, margin, tooling and certification cost, plus a price test","Requirements and specs: turn the review fixes into a product brief with Marketing and Sales","Pricing and promo: benchmark against Midea, Gradient and Frigidaire by retailer and size, and track promo depth","Line reviews and launch: retailer comparison sheets, matching listing copy, launch milestones","Validate with TCL data: sales by size, tier and retailer; returns and support tickets by model; margin","Feasibility with R&D, the factory and compliance"]
 },
 sources:{
  techhive:["TechHive review, TCL Q Series 8K","https://www.techhive.com/article/2477737/tcl-q-series-smart-inverter-window-ac-review.html"],
