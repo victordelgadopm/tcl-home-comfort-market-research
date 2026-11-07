@@ -269,8 +269,8 @@ function home(){
   h+='<div class="cta"><a class="btn p" href="#/compare">See the research</a><a class="btn s" href="#/casestudy">See the case study</a></div></section>';
   h+='<div class="sec">Summary: TCL is competitive on price, and heat is the opening</div>';
   [["Position","Where prices could be compared, TCL is at or below the closest competitor in four of five product types (window AC, window heat pump, through-the-wall, air purifier). Mini splits are the exception, at about double Pioneer and Senville."],
-   ["Opportunity","Cold-weather window heating. A buyer today chooses between TCL\'s window heat pump at $749.99, which has an unclear cold rating and is recommended by only 33% of Home Depot buyers, or Midea and Gradient at $2,800 to $3,800, rated to \u221222\u00b0F and \u221213\u00b0F. No product sits between them."],
-   ["Where I would start","A mid-priced, cold-rated window heat pump (test range $1,199 to $1,799). It has the strongest evidence of four ideas, and the first step is cheap, which is to check TCL\'s own returns and sales data against what public reviews suggest."]
+   ["Opportunity","Cold-weather window heating. A buyer today chooses between TCL\'s window heat pump at $749.99, which has an unclear cold rating and is recommended by only 33% of Home Depot buyers, or Midea and Gradient at $2,800 to $3,800, both rated to \u221213\u00b0F. I found no cold-rated window heat pump between them. On paper the cold limit is close (TCL\'s manual says \u22126\u00b0F), so the gap is mostly proof, consistency, and buyer confidence."],
+   ["Where I would start","A mid-priced, cold-rated window heat pump (test range $1,199 to $1,799). It has the strongest evidence of four ideas, and the first step is to test whether the existing 12K can be re-rated, and to check TCL\'s returns and sales data against what public reviews suggest, before committing to a new model."]
   ].forEach(function(x){h+='<div class="card" style="margin-bottom:8px"><b>'+esc(x[0])+':</b> '+esc(x[1])+'</div>'});
   h+='<div class="sec">Market research: TCL vs the closest competitor</div><div class="hint">Tap a product line</div><div class="snap">';
   D.categories.forEach(function(c){
@@ -380,9 +380,9 @@ function roadmap(){
 }
 
 var PARTS=[
- ["Control panel and display","Wi-Fi, remote, and app control. TCL\u2019s manual, spec sheet, and a retailer answer give three different cold limits.","Print one tested cold limit on the unit label, matching the manual and every listing."],
+ ["Control panel and display","Wi-Fi, remote, and app control. TCL\u2019s manual, spec sheet, and a retailer answer give three different cold limits.","Print one tested cold limit on the product label and box, matching the manual and every listing. Competitors state their lowest operating temperature in their spec sheets."],
  ["Air outlet (heating output)","Rated 11,700 BTU at 47°F. At 5°F the spec sheet says 72%, about 8,400 BTU (calculated).","Measure and publish output at 47°F, 17°F, and 5°F so buyers can compare with Gradient and Midea."],
- ["Front grille and fan (noise)","Home Depot reviewers list noise among their complaints. 1,190 W, CEER 14.4.","Quieter operation. Set a sound target with R&D, then publish the dBA at each fan speed."],
+ ["Front grille and fan (noise)","Home Depot reviewers list noise among their complaints. 1,190 W, CEER 14.4.","Quieter operation. Set a sound target with R&D, then publish the dBA at each fan speed, as Midea does."],
  ["Cabinet, mounting, and weight","92.6 lb, drilling required, fits windows 29.5 to 41 in. wide. Reviewers cite build quality and faults.","Sturdier build confirmed against return reasons, plus tool-free mounting and handles."],
  ["Remote and app","Included. Retailer listings describe the unit as Wi-Fi enabled with a remote.","Keep as is. Not a gap in the research for this model.",true]
 ];
@@ -435,11 +435,11 @@ function ladder(){
 }
 function beforeAfter(){
   var rows=[
-   ["Cold rating","Three different limits in TCL’s materials: −6°F (manual), 72% output at 5°F (spec sheet), about 42°F (retailer answer).","One published cold limit, stated the same way in the manual, spec sheet, and every listing. Competitors set the bar: Midea to −22°F, Gradient 7,026 BTU at −13°F."],
+   ["Cold rating","Three different limits in TCL’s materials: −6°F (manual), 72% output at 5°F (spec sheet), about 42°F (retailer answer).","One published cold limit, stated the same way in the manual, spec sheet, product label, and every listing. Competitors set the bar: Midea and Gradient both heat to \u221213\u00b0F, and Gradient delivers 7,026 BTU there."],
    ["Heating output","Rated 11,700 BTU. Output at 5°F is calculated from the spec sheet (about 8,400 BTU).","Output published at 47°F, 17°F, and 5°F, measured and confirmed."],
    ["Listing wording","Spec sheet says heat pump. Home Depot, Lowe’s, Best Buy, and Zoro titles say heater or supplemental heat.","One name everywhere: window heat pump, with the cold rating in the title."],
    ["Customer experience","Home Depot: 3.9 of 5 from 17 reviews, 33% recommend. Complaints are build quality, faults, and noise.","Return reasons confirmed with QA and QC, then fixed: sturdier build, quieter operation, fewer faults."],
-   ["Installation","92.6 lb, drilling required, hard to handle alone.","Easier mounting and handling (tool-free mount, handles), checked against install complaints."],
+   ["Installation","92.6 lb, drilling required, hard to handle alone.","Easier mounting and handling (ideas to test: tool-free mount, handles), checked against install complaints."],
    ["Price","$749.99, with no product between it and $2,800.","Test $1,199 to $1,799 with retailers before committing."]
   ];
   var h='<div class="sec">Before and After</div><div class="ba">'+rows.map(function(x,i){return '<div class="rw"><div class="hd"><i>'+(i+1)+'</i>'+esc(x[0])+'</div><div class="cols"><div class="b"><small>Before (today)</small>'+esc(x[1])+'</div><div class="a"><small>After (target)</small>'+esc(x[2])+'</div></div></div>'}).join("")+'</div>';
@@ -456,11 +456,11 @@ function casestudy(){
   h+=beforeAfter();
   h+='<div class="sec">The Plan, Step by Step</div>';
   [["The problem","A buyer who wants window heat has two choices: TCL\'s 12K at $749.99, or Midea and Gradient at $2,800 to $3,800. TCL\'s materials give three different cold limits (\u22126\u00b0F in the manual, 72% output at 5\u00b0F on the spec sheet, about 42\u00b0F in a retailer answer). Home Depot buyers rate it 3.9 of 5 from 17 reviews, and 33% recommend it."],
-   ["The hypothesis","Buyers who will not pay $3,000 but do not trust a $750 unit would pay roughly $1,200 to $1,800 for a unit rated and proven to heat to a published cold limit. Competitors set the bar: Gradient delivers 7,026 BTU at \u221213\u00b0F, and Midea heats to \u221222\u00b0F."],
+   ["The hypothesis","Buyers who will not pay $3,000 but do not trust a $750 unit would pay roughly $1,200 to $1,800 for a unit rated and proven to heat to a published cold limit. TCL\u2019s own manual limit is close to theirs, so the gap is proof and consistency more than raw capability. Competitors set the bar: both Midea and Gradient heat to \u221213\u00b0F, and Gradient delivers 7,026 BTU there. Demand exists: New York City\u2019s public housing authority chose Midea and Gradient to supply 30,000 cold-climate window heat pumps."],
    ["What I would confirm first","With QA and QC, TCL returns and support tickets for the 12K by reason (cold performance, faults, noise, installation). With Sales, volume by retailer and region, since cold-climate demand decides the size of the opportunity."],
-   ["Draft requirements","One published cold-weather rating, stated the same way in the manual, spec sheet, and every retailer listing. Heating output published at 47\u00b0F, 17\u00b0F, and 5\u00b0F. Quieter operation, stronger build, and easier installation (tool-free mount, handles). Clear heat pump wording in listing titles."],
+   ["Draft requirements","One published cold-weather rating, stated the same way in the manual, spec sheet, and every retailer listing. Heating output published at 47\u00b0F, 17\u00b0F, and 5\u00b0F. Quieter operation with noise published at each fan speed, as Midea does. Stronger build, and easier installation (ideas to test: tool-free mount, handles). Clear heat pump wording in listing titles."],
    ["Business case inputs","Price test with retailers, target margin, tooling and certification cost, volume forecast, and how much it would take from the 12K. Feasibility with R&D and the factory."],
-   ["Decision point","Proceed if returns point to cold performance and cold-climate volume supports the investment. If returns point to quality instead, fix the 12K first. If volume is small, move to the portable heat pump idea."],
+   ["Decision point","Proceed if returns point to cold performance and cold-climate volume supports the investment. If testing shows the 12K already performs to its rating, re-rate and relabel it before building a new model. If returns point to quality instead, fix the 12K first. If volume is small, move to the portable heat pump idea."],
    ["Launch and sales support","Retailer line-review sheet comparing TCL against Midea and Gradient on price and cold rating, listing content built on the verified rating, and a launch plan with Marketing and Sales."]
   ].forEach(function(x,i){h+='<div class="card step" style="margin-bottom:8px"><div class="n">'+(i+1)+'</div><div class="b"><b>'+esc(x[0])+'</b><div>'+esc(x[1])+'</div></div></div>'});
   h+='<p style="text-align:right"><a class="pill" href="#/grow/1">See idea 1 and its evidence &rsaquo;</a></p>';

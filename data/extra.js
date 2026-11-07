@@ -1,6 +1,8 @@
 /* Extra data for the tap-through layout. Same rule: every fact points to a source id. */
 (function(){
 var D=window.DATA;
+D.sources.midea_spec=["Midea packaged window heat pump spec sheet (Efficiency Vermont copy): minimum heating outdoor temperature -13°F","https://www.efficiencyvermont.com/Media/Default/docs/products/Midea-PWHP_TechProdSheet_2022-10-31.pdf"];
+D.sources.nyserda_wph=["NYSERDA, window heat pumps for NYCHA (Midea 20,000 and Gradient 10,000 units)","https://www.nyserda.ny.gov/About/Newsroom/2023-Announcements/2023-09-20-Governor-Hochul-Announces-Installation-Of-Window-Heat-Pumps-For-New-York-City"];
 D.sources.zoro_hp=["Zoro, TCL H12W4KWH (listed $747.99, heat pump wording)","https://www.zoro.com/tcl-q-series-12-000-btu-550-sq-ft-smart-inverter-window-air-conditioner-with-heater-remote-control-h12w4kwh/i/G316138623/"];
 D.sources.quill_hp=["Quill, TCL H12W4KWH (listed $749.99, heat pump wording)","https://www.quill.com/tcl-q-series-115-volt-12-000-btu-window-air-conditioner-remote-wifi-enabled-white-h12w4kwh/cbs/55523277.html"];
 D.sources.bb_10k=["Best Buy, TCL 10K Q Series window unit (450 sq ft)","https://www.bestbuy.com/product/tcl-450-sq-ft-10000-btu-smart-inverter-window-air-conditioner-white/J36QYTT66Y"];
@@ -20,10 +22,10 @@ D.score={
  heatpump:{tclL:"TCL H12W4KWH 12K",compL:"Gradient All-Weather 120V",
   rows:[["Heating at 47°F","11,700 BTU","9,000 BTU","ahead"],
         ["Heating at 5°F","About 8,400 BTU","7,200 BTU","ahead"],
-        ["Coldest published point","-6°F (manual)","-13°F (Gradient), -22°F (Midea)","behind"],
+        ["Coldest published point","-6°F (manual)","-13°F (Gradient), -13°F (Midea spec sheet)","behind"],
         ["Price","$749.99","$3,800 (Gradient), $2,800 to $3,000 (Midea)","ahead"],
         ["Buyer feedback","Home Depot 3.9 of 5, 33% recommend (17)","Press: Midea pilot users report heat in single digits","behind"]],
-  bottom:"TCL costs about a quarter as much and out-heats Gradient at 47°F and 5°F. Gradient and Midea go colder, and TCL's own documents give three different cold limits."},
+  bottom:"TCL costs about a quarter as much and out-heats Gradient at 47°F and 5°F. Gradient and Midea are rated to -13°F, TCL's manual says -6°F, and TCL's own documents give three different cold limits."},
  ttw:{tclL:"TCL H12T9XH 12K",compL:"Friedrich WallMaster WHVT14B33A",
   rows:[["Heat","11,600 BTU supplemental, type not stated","Heat and cool (its KHVS12B33A heat pump is discontinued)","unclear"],
         ["Price","$649.99","$1,699.97","ahead"],
@@ -56,7 +58,7 @@ D.ladder={
  window:{lead:"Bigger size, more room covered. TCL's 15K is the heaviest.",
   rows:[["8K","$399 list","Covers 350 sq ft. 61.7 lb."],["10K","$449 list","Covers 450 sq ft."],["12K","$499 list","Covers 550 sq ft. 40 dB."],["15K","Price not found","Covers 550 to 700 sq ft."]],src:["tcl_h8","bb_10k","tcl_h12","tcl_h15"]},
  heatpump:{lead:"One TCL model today, against $2,800 to $3,800 from Midea and Gradient.",
-  rows:[["TCL 12K heat pump","$749.99","11,700 BTU heating. 72% at 5°F. Manual: operates to -6°F. Window 29.5 to 41 in."],["Midea packaged 9K","$2,800 to $3,000","Heats to -22°F. Installer channel."],["Gradient 120V 9,300 BTU","$3,800","7,026 BTU at -13°F. 140 lb."]],src:["hd_hp_page","hd_hp_pdf","tcl_hp_manual","fc_midea","hdigest_cold"]},
+  rows:[["TCL 12K heat pump","$749.99","11,700 BTU heating. 72% at 5°F. Manual: operates to -6°F. Window 29.5 to 41 in."],["Midea packaged 9K","$2,800 to $3,000","Heats to -13°F (spec sheet). Installer channel."],["Gradient 120V 9,300 BTU","$3,800","7,026 BTU at -13°F. 140 lb."]],src:["hd_hp_page","hd_hp_pdf","tcl_hp_manual","fc_midea","hdigest_cold"]},
  ttw:{lead:"11 listings from 8K to 14K, 64 to 76 lb, professional install recommended.",
   rows:[["TCL 12K with heat","$649.99","11,600 BTU supplemental heat. Home Depot 3.6 of 5 (34)."],["Friedrich WallMaster 15K","$1,699.97","Inverter, heat and cool, 3.4 of 5."]],src:["bb_ttw","hd_ttw_qa","tcl_ttw","pcrichard_wm"]},
  portable:{lead:"About 22 listings.",
@@ -70,7 +72,7 @@ D.ladder={
 };
 
 D.grow={
- 1:{what:"A window heat pump that heats in the cold, at a mid price.",diff:"TCL's 12K is $749.99 and its documents give three cold limits. Midea and Gradient go colder at $2,800 to $3,800. This fills the gap between.",price:"$1,199 to $1,799",basis:"A test range between $750 and $2,800, not a finding.",bullets:["Midea 9K: $2,800 to $3,000, heats to -22°F, sold through installers.","Gradient 9,300 BTU: $3,800, 7,026 BTU at -13°F.","Press: cheaper units often heat only above about 40°F, and cost is the main barrier.","Home Depot: TCL's 12K is 3.9 of 5 from 17 reviews, 33% recommend."]},
+ 1:{what:"A window heat pump that heats in the cold, at a mid price.",diff:"TCL's 12K is $749.99 and its documents give three cold limits. Midea and Gradient are rated to -13°F at $2,800 to $3,800. This fills the gap between, with proof and consistency as the main difference.",price:"$1,199 to $1,799",basis:"A test range between $750 and $2,800, not a finding.",bullets:["Midea 9K: $2,800 to $3,000, heats to -13°F per its spec sheet (press says designed to -22°F), sold through installers.","Gradient 9,300 BTU: $3,800, 7,026 BTU at -13°F.","Press: cheaper units often heat only above about 40°F, and cost is the main barrier.","Home Depot: TCL's 12K is 3.9 of 5 from 17 reviews, 33% recommend."]},
  2:{what:"A through-the-wall unit with a heat pump.",diff:"TCL's H12T9XH has 11,600 BTU supplemental heat and never says inverter. This adds a heat pump and inverter.",price:"$899 to $1,199",basis:"Between TCL's $649.99 and Friedrich's $1,699.97.",bullets:["Friedrich's heat pump KHVS12B33A ($1,799) is discontinued.","Friedrich WallMaster 15K: inverter, $1,699.97, 3.4 of 5.","TCL's H12T9XH: 3.6 of 5 from 34 reviews at Home Depot, so quality is the opening."]},
  3:{what:"A portable air conditioner with a heat pump.",diff:"TCL calls its portable heat supplemental heating and does not name the type. Hisense states heat pump.",price:"$449 to $549",basis:"Anchored on Westinghouse's 14K portable with heat at $549.99, a weak anchor.",bullets:["Hisense lists an 8K dual-hose inverter with heat pump on its US site.","Westinghouse 14K with heat: 4.5 of 5 from 394 reviews (Tractor Supply listing).","TCL's 10K portable: 4.86 of 5 from 22 at Staples, about 4.4 of 5 at Best Buy."]},
  4:{what:"A dehumidifier with a built-in air filter.",diff:"TCL sells dehumidifiers and Breeva purifiers separately. This puts both in one unit.",price:"$299 to $349",basis:"TCL's 50-pint is $264.99 and Frigidaire's 35-pint 2-in-1 was $314.",bullets:["Frigidaire GHDD3535W1: 35-pint with PureAir filter, 4.9 of 5 from 29 reviews.","It is shown as no longer available at AJ Madison, so check why.","Weakest of the four."]}

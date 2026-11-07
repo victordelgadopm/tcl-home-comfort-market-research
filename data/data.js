@@ -29,10 +29,10 @@ categories: [
    ],
    comp:[
     {model:"All-Weather 120V", name:"Gradient window heat pump", brand:"Gradient", specs:[["Cooling","9,300 BTU"],["Heating","9,000 BTU at 47°F and 17°F, 7,200 BTU at 5°F, 7,026 BTU at -13°F"],["Install","No drilling or permits (product page)"],["Weight","140 lb total"]], conf:"tcl", src:["gradient_page","gradient_spec"], note:"Product page and the May 2025 brochure agree. An older spec sheet I used earlier gave different low-temperature figures, so I dropped it."},
-    {model:"MAH09H1AGR", name:"Midea packaged window heat pump 9K", brand:"Midea", specs:[["Price","$2,800 to $3,000 at launch"],["Cold","Heats to -22°F without electric backup"],["Size","About 300 to 500 sq ft"],["Sold","Through distributors, installers at launch"]], conf:"review", src:["fc_midea"]},
+    {model:"MAH09H1AGR", name:"Midea packaged window heat pump 9K", brand:"Midea", specs:[["Price","$2,800 to $3,000 at launch"],["Cold","Heats to -13°F per Midea's spec sheet (5,050 BTU, COP 1.41). Press says designed to -22°F."],["Size","About 300 to 500 sq ft"],["Sold","Through distributors, installers at launch"]], conf:"review", src:["fc_midea"]},
     {model:"MAW08H1ZWT", name:"Midea 8K Heat & Cool window unit", brand:"Midea", specs:[["Heating","Manual mentions an electric heater, so likely electric heat"],["Size","8,000 BTU"]], conf:"tcl", src:["midea_8k","midea_manual"]}
    ],
-   compare:"TCL costs about a quarter as much ($749.99 against $2,800 to $3,800) and has more heating capacity (11,700 BTU at 47°F against 9,000). Gradient and Midea go colder (-13°F and -22°F) and TCL's own documents give three different cold limits. Home Depot buyers recommend the TCL unit 33% of the time."
+   compare:"TCL costs about a quarter as much ($749.99 against $2,800 to $3,800) and has more heating capacity (11,700 BTU at 47°F against 9,000). Gradient and Midea are rated to -13°F, while TCL's manual says -6°F and its documents give three different cold limits, so the gap is mostly proof and consistency. Home Depot buyers recommend the TCL unit 33% of the time."
  },
  { id:"ttw", name:"Through-the-wall",
    tcl:[
@@ -126,7 +126,7 @@ voice:[
 ],
 ideas:[
   {n:1, h:"Window heat pump that heats in the cold, at a mid price", gap:"yes", comp:"yes", sig:"partial", read:"Best-supported idea",
-   why:"TCL's 12K is $749.99 and its documents give three cold limits (-6°F manual, 72% at 5°F spec sheet, about 42°F retailer answer). Midea (9K, to -22°F, $2,800 to $3,000) and Gradient (9,300 BTU, $3,800) sit far above it.",
+   why:"TCL's 12K is $749.99 and its documents give three cold limits (-6°F manual, 72% at 5°F spec sheet, about 42°F retailer answer). Midea (9K, to -13°F, $2,800 to $3,000) and Gradient (9,300 BTU, $3,800) sit far above it.",
    signal:"Press: cheaper units often heat only above about 40°F and cost is the main barrier. Home Depot: TCL's 12K is 3.9 of 5 from 17 reviews and 33% recommend. Midea pilot users report heat in single digits.",
    test:"Pull TCL's returns and support tickets for the 12K by reason. Test $1,199 to $1,799 with retailers. Ask the factory what a colder-rated unit would cost."},
   {n:2, h:"Heat pump through-the-wall unit", gap:"yes", comp:"partial", sig:"partial", read:"Test",
@@ -151,7 +151,7 @@ fixes:[
   ["All products","Templated support replies and a hard warranty process (several sources)","Faster first-season replacement and a clearer warranty"]
 ],
 setaside:[
-  ["Window unit built to stay in all winter","Not a gap. TCL's care page and Midea's manual both say to remove window units at season end. Gradient markets year-round comfort, but I found no statement that its unit stays in all winter."],
+  ["Regular window AC left in all winter","Not a gap. TCL's care page and Midea's window AC manual both say to remove the unit at season end. Packaged window heat pumps from Midea and Gradient are built for year-round use, which is a different product."],
   ["Larger dehumidifiers","Same size class as TCL once ratings match. Frigidaire's 69.7-pint is the old rating for about 50 pints new."],
   ["U-shaped window design","Recalled for drainage and mold, and the look is covered by design patents."],
   ["Window units above 15K BTU","TCL's 18K is no longer sold at Best Buy and the 12K heat pump already weighs 92.6 lb."],
