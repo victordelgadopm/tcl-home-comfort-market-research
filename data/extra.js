@@ -98,3 +98,14 @@ window.DATA.media={
 /* Idea pages: the TCL product today and the competitor that already has the idea (model keys into media). */
 window.DATA.ideaPair={1:["H12W4KWH","All-Weather 120V"],2:["H12T9XH","KHVS12B33A"],3:["H10PD56W","AP0825TW1SAHP"],4:["T50DC9SPB","GHDD3535W1"]};
 window.DATA.ideaPairNames={"H12W4KWH":"TCL 12K heat pump window unit","All-Weather 120V":"Gradient All-Weather 120V","H12T9XH":"TCL H12T9XH through-the-wall","KHVS12B33A":"Friedrich KHVS12B33A","H10PD56W":"TCL H10PD56W portable","AP0825TW1SAHP":"Hisense AP0825TW1SAHP","T50DC9SPB":"TCL 50-pint dehumidifier with pump","GHDD3535W1":"Frigidaire GHDD3535W1 2-in-1"};
+
+/* Full range on TCL's US collection pages (counts from the page filter; model lists are the first page shown). */
+window.DATA.range={
+ window:{count:"34 listings",line:"TCL's window AC range runs from 5K to 14K BTU and mixes several generations.",listed:[["H6W23W","6K"],["W5WC72M","5K"],["T08WV9S","8K"],["T10WV9S","10K"],["T12WV9S","12K"],["T14WV9S","14K"],["W8W92-B4","8K"],["W10W92-B4","10K"]],link:"https://us.tcl.com/collections/window-air-conditioners",src:"8 of 34 shown"},
+ heatpump:{count:"1 model found",line:"The H12W4KWH is the only window heat pump I found on TCL's US site and at retailers.",listed:[],link:"https://www.lowes.com/pd/TCL-Large-Room-Window-Air-Conditioner-with-Heater-Remote-Included-115-Volt-12000-BTU/5016583701",src:""},
+ ttw:{count:"11 listings",line:"TCL's through-the-wall range runs from 8K to 14K BTU. The H12T9XH below is the one I priced at Best Buy, and I did not see it in the 8 shown.",listed:[["W8T9E1-A","8K"],["8T3E1","8K"],["W10T9E1-A","10K"],["W10T9EX1-A","10K"],["12T3E1","12K"],["W12T9E1-A","12K"],["W12T9EX1-A","12K"],["W14T9X1-A","14K"]],link:"https://us.tcl.com/collections/through-the-wall-air-conditioners",src:"8 of 11 shown"},
+ portable:{count:"About 22 listings",line:"I looked at the dual-hose inverter models in detail.",listed:[],link:"https://us.tcl.com/collections/portable-air-conditioners",src:""},
+ dehum:{count:"17 listings",line:"TCL's dehumidifiers run from 20 to 50 pints.",listed:[["20D91","20 pint"],["30D91","30 pint"],["T25DC9R","25 pint"],["T32DC9R","32 pint"],["40D91","40 pint"],["50D91","50 pint"],["50D91-B","50 pint"],["T50DC9SPB","50 pint, pump"]],link:"https://us.tcl.com/collections/dehumidifiers",src:"8 of 17 shown"},
+ purifier:{count:"6 models",line:"The Breeva line is the full set.",listed:[],link:"https://us.tcl.com/pages/air-purifiers",src:""},
+ split:{count:"4 series",line:"Elite, Multi-Match, Ultimate and ready-to-install systems, from 9K to 36K BTU.",listed:[],link:"https://www.tcl.com/usca/content/dam/tcl/product/hvac/documents/elite-series/Elite%20HVAC%20SpecSheet%202025.pdf",src:""}
+};
