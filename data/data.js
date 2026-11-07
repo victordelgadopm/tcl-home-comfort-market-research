@@ -119,7 +119,7 @@ patents:"Two design patents (D847320, filed 2017, granted 2019; D1045044, filed 
 voice:[
   {h:"Portables", t:"Window kit does not fit some windows (panels cut for 30 to 35 in. windows, missing slider adapter). Short, stiff, uninsulated hose and short cord. Drain hose and reservoir. Weight of 60 to 75 lb.", s:"Best Buy and Staples reviews. Many were received in exchange for the product."},
   {h:"Window units", t:"Quiet and efficient. The 8K needs holes drilled to secure it, weighs 61.7 lb, and has to come out each winter. Tom's Guide measured about 49 dBA at six feet and said it feels underpowered next to the Midea U, so size up.", s:"TechHive and Tom's Guide reviews, one reviewer each."},
-  {h:"Window heat pump", t:"Home Depot: 3.9 of 5 from 17 reviews, 33% recommend; complaints are build quality, faults and noises. Staples: 4.8 of 5 from 5 reviews, all free-product. TCL's spec sheet and Home Depot description say heat pump, but titles at Home Depot, Lowe's, Best Buy and Zoro say heater or supplemental heat.", s:"Home Depot, Staples, Lowe's, Best Buy and Zoro listings."},
+  {h:"Window heat pump", t:"Home Depot: 3.9 of 5 from 17 reviews, 33% recommend; complaints are build quality, faults, and noise. Staples: 4.8 of 5 from 5 reviews, all free-product. TCL's spec sheet and Home Depot description say heat pump, but titles at Home Depot, Lowe's, Best Buy and Zoro say heater or supplemental heat.", s:"Home Depot, Staples, Lowe's, Best Buy and Zoro listings."},
   {h:"Dehumidifiers", t:"Noise, a small tank, and one failure at a month.", s:"Three reviews on one Best Buy listing. Thin evidence."},
   {h:"Mini splits", t:"Poorly translated instructions and extra parts needed.", s:"One Home Depot listing."},
   {h:"Support and warranty", t:"Templated replies, long holds, and a hard warranty process.", s:"Several small sources."}
@@ -145,7 +145,7 @@ ideas:[
 fixes:[
   ["Portable AC","Window kit does not fit some windows, short stiff hose and cord, drain hose and reservoir, 60 to 75 lb","Adjustable panel with slider and casement adapters, longer insulated hose and cord, better drain, handles"],
   ["Window AC","Drilling to secure the unit, 61.7 lb (8K), heat pump wording and cold range differ across manual, spec sheet and retailers","Tool-free mount, install video, handles, and one heat claim and cold range on every document"],
-  ["Dehumidifier","Only 3 reviews: noise, small tank, one failure at a month","Publish noise levels and add a pump option on more models (pump on 5 of 17 listings)"],
+  ["Dehumidifier","Only 3 reviews, citing noise, a small tank, and one failure at a month","Publish noise levels and add a pump option on more models (pump on 5 of 17 listings)"],
   ["Through-the-wall","Low ratings (3.6 and 3.4), 75 lb, professional install, inverter never stated","State inverter and efficiency if true, add install support"],
   ["Mini split","Poorly translated instructions, extra parts needed","Rewrite instructions, include common installer parts, correct listing Q&A"],
   ["All products","Templated support replies and a hard warranty process (several sources)","Faster first-season replacement and a clearer warranty"]

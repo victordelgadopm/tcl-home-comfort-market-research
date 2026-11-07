@@ -306,7 +306,7 @@ function lineup(sub){
   var id=sub||"window";var c=cat(id),L=D.ladder[id];
   var h='<h2>What TCL sells</h2><p class="lead">Pick a product line.</p>'+pills(CATS,id,"lineup");
   var RG=D.range[id];
-  h+='<div class="card" style="margin-bottom:10px"><div style="display:flex;justify-content:space-between;gap:8px;align-items:baseline;flex-wrap:wrap"><h3 style="margin:0">TCL range: '+esc(RG.count)+'</h3><a href="'+esc(RG.link)+'" target="_blank" rel="noopener" style="font-size:13px;font-weight:700">See on TCL\'s site &#8599;</a></div><div class="note" style="margin:4px 0 0">'+esc(RG.line)+'</div>'+(RG.listed.length?'<div class="tests" style="margin-top:8px">'+RG.listed.map(function(m){return '<span class="chip even">'+esc(m[0])+' '+esc(m[1])+'</span>'}).join("")+'</div><div class="note">'+esc(RG.src)+' on TCL\'s collection page. The rest did not load for me, so this list is not complete. The models below are the ones I checked in detail.</div>':'')+'</div>';
+  h+='<div class="card" style="margin-bottom:10px"><div style="display:flex;justify-content:space-between;gap:8px;align-items:baseline;flex-wrap:wrap"><h3 style="margin:0">TCL range: '+esc(RG.count)+'</h3><a href="'+esc(RG.link)+'" target="_blank" rel="noopener" style="font-size:13px;font-weight:700">See on TCL\'s site &#8599;</a></div><div class="note" style="margin:4px 0 0">'+esc(RG.line)+'</div>'+(RG.listed.length?'<div class="tests" style="margin-top:8px">'+RG.listed.map(function(m){return '<span class="chip even">'+esc(m[0])+' '+esc(m[1])+'</span>'}).join("")+'</div><div class="note">'+esc(RG.src)+' on TCL\'s collection page. The models below are the ones I checked in detail.</div>':'')+'</div>';
   h+='<div class="sec" style="margin-top:4px">Models I checked in detail</div><div class="lgrid">'+c.tcl.map(function(p){
     return '<div class="card lcard">'+photo(p.model,id,true)+'<div class="info"><b>'+esc(p.model)+'</b><div class="note" style="margin:0 0 6px">'+esc(p.name)+'</div>'+p.specs.map(function(s){return '<div class="spec"><span>'+esc(s[0])+'</span><span>'+esc(s[1])+'</span></div>'}).join("")+(p.note?'<div class="note">'+esc(p.note)+'</div>':"")+'</div></div>'}).join("")+'</div>';
   h+='<div class="sec">As the price goes up</div><p class="note" style="margin-top:0">'+esc(L.lead)+'</p><div class="card">'+L.rows.map(function(r){return '<div class="row"><b>'+esc(r[0])+'</b><span class="p">'+esc(r[1])+'</span><span class="d">'+esc(r[2])+'</span></div>'}).join("")+'</div>';
@@ -376,8 +376,8 @@ function ruledout(sub){
     h+='<div class="card"><h3>Copying the Midea U-shaped window unit</h3><p class="note" style="margin-top:0">A competing design that was recalled, so not one to copy.</p><ul class="tl">'+D.timeline.map(function(t){return '<li><b>'+esc(t.d)+'</b>'+esc(t.t)+'</li>'}).join("")+'</ul></div>';
     h+='<div class="card" style="margin-top:10px"><h3>Patents</h3><p style="margin:0">'+esc(D.patents)+'</p></div>';
     h+=srcs(["cpsc","classaction","aftermath","patent1","patent2"]);
-  } else if(id==="pints"){h+='<h3>A "larger dehumidifier" is not a gap</h3><p class="note" style="margin-top:0">The same machine now carries a smaller pint number, so old and new ratings cannot be compared.</p>'+pintChart();}
-  else {h+='<h3>Other ideas I looked at and dropped</h3>'+D.setaside.map(function(r){return '<div class="card" style="margin-bottom:8px"><b>'+esc(r[0])+'</b><div style="color:var(--mute);font-size:14px;margin-top:2px">'+esc(r[1])+'</div></div>'}).join("")}
+  } else if(id==="pints"){h+='<h3>No Gap in Larger Dehumidifiers</h3><p class="note" style="margin-top:0">The same machine now carries a smaller pint number, so old and new ratings cannot be compared.</p>'+pintChart();}
+  else {h+='<h3>Other Ideas I Dropped</h3>'+D.setaside.map(function(r){return '<div class="card" style="margin-bottom:8px"><b>'+esc(r[0])+'</b><div style="color:var(--mute);font-size:14px;margin-top:2px">'+esc(r[1])+'</div></div>'}).join("")}
   return h;
 }
 function roadmap(){
@@ -436,7 +436,7 @@ function ladder(){
     t+='<circle cx="'+X(3800)+'" cy="'+y+'" r="7" fill="var(--comp)"/><text x="'+(W-Rr)+'" y="'+(y-14)+'" text-anchor="end">Gradient $3,800</text>';
     return t}
   s+='<text x="'+L+'" y="16" style="font-size:12px">BEFORE: A big empty gap</text>';
-  s+='<rect x="'+X(750)+'" y="28" width="'+(X(2800)-X(750))+'" height="26" rx="6" fill="var(--nobg)" stroke="var(--no)" stroke-dasharray="4 3"/><text x="'+((X(750)+X(2800))/2)+'" y="45" text-anchor="middle" style="fill:var(--no)">No product here</text>';
+  s+='<rect x="'+X(750)+'" y="28" width="'+(X(2800)-X(750))+'" height="26" rx="6" fill="var(--nobg)" stroke="var(--no)" stroke-dasharray="4 3"/><text x="'+((X(750)+X(2800))/2)+'" y="45" text-anchor="middle" style="fill:var(--no)">No cold-rated product found</text>';
   s+=axis(100)+comps(100);
   s+='<text x="'+L+'" y="152" style="font-size:12px">AFTER: Gap filled (concept, to be tested)</text>';
   s+='<text class="newlbl" x="'+((X(1199)+X(1799))/2)+'" y="186" text-anchor="middle" style="fill:var(--tcl)">New unit: $1,199 to $1,799</text>';
@@ -448,12 +448,12 @@ function ladder(){
 }
 function beforeAfter(){
   var rows=[
-   ["Cold rating","Three different limits in TCL’s materials: −6°F (manual), 72% output at 5°F (spec sheet), about 42°F (retailer answer).","One published cold limit, stated the same way in the manual, spec sheet, product label, and every listing. Competitors set the bar: Midea and Gradient both heat to \u221213\u00b0F, and Gradient delivers 7,026 BTU there."],
+   ["Cold rating","Three different limits in TCL’s materials: −6°F (manual), 72% output at 5°F (spec sheet), about 42°F (retailer answer).","One published cold limit, stated the same way in the manual, spec sheet, product label, and every listing. Competitors set the bar, since Midea and Gradient both heat to \u221213\u00b0F and Gradient delivers 7,026 BTU there."],
    ["Heating output","Rated 11,700 BTU. Output at 5°F is calculated from the spec sheet (about 8,400 BTU).","Output published at 47°F, 17°F, and 5°F, measured and confirmed."],
-   ["Listing wording","Spec sheet says heat pump. Home Depot, Lowe’s, Best Buy, and Zoro titles say heater or supplemental heat.","One name everywhere: window heat pump, with the cold rating in the title."],
-   ["Customer experience","Home Depot: 3.9 of 5 from 17 reviews, 33% recommend. Complaints are build quality, faults, and noise.","Return reasons confirmed with QA and QC, then fixed: sturdier build, quieter operation, fewer faults."],
-   ["Installation","92.6 lb, drilling required, hard to handle alone.","Easier mounting and handling (ideas to test: tool-free mount, handles), checked against install complaints."],
-   ["Price","$749.99, with no product between it and $2,800.","Test $1,199 to $1,799 with retailers before committing."]
+   ["Listing wording","Spec sheet says heat pump. Home Depot, Lowe’s, Best Buy, and Zoro titles say heater or supplemental heat.","One name everywhere, window heat pump, with the cold rating in the title."],
+   ["Customer experience","Home Depot: 3.9 of 5 from 17 reviews, 33% recommend. Complaints are build quality, faults, and noise.","Return reasons confirmed with QA and QC, then fixed with a sturdier build, quieter operation, and fewer faults."],
+   ["Installation","92.6 lb, drilling required, hard to handle alone.","Easier mounting and handling, with a tool-free mount and handles as ideas to test, checked against install complaints."],
+   ["Price","$749.99, and I found no cold-rated product between it and $2,800.","Test $1,199 to $1,799 with retailers before committing."]
   ];
   var h='<div class="sec">Before and After</div><div class="ba">'+rows.map(function(x,i){return '<div class="rw"><div class="hd"><i>'+(i+1)+'</i>'+esc(x[0])+'</div><div class="cols"><div class="b"><small>Before (today)</small>'+esc(x[1])+'</div><div class="a"><small>After (target)</small>'+esc(x[2])+'</div></div></div>'}).join("")+'</div>';
   h+='<div class="note">Before is from public sources. After is a proposed requirement to validate with TCL data, not a finished product.</div>';
@@ -489,10 +489,10 @@ function casestudy(){
   h+='<div class="card" style="margin-bottom:10px"><div class="sec" style="margin-top:0">The Evidence: Heating Output by Outdoor Temperature</div>'+heatChart()+'</div>';
   h+=beforeAfter();
   h+='<div class="sec">The Plan, Step by Step</div>';
-  [["The problem","A buyer who wants window heat has two choices: TCL\'s 12K at $749.99, or Midea and Gradient at $2,800 to $3,800. TCL\'s materials give three different cold limits (\u22126\u00b0F in the manual, 72% output at 5\u00b0F on the spec sheet, about 42\u00b0F in a retailer answer). Home Depot buyers rate it 3.9 of 5 from 17 reviews, and 33% recommend it."],
-   ["The hypothesis","Buyers who will not pay $3,000 but do not trust a $750 unit would pay roughly $1,200 to $1,800 for a unit rated and proven to heat to a published cold limit. TCL\u2019s own manual limit is close to theirs, so the gap is proof and consistency more than raw capability. Competitors set the bar: both Midea and Gradient heat to \u221213\u00b0F, and Gradient delivers 7,026 BTU there. Demand exists: New York City\u2019s public housing authority chose Midea and Gradient to supply 30,000 cold-climate window heat pumps."],
+  [["The problem","As far as I found, a buyer who wants window heat has two choices: TCL\'s 12K at $749.99, or Midea and Gradient at $2,800 to $3,800. TCL\'s materials give three different cold limits (\u22126\u00b0F in the manual, 72% output at 5\u00b0F on the spec sheet, about 42\u00b0F in a retailer answer). Home Depot buyers rate it 3.9 of 5 from 17 reviews, and 33% recommend it."],
+   ["The hypothesis","Buyers who will not pay $3,000 but do not trust a $750 unit would pay roughly $1,200 to $1,800 for a unit rated and proven to heat to a published cold limit. TCL\u2019s own manual limit is close to theirs, so the gap is proof and consistency more than raw capability. Competitors set the bar, since both Midea and Gradient heat to \u221213\u00b0F and Gradient delivers 7,026 BTU there. Demand exists: New York City\u2019s public housing authority chose Midea and Gradient to supply 30,000 cold-climate window heat pumps."],
    ["What I would confirm first","With QA and QC, TCL returns and support tickets for the 12K by reason (cold performance, faults, noise, installation). With Sales, volume by retailer and region, since cold-climate demand decides the size of the opportunity."],
-   ["Draft requirements","One published cold-weather rating, stated the same way in the manual, spec sheet, and every retailer listing. Heating output published at 47\u00b0F, 17\u00b0F, and 5\u00b0F. Quieter operation with noise published at each fan speed, as Midea does. Stronger build, and easier installation (ideas to test: tool-free mount, handles). Clear heat pump wording in listing titles."],
+   ["Draft requirements","One published cold-weather rating, stated the same way in the manual, spec sheet, and every retailer listing. Heating output published at 47\u00b0F, 17\u00b0F, and 5\u00b0F. Quieter operation with noise published at each fan speed, as Midea does. Stronger build, and easier installation, with a tool-free mount and handles as ideas to test. Clear heat pump wording in listing titles."],
    ["Business case inputs","Price test with retailers, target margin, tooling and certification cost, volume forecast, and how much it would take from the 12K. Feasibility with R&D and the factory."],
    ["Decision point","Proceed if returns point to cold performance and cold-climate volume supports the investment. If testing shows the 12K already performs to its rating, re-rate and relabel it before building a new model. If returns point to quality instead, fix the 12K first. If volume is small, move to the portable heat pump idea."],
    ["Launch and sales support","Retailer line-review sheet comparing TCL against Midea and Gradient on price and cold rating, listing content built on the verified rating, and a launch plan with Marketing and Sales."]
