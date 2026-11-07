@@ -155,6 +155,18 @@ footer{margin:22px 0 28px;padding-top:12px;border-top:1px solid var(--line);colo
 .part .now i{color:var(--no)}.part .chg i{color:var(--ok)}
 .cpt text{font:700 11px Inter,system-ui,sans-serif;fill:var(--ink)}
 .cpt .nb{fill:var(--ok)}.cpt .nt{fill:#fff;font-size:12px;font-weight:800;text-anchor:middle}
+
+.rest{display:grid;gap:10px}
+.rest .big{font-size:34px;font-weight:800;line-height:1}
+.rest ul{margin:6px 0 0;padding-left:18px}.rest li{margin:4px 0;font-size:14px}
+.opt{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--card);margin-bottom:8px;cursor:pointer}
+.opt input{margin-top:4px;accent-color:var(--accent)}
+.opt.on{border-color:var(--ok);background:var(--okbg)}
+.mock{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:12px;display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:start}
+.mock img{width:96px;height:96px;object-fit:contain;background:#fff;border-radius:8px;border:1px solid var(--line)}
+.mock .ttl{font-weight:800;font-size:15px;line-height:1.3}
+.mock .pr{font-size:20px;font-weight:800;margin-top:4px}
+.mock .meta{font-size:12.5px;color:var(--mute);margin-top:2px}
 </style>
 </head>
 <body>
@@ -285,6 +297,7 @@ function home(){
   IDEAS.forEach(function(i){var g=D.grow[i.n],pk=D.ideaPair[i.n][0];
     h+='<a class="card sb" href="#/grow/'+i.n+'">'+photo(pk,["heatpump","ttw","portable","dehum"][i.n-1],true).replace(/<figcaption>.*<\/figcaption>/,"")+'<div class="nm">'+esc(tc(i.h))+'</div><div class="note" style="margin:0">Price to test</div><div style="font-size:22px;font-weight:800">'+esc(g.price)+'</div></a>'});
   h+='</div>';
+  h+=restsOn();
   return h;
 }
 
@@ -444,14 +457,35 @@ function beforeAfter(){
   ];
   var h='<div class="sec">Before and After</div><div class="ba">'+rows.map(function(x,i){return '<div class="rw"><div class="hd"><i>'+(i+1)+'</i>'+esc(x[0])+'</div><div class="cols"><div class="b"><small>Before (today)</small>'+esc(x[1])+'</div><div class="a"><small>After (target)</small>'+esc(x[2])+'</div></div></div>'}).join("")+'</div>';
   h+='<div class="note">Before is from public sources. After is a proposed requirement to validate with TCL data, not a finished product.</div>';
-  h+='<div class="sec">Listing Rewrite Example</div><div class="listing"><small style="display:block;color:var(--no);font-weight:800;font-size:11px;letter-spacing:.08em">BEFORE</small>Retailer titles today describe it as a heater or supplemental heat.<br><small style="display:block;color:var(--ok);font-weight:800;font-size:11px;letter-spacing:.08em;margin-top:8px">AFTER (CONCEPT)</small>TCL Q Series Window Heat Pump, Heats to [One Published Limit]°F, Cools and Heats Year-Round</div>';
   return h;
 }
+var HL=[
+ {t:"Window Air Conditioner with Heater, 12,000 BTU",p:"$749.99 today",why:"Example of today’s wording. Retailer titles say heater or supplemental heat, so a cold-climate buyer cannot tell it is a heat pump. Nothing tells them how cold it works."},
+ {t:"Window Heat Pump, Cools and Heats Year-Round, 12,000 BTU",p:"$749.99 today",why:"Fixes the name, which already matches TCL’s spec sheet. A cold-climate buyer still cannot see how cold it works, so the doubt that leads to low recommendation scores remains."},
+ {t:"Window Heat Pump, Heats to [Published Limit]°F, 12,000 BTU",p:"$1,199 to $1,799 test range",why:"Names the product correctly and answers the one question a cold-climate buyer has. It only works once testing supports a single published limit, and it is a concept for the new model."}
+];
+function listing(i){var h=HL[i],m=D.media["H12W4KWH"]||{};
+  return '<div class="mock"><img src="'+esc(m.img||"")+'" alt="" referrerpolicy="no-referrer" onerror="this.style.visibility=\'hidden\'"><div><div class="ttl">TCL Q Series '+esc(h.t)+'</div><div class="pr">'+esc(h.p)+'</div><div class="meta">Example listing, not a real retailer page. Today’s reviews: 3.9 of 5 from 17 at Home Depot.</div></div></div><div class="note" style="margin-top:8px"><b>Why:</b> '+esc(h.why)+'</div>'}
+function headlinePicker(){
+  var h='<div class="card" style="margin-bottom:10px"><div class="sec" style="margin-top:0">Pick a Headline, See the Listing</div><p class="note" style="margin-top:0">Tap a choice to see how a shopper would read it.</p>';
+  h+=HL.map(function(x,i){return '<label class="opt'+(i===0?' on':'')+'"><input type="radio" name="hl" value="'+i+'"'+(i===0?' checked':'')+'><span>'+esc(x.t)+'</span></label>'}).join("");
+  h+='<div id="hlview">'+listing(0)+'</div></div>';return h}
+document.addEventListener("change",function(ev){var t=ev.target;if(t&&t.name==="hl"){var v=document.getElementById("hlview");if(v)v.innerHTML=listing(+t.value);Array.prototype.forEach.call(document.querySelectorAll(".opt"),function(o){o.classList.toggle("on",o.querySelector("input").checked)})}});
+function restsOn(){
+  var n=Object.keys(D.sources).length;
+  return '<div class="sec">What This Rests On, and What It Doesn\'t</div><div class="card rest"><div><div class="big">'+n+'</div><div class="note" style="margin:2px 0 0">Public sources, each linked on the research pages (see How I Research, then Sources).</div></div><div><b>Not verified yet</b><ul>'+[
+   "No TCL sales, returns, or support data. Everything about customers comes from public reviews, which are small samples and often from sampling programs.",
+   "TCL\u2019s output at 5\u00b0F is calculated from its spec sheet (72% of rated heating), not measured.",
+   "Competitor prices and specs move. They are as seen on seller pages in November 2026.",
+   "I found no cold-rated window heat pump between $750 and $2,800. That is not an exhaustive market search.",
+   "Price ranges are test hypotheses, and the concept drawing is not a TCL design."
+  ].map(function(u){return '<li>'+esc(u)+'</li>'}).join("")+'</ul></div></div>'}
 function casestudy(){
   var h='<h2>Case study: how I would build the cold-weather window heat pump</h2><p class="lead">A worked example of the roadmap, written from the public data so far.</p>';
   h+=productVisual();
   h+=conceptVisual();
   h+=ladder();
+  h+=headlinePicker();
   h+='<div class="card" style="margin-bottom:10px"><div class="sec" style="margin-top:0">The Evidence: Heating Output by Outdoor Temperature</div>'+heatChart()+'</div>';
   h+=beforeAfter();
   h+='<div class="sec">The Plan, Step by Step</div>';
