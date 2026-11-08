@@ -45,6 +45,21 @@ h3{font-size:17px;margin:0 0 4px}
 .lcard{display:flex;gap:12px;align-items:flex-start}
 .lcard .ph{flex:0 0 42%}
 .lcard .info{flex:1;min-width:0}
+.calc{width:100%;border-collapse:collapse;font-size:14px}
+.calc th,.calc td{padding:6px 4px;text-align:left;vertical-align:middle}
+.calc thead th{font-size:13px;color:var(--mute);font-weight:700;border-bottom:1px solid var(--line)}
+.calc td.l{color:var(--ink);font-weight:600;width:34%}
+.calc td.l small{display:block;color:var(--mute);font-weight:400;font-size:11.5px}
+.calc input{width:100%;box-sizing:border-box;font:inherit;font-size:16px;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);min-height:40px}
+.calc tr.out td{border-top:1px solid var(--line)}
+.calc tr.out td.v{font-weight:800;font-variant-numeric:tabular-nums}
+.calc tr.sep td{padding-top:12px;font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--mute);font-weight:700}
+.calc .flag{font-weight:700}
+.calc .bad{color:var(--no);background:var(--nobg)}
+.calc .good{color:var(--ok)}
+.calc .cur{position:relative}
+.calc .cur span{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--mute);font-size:16px;pointer-events:none}
+.calc .cur input{padding-left:22px}
 .hint{font-size:12.5px;color:var(--mute);margin:2px 0 6px}
 /* photos */
 .ph{margin:0;position:relative}
@@ -480,9 +495,38 @@ function restsOn(){
    "I found no cold-rated window heat pump between $750 and $2,800. That is not an exhaustive market search.",
    "Price ranges are test hypotheses, and the concept drawing is not a TCL design."
   ].map(function(u){return '<li>'+esc(u)+'</li>'}).join("")+'</ul></div></div>'}
+
+var CALC_ROWS=[["cost","Unit cost","Landed, with freight and duty",[520,560]],["price","Price to retailer","What TCL sells it for",[780,900]],["moq","MOQ","Minimum order quantity",[500,1000]],["qty","Order quantity","Six-month forecast",[600,500]]];
+function calcNum(v){var n=parseFloat(String(v).replace(/[$,\s]/g,""));return isFinite(n)?n:NaN}
+function money(n){return isFinite(n)?(n<0?"−":"")+"$"+Math.abs(Math.round(n)).toLocaleString("en-US"):"—"}
+function calcUpdate(){
+  [0,1].forEach(function(c){
+    var g=function(k){var e=document.getElementById("bc_"+k+c);return e?calcNum(e.value):NaN};
+    var cost=g("cost"),price=g("price"),moq=g("moq"),qty=g("qty");
+    var gp=price-cost,mar=price>0?gp/price*100:NaN,cash=cost*qty,tot=gp*qty;
+    var set=function(k,t,bad){var e=document.getElementById("bo_"+k+c);if(e){e.textContent=t;e.classList.toggle("bad",!!bad)}};
+    var loss=isFinite(gp)&&gp<=0;
+    set("gp",money(gp),loss);set("mar",isFinite(mar)?mar.toFixed(1).replace("-","\u2212")+"%":"\u2014",isFinite(mar)&&mar<=0);set("cash",money(cash));set("tot",money(tot),isFinite(tot)&&tot<=0);
+    set("pf",!isFinite(gp)?"\u2014":loss?"\u25BC Not profitable":"= Profitable",loss);
+    var t,mb=false;if(!isFinite(moq)||!isFinite(qty))t="\u2014";else if(qty<moq){t="\u25BC Below MOQ by "+Math.round(moq-qty).toLocaleString("en-US");mb=true}else t="= Meets MOQ";
+    set("chk",t,mb);
+  });
+}
+document.addEventListener("input",function(ev){var t=ev.target;if(t&&t.classList&&t.classList.contains("bcin"))calcUpdate()});
+function calculator(){
+  var h='<div class="card" id="calc" style="margin-bottom:10px"><div class="sec" style="margin-top:0">Business Case Calculator: Does the Margin Work?</div>';
+  h+='<p class="note" style="margin-top:0">Compare two cases side by side. Change the numbers to see gross profit per unit, margin, and the cash an order ties up. <b>Example values only. Replace with TCL data.</b></p>';
+  h+='<table class="calc"><thead><tr><th></th><th>Scenario A</th><th>Scenario B</th></tr></thead><tbody>';
+  CALC_ROWS.forEach(function(r){h+='<tr><td class="l">'+r[1]+'<small>'+r[2]+'</small></td>'+[0,1].map(function(c){var cur=(r[0]==="cost"||r[0]==="price");return '<td><div'+(cur?' class="cur"><span aria-hidden="true">$</span>':'>')+'<input class="bcin" id="bc_'+r[0]+c+'" type="text" inputmode="decimal" aria-label="'+r[1]+(cur?' in dollars':'')+', scenario '+(c?'B':'A')+'" value="'+r[3][c]+'"></div></td>'}).join("")+'</tr>'});
+  h+='<tr class="sep"><td colspan="3">Result</td></tr>';
+  [["gp","Gross profit per unit"],["mar","Gross margin"],["cash","Cash in the order"],["tot","Gross profit if all sold"],["pf","Profit check"],["chk","MOQ check"]].forEach(function(r){h+='<tr class="out"><td class="l">'+r[1]+'</td>'+[0,1].map(function(c){return '<td class="v'+(r[0]==="chk"||r[0]==="pf"?' flag':'')+'" id="bo_'+r[0]+c+'"></td>'}).join("")+'</tr>'});
+  h+='</tbody></table><p class="note">Gross profit per unit is price minus unit cost. Margin is that profit divided by price. Cash in the order is unit cost times order quantity. Excludes tooling, certification, returns, and warranty.</p></div>';
+  return h;
+}
 function casestudy(){
   var h='<h2>Case study: how I would build the cold-weather window heat pump</h2><p class="lead">A worked example of the roadmap, written from the public data so far.</p>';
   h+=productVisual();
+  h+=calculator();
   h+=conceptVisual();
   h+=ladder();
   h+=headlinePicker();
@@ -496,7 +540,7 @@ function casestudy(){
    ["Business case inputs","Price test with retailers, target margin, tooling and certification cost, volume forecast, and how much it would take from the 12K. Feasibility with R&D and the factory."],
    ["Decision point","Proceed if returns point to cold performance and cold-climate volume supports the investment. If testing shows the 12K already performs to its rating, re-rate and relabel it before building a new model. If returns point to quality instead, fix the 12K first. If volume is small, move to the portable heat pump idea."],
    ["Launch and sales support","Retailer line-review sheet comparing TCL against Midea and Gradient on price and cold rating, listing content built on the verified rating, and a launch plan with Marketing and Sales."]
-  ].forEach(function(x,i){h+='<div class="card step" style="margin-bottom:8px"><div class="n">'+(i+1)+'</div><div class="b"><b>'+esc(x[0])+'</b><div>'+esc(x[1])+'</div></div></div>'});
+  ].forEach(function(x,i){h+='<div class="card step" style="margin-bottom:8px"><div class="n">'+(i+1)+'</div><div class="b"><b>'+esc(x[0])+'</b><div>'+esc(x[1])+'</div>'+(i===4?'<a href="#calc" onclick="var e=document.getElementById(\'calc\');if(e)e.scrollIntoView({behavior:\'smooth\'});return false" style="font-size:13.5px;font-weight:700">Try the calculator &rsaquo;</a>':'')+'</div></div>'});
   h+='<p style="text-align:right"><a class="pill" href="#/grow/1">See idea 1 and its evidence &rsaquo;</a></p>';
   return h;
 }
@@ -528,7 +572,7 @@ function route(){
   if(v!=="home"&&!R[v])v="home";
   nav(v);
   var el=$("view");el.classList.remove("fade");void el.offsetWidth;el.classList.add("fade");
-  el.innerHTML=v==="home"?home():R[v](p[1]);tcDom(el);tcDom($("nav"));
+  el.innerHTML=v==="home"?home():R[v](p[1]);tcDom(el);calcUpdate();tcDom($("nav"));
   window.scrollTo(0,0);
   var sel=document.querySelector('.sub [aria-current="true"]');if(sel&&sel.scrollIntoView)try{sel.scrollIntoView({inline:"center",block:"nearest"})}catch(e){}
 }
