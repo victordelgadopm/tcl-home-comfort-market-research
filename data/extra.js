@@ -63,7 +63,7 @@ D.ladder={
   rows:[["TCL 12K with heat","$649.99","11,600 BTU supplemental heat. Home Depot 3.6 of 5 (34)."],["Friedrich WallMaster 15K","$1,699.97","Inverter, heat and cool, 3.4 of 5."]],src:["bb_ttw","hd_ttw_qa","tcl_ttw","pcrichard_wm"]},
  portable:{lead:"About 22 listings.",
   rows:[["TCL 10K dual hose","$359.99","Inverter, covers 450 sq ft. 4.86 of 5 from 22 at Staples."],["TCL 10K with heater","Retailer out of stock","\"Supplemental heating.\" Heat mode recommended above 46°F."]],src:["bb_portable","zoro_portable","tcl_support_heat"]},
- dehum:{lead:"20 to 50 pints. A drain pump is on 2 of 17 listings.",
+ dehum:{lead:"20 to 50 pints. Five of 17 listings are named as pump models, though TCL's site filter counts only 2.",
   rows:[["50-pint smart","$264.99","Energy Star, Wi-Fi, covers 4,500 sq ft, hose drain port."],["50-pint with pump","Price not found","Pump in the product name."]],src:["quill_h50","tcl_dehum"]},
  purifier:{lead:"Six Breeva models, 3 to 5 filter stages.",
   rows:[["A2","$59.99 (Amazon, per a reviewer)","4-stage. Covers 182 to 441 sq ft."],["A3","$79.99 (Amazon, per a reviewer)","5-stage, CADR 159. Covers 256 to 596 sq ft."],["A1, A1W, A1C, A5","Price not on the pages I read","A1 161 to 322 sq ft, A1C 219 to 438, A5 365 to 883."]],src:["tcl_purifier","apf_a3"]},
