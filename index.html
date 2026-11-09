@@ -262,9 +262,9 @@ var IDEAS=D.ideas;
 
 /* charts */
 function heatChart(){
-  var W=420,H=230,Lm=48,R=12,T=10,B=36,ymax=12000;
+  var W=420,H=240,Lm=48,R=22,T=32,B=36,ymax=12000;
   function X(t){return Lm+(t/50)*(W-Lm-R)}function Y(v){return H-B-(v/ymax)*(H-T-B)}
-  var s='<div class="legend"><span><i class="sw" style="background:var(--tcl)"></i>TCL H12W4KWH</span><span><i class="sw" style="background:var(--comp)"></i>Gradient</span></div><svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Heating output at 47 and 5 degrees F">';
+  var s='<div class="legend"><span><i class="sw" style="background:var(--tcl)"></i>TCL H12W4KWH</span><span><i class="sw" style="background:var(--comp)"></i>Gradient</span></div><svg viewBox="0 0 '+W+' '+H+'" style="display:block;max-width:640px;margin:0 auto" role="img" aria-label="Heating output at 47 and 5 degrees F">';
   [0,3000,6000,9000,12000].forEach(function(v){s+='<line x1="'+Lm+'" x2="'+(W-R)+'" y1="'+Y(v)+'" y2="'+Y(v)+'" stroke="var(--line)"/><text class="m" x="'+(Lm-5)+'" y="'+(Y(v)+4)+'" text-anchor="end">'+(v/1000)+'k</text>'});
   [0,10,20,30,40,50].forEach(function(t){s+='<text class="m" x="'+X(t)+'" y="'+(H-B+16)+'" text-anchor="middle">'+t+'°F</text>'});
   s+='<text class="m" x="'+((Lm+W-R)/2)+'" y="'+(H-4)+'" text-anchor="middle">Outdoor temperature</text>';
